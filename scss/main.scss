@@ -1,0 +1,15 @@
+@import 'variable';
+@import 'nav';
+@import 'media';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+}
