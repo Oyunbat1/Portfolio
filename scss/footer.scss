@@ -1,0 +1,15 @@
+footer {
+    background-color: #fff;
+    position: sticky;
+    bottom: 0;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        p {
+            color: #333333;
+        }
+    }
+}

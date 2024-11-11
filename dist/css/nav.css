@@ -1,3 +1,11 @@
+header {
+  display: grid;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: all .50s ease; }
+
 .container {
   padding: 2rem;
   display: grid;
@@ -6,7 +14,8 @@
     display: flex;
     cursor: pointer; }
     .container .logo h1 {
-      align-self: center; }
+      align-self: center;
+      position: relative; }
   .container .navbar nav {
     display: flex;
     flex-direction: row-reverse; }
@@ -14,7 +23,7 @@
       padding: 0 1rem;
       list-style: none;
       position: relative;
-      top: 0.6rem; }
+      top: 0.2rem; }
       .container .navbar nav li a {
         text-decoration: none;
         color: var(--text-color);
@@ -25,3 +34,9 @@
           transform: scaleX(0.5);
           color: var(--btn-color);
           text-decoration: underline; }
+
+header.sticky {
+  background: var(--text-color);
+  color: #333; }
+  header.sticky .navbar nav a {
+    color: #333; }

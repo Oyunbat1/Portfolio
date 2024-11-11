@@ -5,6 +5,8 @@
     grid-template-columns: repeat(1, 1fr); }
     .container .logo {
       justify-content: center; }
+    .container .a {
+      color: var(--btn-color); }
     .container .navbar nav {
       display: block;
       padding: 0.6rem 0;
@@ -13,7 +15,55 @@
         border-bottom: 1px solid white;
         margin: 10px auto; }
       .container .navbar nav li {
-        padding: 0.6rem; } }
+        padding: 0.6rem; }
+  .showcase .hr {
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    padding-top: 1rem; }
+  .showcase .container {
+    display: flex; }
+    .showcase .container .leftQ h1 {
+      justify-self: center; }
+    .showcase .container .leftQ p {
+      justify-self: center; }
+    .showcase .container .rightQ img {
+      display: none; }
+  /*showcase-2*/
+  .section-2 .hr {
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    padding-top: 1rem; }
+  .section-2 .project .container {
+    display: flex;
+    justify-content: center; }
+    .section-2 .project .container .list ul {
+      justify-self: center; }
+      .section-2 .project .container .list ul li {
+        padding: 0.6rem 0; }
+  .section-3 .hr {
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    padding-top: 1rem; }
+  .section-3 .container {
+    display: flex;
+    justify-content: center; }
+    .section-3 .container .lists {
+      margin-left: 2rem; }
+  .section-4 {
+    display: flex;
+    justify-content: center; }
+    .section-4 .container {
+      margin-right: 3.8rem;
+      justify-items: center; }
+      .section-4 .container h1 {
+        font-size: 2rem;
+        padding-bottom: 2rem;
+        margin-left: 2.6rem; }
+      .section-4 .container form #email {
+        padding: 0.4rem 2rem; }
+      .section-4 .container form .btn {
+        padding: 0.5rem 4rem;
+        margin: 1.2rem 0 0 3.6rem; } }
 
 /* Tablet */
 @media only screen and (min-width: 567px) and (max-width: 1074px) {
@@ -24,6 +74,168 @@
       justify-content: center; }
     .container .navbar nav {
       justify-content: center;
-      padding: 0.6rem 0; } }
+      padding: 0.6rem 0; }
+  /*Section-1*/
+  .showcase .hr {
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    padding-top: 1rem; }
+  .showcase .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); }
+    .showcase .container .leftQ {
+      display: grid;
+      place-items: center; }
+      .showcase .container .leftQ .a {
+        color: var(--btn-color); }
+      .showcase .container .leftQ h1 {
+        font-size: 2rem;
+        text-align: center; }
+      .showcase .container .leftQ p {
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+        padding: 0 1rem; }
+    .showcase .container .rightQ img {
+      display: none; }
+  /* project */
+  .section-2 .hr {
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    padding-top: 1rem; }
+  .section-2 .project {
+    display: flex;
+    justify-content: center; }
+    .section-2 .project .container .list h1 {
+      margin-right: 1rem; }
+    .section-2 .project .container .list ul {
+      margin-left: 6rem; }
+      .section-2 .project .container .list ul li {
+        padding: 0.6rem 0; }
+  /* section-3*/
+  .section-3 .hr {
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    padding-top: 1rem; }
+  .section-3 .container {
+    display: flex;
+    justify-content: center; }
+    .section-3 .container .lists {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr); }
+      .section-3 .container .lists .left h3 {
+        padding-bottom: 0.6rem;
+        margin-left: 10rem; }
+      .section-3 .container .lists .left ul {
+        display: flex;
+        margin-left: 1rem; }
+        .section-3 .container .lists .left ul li {
+          list-style: none;
+          padding: 0.2rem 1rem; }
+      .section-3 .container .lists .right h3 {
+        padding: 0.6rem 0;
+        margin-left: 10rem; }
+      .section-3 .container .lists .right ul {
+        display: flex; }
+        .section-3 .container .lists .right ul li {
+          list-style: none;
+          padding: 0.2rem 1rem;
+          margin-left: 0.3rem; }
+  .section-4 {
+    display: flex;
+    justify-content: center; }
+    .section-4 .container {
+      margin-right: 3.8rem;
+      justify-items: center; }
+      .section-4 .container h1 {
+        font-size: 2rem;
+        padding-bottom: 2rem;
+        margin-left: 2.6rem; }
+      .section-4 .container form #email {
+        padding: 0.4rem 2rem; }
+      .section-4 .container form .btn {
+        padding: 0.5rem 4rem;
+        margin: 1.2rem 0 0 3.6rem; } }
 
 /* Desktop */
+@media only screen and (min-width: 1074px) {
+  .container .logo {
+    justify-content: center;
+    position: relative;
+    right: 10rem; }
+  .container .navbar nav {
+    justify-content: center;
+    padding: 0.6rem 0; }
+  .showcase .hr {
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    padding-top: 1rem; }
+  .showcase .container .rightQ img {
+    margin-left: 10rem;
+    border: 3px solid #fff;
+    transition: transform 1s ease; }
+    .showcase .container .rightQ img:hover {
+      transform: translateY(-10px); }
+  .showcase .container .leftQ h1 {
+    margin-left: 6rem; }
+  .showcase .container .leftQ .a {
+    color: var(--btn-color); }
+  .showcase .container .leftQ p {
+    margin-left: 6rem;
+    line-height: 20px; }
+  .section-2 .hr {
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    padding-top: 1rem; }
+  .section-2 .project {
+    display: flex;
+    justify-content: center; }
+    .section-2 .project .container .list {
+      position: relative;
+      left: 8rem; }
+      .section-2 .project .container .list ul {
+        justify-self: center; }
+        .section-2 .project .container .list ul li {
+          padding: 0.6rem; }
+  .section-3 .hr {
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    padding-top: 1rem; }
+  .section-3 .container {
+    display: flex;
+    justify-content: center; }
+    .section-3 .container .lists {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); }
+      .section-3 .container .lists .left h3 {
+        margin-left: 12rem; }
+      .section-3 .container .lists .left ul {
+        display: flex;
+        margin-top: 3rem; }
+        .section-3 .container .lists .left ul li {
+          padding: 0 0 0 4rem;
+          list-style-type: none; }
+      .section-3 .container .lists .right {
+        margin-left: 12rem; }
+        .section-3 .container .lists .right h3 {
+          margin-left: 12rem; }
+        .section-3 .container .lists .right ul {
+          display: flex;
+          margin-top: 3rem; }
+          .section-3 .container .lists .right ul li {
+            padding: 0 4rem 0 0;
+            list-style-type: none; }
+  .section-4 {
+    display: flex;
+    justify-content: center; }
+    .section-4 .container {
+      margin-left: 16rem;
+      justify-items: center; }
+      .section-4 .container h1 {
+        font-size: 2rem;
+        padding-bottom: 2rem;
+        margin-left: 2.6rem; }
+      .section-4 .container form #email {
+        padding: 0.4rem 2rem; }
+      .section-4 .container form .btn {
+        padding: 0.5rem 4rem;
+        margin: 1.2rem 0 0 3.5rem; } }

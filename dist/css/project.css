@@ -1,0 +1,7 @@
+.project .container .list ul {
+  margin-top: 1rem; }
+  .project .container .list ul li {
+    list-style-type: circle; }
+
+.project .container .list h1 {
+  font-size: 2rem; }

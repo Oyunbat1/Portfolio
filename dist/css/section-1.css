@@ -1,0 +1,19 @@
+.showcase {
+  padding: 1rem;
+  width: 100vw; }
+  .showcase .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .showcase .container .rightQ img {
+      width: 50%;
+      border-radius: 10%; }
+    .showcase .container .leftQ {
+      width: 100%; }
+      .showcase .container .leftQ h1 {
+        padding-bottom: 2rem;
+        font-size: 3rem; }
+      .showcase .container .leftQ p {
+        line-height: 2.4;
+        font-weight: 100;
+        font-size: 1rem; }

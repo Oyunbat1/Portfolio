@@ -1,0 +1,32 @@
+.showcase {
+    padding: 1rem;
+    width: 100vw;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .rightQ {
+            img {
+                width: 50%;
+                border-radius: 10%;
+            }
+        }
+
+        .leftQ {
+            width: 100%;
+
+            h1 {
+                padding-bottom: 2rem;
+                font-size: 3rem;
+            }
+
+            p {
+                line-height: 2.4;
+                font-weight: 100;
+                font-size: 1rem;
+            }
+        }
+    }
+}
