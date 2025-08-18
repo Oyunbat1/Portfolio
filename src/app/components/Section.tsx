@@ -20,18 +20,12 @@ export default function Section() {
 
 
     return (
-
         <div
-
             ref={container}
-
             className='relative flex items-center justify-center h-screen '
-
             style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
-
         >
             <Text />
-
             <div className='fixed top-[-10vh] left-0 h-[120vh] w-full'>
 
                 <motion.div style={{ y }} className='relative w-full h-full'>

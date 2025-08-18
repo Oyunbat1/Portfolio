@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import ProfileDesktop from "../../../public/profile.png"
 import ProfileMobile from "../../../public/mobile/profile.jpg"
+import InfiniteText from "./InfiniteText";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
 export default function Parallex() {
@@ -32,6 +33,9 @@ export default function Parallex() {
                         alt="image"
                         style={{ objectFit: "cover" }}
                     />
+                    <div className="absolute top-40 left-0 w-full h-full flex items-center justify-center">
+                        <InfiniteText />
+                    </div>
                 </motion.div>
             </div>
         </div>
