@@ -26,19 +26,21 @@ export default function InfiniteText() {
     }, [])
 
     const animation = () => {
+        if (xPercent <= -100) xPercent = 0;
+        if (xPercent >= 100) xPercent = 0;
         gsap.set(firstText.current, { xPercent: xPercent })
         gsap.set(secondText.current, { xPercent: xPercent })
         gsap.set(thirdText.current, { xPercent: xPercent })
 
-        xPercent += 0.2 * direction;
+        xPercent += 0.1 * direction;
         requestAnimationFrame(animation)
     }
 
     return (
-        <div className="text-[#fff] flex relative bg-red-200 md:bg-amber-200 xl:bg-green-200 ">
-            <p ref={firstText} className="text-[42px] md:text-[90px] xl:text-[130px] absolute -left-110 md:-left-220 xl:-left-300"> - Oyunbat-Batnasan </p>
-            <p ref={secondText} className="text-[42px] md:text-[90px] xl:text-[130px]"> - Oyunbat-Batnasan- </p>
-            <p ref={thirdText} className="text-[42px] md:text-[90px] xl:text-[130px] absolute -right-110 md:-right-220 xl:-right-300"> Oyunbat-Batnasan- </p>
+        <div className="text-[#fff] flex relative bg-red-200 md:bg-amber-200 xl:bg-green-200 w-full font-serif  ">
+            <p ref={firstText} className="text-[52px] md:text-[90px] xl:text-[150px] absolute -left-130 md:-left-220 xl:-left-350"> - Oyunbat-Batnasan </p>
+            <p ref={secondText} className="text-[52px] md:text-[90px] xl:text-[150px] ">  Oyunbat-Batnasan </p>
+            <p ref={thirdText} className="text-[52px] md:text-[90px] xl:text-[150px] absolute -right-110 md:-right-220 xl:-right-320"> Oyunbat-Batnasan </p>
         </div>
     )
 }
