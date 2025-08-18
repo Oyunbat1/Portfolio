@@ -3,7 +3,7 @@ import gsap from "gsap";
 import React from "react";
 import { useEffect, useRef } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { Bebas_Neue, Playfair_Display } from "next/font/google";
+import { Bebas_Neue } from "next/font/google";
 
 const bebas = Bebas_Neue({
     subsets: ["latin"],
@@ -42,10 +42,10 @@ export default function InfiniteText() {
     }
 
     return (
-        <div ref={slider} className={`text-[#fff] flex relative  md:bg-amber-200 xl:bg-green-200 w-full justify-center items-center ${bebas.className}`}>
-            <p ref={firstText} className="text-[62px] md:text-[100px] xl:text-[170px] absolute -left-100 md:-left-220 xl:-left-280"> - Oyunbat-Batnasan </p>
-            <p ref={secondText} className={`text-[62px] md:text-[100px] xl:text-[170px] absolue`}>  Oyunbat-Batnasan </p>
-            <p ref={thirdText} className="text-[62px] md:text-[100px] xl:text-[170px] absolute -right-100 md:-right-220 xl:-right-260"> Oyunbat-Batnasan </p>
+        <div ref={slider} className={`text-[#fff] flex relative  md:bg-amber-200 lg:bg-red-400 xl:bg-green-200 w-full justify-center items-center ${bebas.className}`}>
+            <p ref={firstText} className="text-[132px] md:text-[152px] xl:text-[170px] absolute -left-260 md:-left-260 xl:-left-280">  Oyunbat-Batnasan </p>
+            <p ref={secondText} className={`text-[132px] md:text-[152px] xl:text-[170px] absolute whitespace-nowrap`}>  Oyunbat-Batnasan </p>
+            <p ref={thirdText} className="text-[132px] md:text-[152px] xl:text-[170px] absolute -right-260 md:-right-240 xl:-right-260 whitespace-nowrap"> Oyunbat-Batnasan </p>
         </div >
     )
 }
