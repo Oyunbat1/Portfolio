@@ -1,9 +1,16 @@
 "use client"
 import gsap from "gsap";
 import React from "react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { Bebas_Neue } from "next/font/google";
+
+const bebas = Bebas_Neue({
+    subsets: ["latin"],
+    weight: "400"
+})
 export default function InfiniteText() {
+
     const firstText = useRef<HTMLParagraphElement>(null);
     const secondText = useRef<HTMLParagraphElement>(null);
     const thirdText = useRef<HTMLParagraphElement>(null);
@@ -26,19 +33,19 @@ export default function InfiniteText() {
     }, [])
 
     const animation = () => {
-        gsap.set(firstText.current, { xPercent: xPercent })
-        gsap.set(secondText.current, { xPercent: xPercent })
-        gsap.set(thirdText.current, { xPercent: xPercent })
+        if (xPercent <= -100) xPercent = 0;
+        if (xPercent >= 100) xPercent = 0;
+        gsap.set(slider.current, { xPercent: xPercent })
 
         xPercent += 0.2 * direction;
         requestAnimationFrame(animation)
     }
 
     return (
-        <div className="text-[#fff] flex relative bg-red-200 md:bg-amber-200 xl:bg-green-200 ">
-            <p ref={firstText} className="text-[42px] md:text-[90px] xl:text-[130px] absolute -left-110 md:-left-220 xl:-left-300"> - Oyunbat-Batnasan </p>
-            <p ref={secondText} className="text-[42px] md:text-[90px] xl:text-[130px]"> - Oyunbat-Batnasan- </p>
-            <p ref={thirdText} className="text-[42px] md:text-[90px] xl:text-[130px] absolute -right-110 md:-right-220 xl:-right-300"> Oyunbat-Batnasan- </p>
-        </div>
+        <div ref={slider} className={`text-[#fff] flex relative  md:bg-amber-200 lg:bg-red-400 xl:bg-green-200 w-full justify-center items-center ${bebas.className}`}>
+            <p ref={firstText} className="text-[132px] md:text-[152px] xl:text-[170px] absolute -left-260 md:-left-260 xl:-left-280">  Oyunbat-Batnasan </p>
+            <p ref={secondText} className={`text-[132px] md:text-[152px] xl:text-[170px] absolute whitespace-nowrap`}>  Oyunbat-Batnasan </p>
+            <p ref={thirdText} className="text-[132px] md:text-[152px] xl:text-[170px] absolute -right-260 md:-right-240 xl:-right-260 whitespace-nowrap"> Oyunbat-Batnasan </p>
+        </div >
     )
 }
