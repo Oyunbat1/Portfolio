@@ -17,6 +17,7 @@ const bebas = Bebas_Neue({
 })
 export default function Parallex() {
     const [isMobile, setIsMobile] = useState(false);
+
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
@@ -75,6 +76,7 @@ export default function Parallex() {
                             </div>
                         </div>
                     </div>}
+
                 </motion.div>
             </div>
         </div>
