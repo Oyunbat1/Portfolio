@@ -1,20 +1,21 @@
 "use client";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { AnimatePresence } from "framer-motion";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AnimatePresence } from "framer-motion";
+import Nav from "./Nav";
 import gsap from "gsap";
-// import Nav from "./nav";
+
+
 
 export default function Header() {
     const [isMobile, setIsMobile] = useState(false)
     const header = useRef<HTMLDivElement>(null);
-    const [isActive, setIsActive] = useState(false);
     const pathname = usePathname();
     const button = useRef<HTMLDivElement>(null);
-
+    const [isActive, setIsActive] = useState(false)
     useEffect(() => {
-        if (isActive) setIsActive(false);
+
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
@@ -76,9 +77,13 @@ export default function Header() {
                     {["Menu"].map((item, i) => (
                         <div
                             key={i}
-                            className="relative flex cursor-pointer flex-col items-center px-4 py-2 group"
+                            onClick={() => setIsActive(!isActive)}
+                            className="relative flex cursor-pointer flex-col items-center px-4 py-2 group z-30"
                         >
-                            <a className="cursor-pointer">{item}</a>
+                            <a className="cursor-pointer">
+                                {isActive ? "X" : item}
+                            </a>
+
                             <div className="absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full bg-white transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100" />
                         </div>
                     ))}
@@ -93,9 +98,10 @@ export default function Header() {
                         </div>
                     ))}
                 </div>}
+                <AnimatePresence mode="wait">{isActive && <Nav setIsActive={setIsActive} />}</AnimatePresence>
             </div>
 
-            {/* <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence> */}
+
         </>
     );
 }
