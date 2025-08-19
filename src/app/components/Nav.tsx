@@ -64,10 +64,19 @@ const Nav = ({ setIsActive }: { setIsActive: any }) => {
                 <div className='flex flex-col w-full  gap-[10px]' >
                     <div><p className='text-[rgb(153,153,153)] text-[11px]'>Socials</p></div>
                     <div className='flex w-full gap-[10px]'>
-                        <a className='no-underline text-white font-[300]'>Facebook</a>
-                        <a className='no-underline text-white font-[300]'>Instagram</a>
-                        <a className='no-underline text-white font-[300]'>Github</a>
-                        <a className='no-underline text-white font-[300]'>LinkedIn</a>
+                        <a className="no-underline text-white font-[300] border-b border-transparent transition duration-300 ease-in-out hover:border-white">
+                            Facebook
+                        </a>
+                        <a className="no-underline text-white font-[300] border-b border-transparent transition duration-300 ease-in-out hover:border-white">
+                            Instagram
+                        </a>
+                        <a className="no-underline text-white font-[300] border-b border-transparent transition duration-300 ease-in-out hover:border-white">
+                            Github
+                        </a>
+                        <a className="no-underline text-white font-[300] border-b border-transparent transition duration-300 ease-in-out hover:border-white">
+                            LinkedIn
+                        </a>
+
                     </div>
                 </div>
             </div>

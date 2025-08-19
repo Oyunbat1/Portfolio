@@ -2,7 +2,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Nav from "./Nav";
 import gsap from "gsap";
 
@@ -80,9 +80,32 @@ export default function Header() {
                             onClick={() => setIsActive(!isActive)}
                             className="relative flex cursor-pointer flex-col items-center px-4 py-2 group z-30"
                         >
-                            <a className="cursor-pointer">
-                                {isActive ? "X" : item}
-                            </a>
+                            <AnimatePresence mode="wait">
+                                {isActive ? (
+                                    <motion.span
+                                        key="close"
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="cursor-pointer"
+                                    >
+                                        X
+                                    </motion.span>
+                                ) : (
+                                    <motion.span
+                                        key="menu"
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="cursor-pointer"
+                                    >
+                                        Menu
+                                    </motion.span>
+                                )}
+                            </AnimatePresence>
+
 
                             <div className="absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full bg-white transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100" />
                         </div>

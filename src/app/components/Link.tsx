@@ -19,33 +19,26 @@ const Link = ({ data, isActive, setSelectedIndicator }: LinkProps) => {
     return (
 
         <motion.div
-
             className='relative flex items-center'
             onMouseEnter={() => { setSelectedIndicator(href) }}
-
             custom={index}
-
             variants={slide}
-
             initial="initial"
-
             animate="enter"
-
-            exit="exit"
-
-        >
-
+            exit="exit"       >
             <motion.div
-
                 variants={scale}
-
                 animate={isActive ? "open" : "closed"}
-
-                className='w-[10px] h-[10p] bg-white rounded-full absolute -left-[30px]'>
+                className='w-[10px] h-[10px] bg-white rounded-full absolute -left-[30px]'>
 
             </motion.div>
 
-            <NextLink href={href}>{title}</NextLink>
+            <NextLink
+                className="transform transition duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)] hover:translate-x-4 group"
+                href={href} >
+                {title}
+            </NextLink>
+
 
         </motion.div>
 
