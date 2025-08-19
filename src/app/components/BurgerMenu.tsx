@@ -8,7 +8,7 @@ const BurgerMenu = ({ isActive, setIsActive }: { isActive: any; setIsActive: any
                 <div className={` w-full before:content-[''] before:block before:h-px  before:w-2/5 before:mx-auto before:bg-white before:relative before:transition-transform before:duration-300 
                 after:content-[''] after:block after:h-px after:w-2/5 after:mx-auto after:bg-white after:relative after:transition-transform after:duration-300 ${isActive ? "before:rotate-[-45deg] before:top-0 after:rotate-[45deg] after:top-[-1px]" : "before:top-[5px] after:top-[-5px]"}`}></div>
             </div>
-            <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+            <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence >
         </>
 
 

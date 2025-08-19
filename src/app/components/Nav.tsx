@@ -45,17 +45,16 @@ const Nav = ({ setIsActive }: { setIsActive: any }) => {
                     <div className='text-[rgb(153,153,153)] border-b border-solid border-b-[rgb(153,153,153)] uppercase text-[11px] mb-[40px] pb-1' >
                         <p>Navigation</p>
                     </div>
-                    {/* <button onClick={() => setIsActive(false)}>Close</button> */}
                     {
 
                         navItems.map((data, index) => {
 
                             return (
-                                <>
+                                <div key={index}>
                                     <Link
                                         data={{ ...data, index }} setSelectedIndicator={setSelectedIndicator} isActive={selectedIndicator == data.href}
                                     ></Link>
-                                </>
+                                </div>
                             )
 
                         })
