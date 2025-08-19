@@ -1,14 +1,10 @@
 "use client"
 
-import { Inter, Playfair_Display } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { useState, useEffect } from "react";
 import BurgerMenu from "./components/BurgerMenu";
-const inter = Inter({
-  subsets: ["latin"], // or ["latin-ext"]
-  weight: ["400", "700"], // choose needed weights
-  variable: "--font-inter", // optional CSS variable
-});
+import { AnimatePresence } from "framer-motion";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -41,9 +37,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${playfair.variable}  antialiased`}
+        className={` ${playfair.variable}  antialiased`}
       >
-        {showMenu && (<BurgerMenu isActive={isActive} setIsActive={setIsActive}></BurgerMenu>)}
+        <AnimatePresence>
+          {showMenu && (
+            <BurgerMenu
+              key="burger"
+              isActive={isActive}
+              setIsActive={setIsActive}
+            />
+          )}
+        </AnimatePresence>
         {children}
       </body>
     </html>
