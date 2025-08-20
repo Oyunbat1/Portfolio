@@ -10,14 +10,13 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
 import Globus from "../../../public/globus.gif"
 import { Bebas_Neue } from "next/font/google";
-
+import { landingPageSlideUp } from "./../js/anim"
 const bebas = Bebas_Neue({
     subsets: ["latin"],
     weight: "400"
 })
 export default function Parallex() {
     const [isMobile, setIsMobile] = useState(false);
-
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
@@ -34,7 +33,7 @@ export default function Parallex() {
 
     const y = useTransform(scrollYProgress, [0, 1], ["0vh", "150vh"]);
     return (
-        <div>
+        <motion.div variants={landingPageSlideUp} initial="initial" animate="enter" >
             <div ref={containerRef} className="h-screen overflow-hidden">
                 <motion.div style={{ y }} className="relative h-full">
                     <Image
@@ -79,6 +78,6 @@ export default function Parallex() {
 
                 </motion.div>
             </div>
-        </div>
+        </motion.div>
     )
 }
