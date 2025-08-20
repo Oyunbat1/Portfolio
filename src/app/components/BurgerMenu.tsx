@@ -40,8 +40,6 @@ const BurgerMenu = ({ isActive, setIsActive }: { isActive: any; setIsActive: any
 
                     <motion.div
                         className="absolute inset-0 rounded-full  "
-                        // whileHover={{ background: "linear-gradient(to top, #455CE9 100%, black 0%)" }}
-
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                     />
                     <div
