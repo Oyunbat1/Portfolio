@@ -9,12 +9,10 @@ import Section from '../components/Section';
 export default function Page() {
     useEffect(() => {
         const lenis = new Lenis()
-
         function raf(time: number) {
             lenis.raf(time)
             requestAnimationFrame(raf)
         }
-
         requestAnimationFrame(raf)
     }, [])
     return (
