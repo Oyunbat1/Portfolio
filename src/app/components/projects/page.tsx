@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import Project from './project/page';
+import Project from './project/ProjectItem';
 import { motion, Easing } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';

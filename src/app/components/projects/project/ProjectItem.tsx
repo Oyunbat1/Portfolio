@@ -1,7 +1,16 @@
 'use client';
 import React from 'react'
-
-export default function index({ index, title, manageModal }: { index: number, title: string, manageModal: any }) {
+type ProjectItemProps = {
+    index: number;
+    title: string;
+    manageModal: (
+        open: boolean,
+        index: number,
+        x: number,
+        y: number
+    ) => void;
+};
+export default function ProjectItem({ index, title, manageModal }: ProjectItemProps) {
 
     return (
         <div
