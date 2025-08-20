@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-import Parallex from '../components/Parallex';
-import Description from '../components/Description';
+import Parallex from '../Parallex';
+import Description from '../Description';
 import { useEffect } from 'react';
 import Lenis from 'lenis';
-import Section from '../components/Section';
+import Section from '../Section';
 
 export default function Page() {
     useEffect(() => {
