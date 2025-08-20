@@ -56,3 +56,31 @@ export const landingPageSlideUp:Variants = {
         transition: {duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 2.5}
     }
 }
+export const descriptionSlideUp:Variants = {
+
+    initial: {
+        y: "100%"
+    },
+    open: (i) => ({
+        y: "0%",
+        transition: {duration: 0.8, delay: 0.03 * i}
+    }),
+    closed: {
+        y: "100%",
+        transition: {duration: 0.5}
+    }
+}
+
+export const descriptionOpacity:Variants = {
+    initial: {
+        opacity: 0
+    },
+    open: {
+        opacity: 1,
+        transition: {duration: 0.5 ,delay:0.06}
+    },
+    closed: {
+        opacity: 0,
+        transition: {duration: 0.5}
+    }
+}
