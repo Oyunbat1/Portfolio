@@ -63,7 +63,7 @@ export const descriptionSlideUp:Variants = {
     },
     open: (i) => ({
         y: "0%",
-        transition: {duration: 0.8, delay: 0.03 * i}
+        transition: {duration: 0.8, delay: 0.1 * i}
     }),
     closed: {
         y: "100%",
