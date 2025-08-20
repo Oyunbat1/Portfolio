@@ -1,9 +1,10 @@
 "use client"
 
-import BgParallex from "@/app/bgParallex/page"
+import BgParallex from "@/app/components/bgParallex/page"
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "./components/Preloader";
+import Projects from "@/app/components/projects/page"
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function Home() {
           {isLoading && <Preloader />}
         </AnimatePresence>
         <BgParallex />
+        {/* <Projects /> */}
       </div>
     </>
   );

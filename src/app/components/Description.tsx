@@ -16,7 +16,7 @@ export default function Description() {
     return (
         <div ref={description} className='flex justify-center mt-[100px] mb-[100px] pl-[100px] pr-[100px] h-auto items-center '>
             <div className='flex flex-col gap-[50px] relative justify-center items-center'>
-                <p className={`m-0 leading-[1.3] flex gap-2 lg:gap-6  w-[400px] md:w-[600px] lg:w-[800px] xl:w-[1000px] flex-wrap  justify-center ${barlow.className}`}>
+                <p className={`m-0 leading-[1.3] flex gap-2 lg:gap-6  w-[320px] md:w-[600px] lg:w-[800px] xl:w-[1000px] flex-wrap  justify-center ${barlow.className}`}>
                     {phrase.split(" ").map((word, index) => {
                         return <span key={index} className='text-[26px] lg:text-[60px] md:text-[40px]  uppercase text-center max-w-[100vw] leading-none  mask relative inline-flex overflow-hidden'><motion.span variants={descriptionSlideUp} animate={isInView ? "open" : "closed"} custom={index} key={index}>{word}</motion.span></span>
                     })}
