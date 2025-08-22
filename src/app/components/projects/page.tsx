@@ -1,26 +1,36 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import Project from './project/ProjectItem';
-import { motion, Easing } from 'framer-motion';
+import { Easing } from 'framer-motion';
 import gsap from 'gsap';
-import Image from 'next/image';
-import Rounded from '../../common/RoundedButton';
+import { Barlow_Condensed } from "next/font/google";
+
+const barlow = Barlow_Condensed({
+    subsets: ["latin"],
+    weight: "400"
+})
 const easing: Easing = [0.76, 0, 0.24, 1]
 const projects = [
     {
-        title: "C2 Montreal",
+        title: "Workplace 2.0",
         src: "bg.png",
-        color: "#000000"
+        color: "#000000",
+        year: "2025",
+        role: "Full-stack developer"
     },
     {
-        title: "Office Studio",
+        title: "Sainkanzlei.com",
         src: "bg.png",
-        color: "#8C8C8C"
+        color: "#000000",
+        year: "2025",
+        role: "Front-end developer"
     },
     {
-        title: "Locomotive",
+        title: "Food delivery",
         src: "bg.png",
-        color: "#EFE8D3"
+        color: "#000000",
+        year: "2024",
+        role: "Full-stack developer"
     },
 
 ]
@@ -44,18 +54,29 @@ export default function Home() {
     const yMoveCursor = useRef<((value: number) => gsap.core.Tween) | null>(null);
     const xMoveCursorLabel = useRef<((value: number) => gsap.core.Tween) | null>(null);
     const yMoveCursorLabel = useRef<((value: number) => gsap.core.Tween) | null>(null);
+    const [isMobile, setIsMobile] = useState(false)
+    const [isTablet, setIsTablet] = useState(false)
+    console.log(isTablet, "HEREEE")
 
     useEffect(() => {
-        //Move Container
         xMoveContainer.current = gsap.quickTo(modalContainer.current, "left", { duration: 0.8, ease: "power3" })
         yMoveContainer.current = gsap.quickTo(modalContainer.current, "top", { duration: 0.8, ease: "power3" })
-        //Move cursor
+
         xMoveCursor.current = gsap.quickTo(cursor.current, "left", { duration: 0.5, ease: "power3" })
         yMoveCursor.current = gsap.quickTo(cursor.current, "top", { duration: 0.5, ease: "power3" })
-        //Move cursor label
+
         xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "left", { duration: 0.45, ease: "power3" })
         yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "top", { duration: 0.45, ease: "power3" })
+        const handleResize = () => {
+            const width = window.innerWidth;
+            setIsMobile(width <= 768);
+            setIsTablet(width >= 1024);
+        };
+        window.addEventListener("resize", handleResize);
+
+        return () => { window.removeEventListener("resize", handleResize) }
     }, [])
+
 
     const moveItems = (x: number, y: number) => {
 
@@ -71,18 +92,21 @@ export default function Home() {
     };
 
     return (
-        <main onMouseMove={(e) => { moveItems(e.clientX, e.clientY) }} className="flex flex-col mt-[300px] mb-[300px]  items-center pl-[200px] pr-[200px] ">
-            <div className="max-w-[1400px] w-full flex flex-col items-center justify-center mt-[100px]">
+        <main onMouseMove={(e) => { moveItems(e.clientX, e.clientY) }} className="flex flex-col  mt-[120px] mb-[120px]  items-center relative ">
+            {isTablet ? <p className={`text-gray-400 absolute left-40 ${barlow.className}`}>Recent work</p> : ""}
+            <div className=" w-full  flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col items-center justify-center mt-[60px] ">
                 {
-                    projects.map((project, index) => {
-                        return <Project index={index} title={project.title} manageModal={manageModal} key={index} />
+                    isMobile ? projects.slice(0, 2).map((project, index) => {
+                        return <Project isTablet={isTablet} role={project.role} index={index} title={project.title} image={project.src} manageModal={manageModal} color={project.color} key={index} isMobile={isMobile} year={project.year} />
+                    }) : projects.slice(0, 4).map((project, index) => {
+                        return <Project isTablet={isTablet} role={project.role} index={index} title={project.title} image={project.src} manageModal={manageModal} color={project.color} key={index} isMobile={isMobile} year={project.year} />
                     })
                 }
             </div>
-            <Rounded>
+            {/* <Rounded>
                 <p>More work</p>
-            </Rounded>
-            <>
+            </Rounded> */}
+            {/* <>
                 <motion.div
                     ref={modalContainer}
                     initial={{ opacity: 0, scale: 0 }}
@@ -90,8 +114,8 @@ export default function Home() {
                     transition={{ duration: 0.3, ease: easing }}
                     className="h-[350px] w-[400px] fixed bg-white pointer-events-none overflow-hidden z-[3]"
                     style={{
-                        left: x - 200,
-                        top: y - 175
+                        left: x - 400 / 2,
+                        top: y - 350 / 2
                     }}
                 >
                     <div
@@ -116,7 +140,7 @@ export default function Home() {
                     </div>
                 </motion.div>
 
-                <motion.div
+                {/* <motion.div
                     ref={cursor}
                     className="w-[80px] h-[80px] rounded-full bg-[#455CE9] text-white fixed z-[3] flex items-center justify-center   text-[14px] font-[300] pointer-events-none"
 
@@ -125,7 +149,7 @@ export default function Home() {
                     animate={active ? "enter" : "closed"}
                 >
                     <motion.div
-                        className=' g-red-200  ml-6.5 mt-[20] '
+                        className='  ml-6.5 mt-[20] '
                         ref={cursorLabel}
                         variants={scaleAnimation}
                         initial="initial"
@@ -133,9 +157,9 @@ export default function Home() {
                     >
                         View
                     </motion.div>
-                </motion.div>
+                </motion.div> */}
 
-            </>
-        </main>
+            {/* </> */}
+        </main >
     )
 }

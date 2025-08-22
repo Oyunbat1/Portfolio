@@ -23,11 +23,11 @@ export default function Home() {
   return (
     <>
       <div>
-        <AnimatePresence mode="wait">
+        {/* <AnimatePresence mode="wait">
           {isLoading && <Preloader />}
-        </AnimatePresence>
+        </AnimatePresence> */}
         <BgParallex />
-        {/* <Projects /> */}
+        <Projects />
       </div>
     </>
   );
