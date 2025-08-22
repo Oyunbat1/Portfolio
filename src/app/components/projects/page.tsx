@@ -72,6 +72,7 @@ export default function Home() {
             setIsMobile(width <= 768);
             setIsTablet(width >= 1024);
         };
+        handleResize();
         window.addEventListener("resize", handleResize);
 
         return () => { window.removeEventListener("resize", handleResize) }
