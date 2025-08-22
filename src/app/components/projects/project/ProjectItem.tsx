@@ -32,13 +32,13 @@ export default function ProjectItem({ index, title, manageModal, isMobile, image
                 className="flex flex-col w-full justify-center items-center  cursor-pointer "
             >
                 <div className={`bg-[${color}] p-[20px]`}>
-                    <Image src={`/${image}`} alt="project images" width={200} height={200} className='w-[380px] h-[300px] p-[30px]' ></Image>
+                    <Image src={`/${image}`} alt="project images" width={200} height={200} className='w-[340px] h-[300px] p-[30px]' ></Image>
                 </div>
-                <h2 className={`text-[36px]   transition-transform duration-500 group-hover:-translate-x-2 w-[420px]   py-2 border-b border-b-gray-400  ${barlow.className}`}>
+                <h2 className={`text-[36px]   transition-transform duration-500 group-hover:-translate-x-2 w-[360px]   py-2 border-b border-b-gray-400  ${barlow.className}`}>
                     {title}
                 </h2>
 
-                <div className='flex justify-between  w-[420px] py-4 mb-10 '>
+                <div className='flex justify-between  w-[360px] py-4 mb-10 '>
                     <p className="text-[14px] font-[300] transition-transform duration-300 group-hover:translate-x-2">
                         {role}
                     </p>
