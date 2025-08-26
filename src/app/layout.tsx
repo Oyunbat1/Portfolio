@@ -4,7 +4,7 @@ import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { useState, useEffect } from "react";
 import BurgerMenu from "./components/BurgerMenu";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import { usePathname } from "next/navigation";
 const playfair = Playfair_Display({
@@ -41,9 +41,8 @@ export default function RootLayout({
       <body
         className={` ${playfair.variable}  antialiased`}
       >
-        <AnimatePresence mode="wait">
-          {pathname !== "/" && <Header></Header>}
-
+        {pathname !== "/" && <Header></Header>}
+        <AnimatePresence>
           {showMenu && (
             <BurgerMenu
               key="burger"
@@ -51,9 +50,10 @@ export default function RootLayout({
               setIsActive={setIsActive}
             />
           )}
-          {children}
         </AnimatePresence>
+
+        {children}
       </body>
-    </html >
+    </html>
   );
 }
