@@ -24,7 +24,7 @@ export default function Home() {
     <>
       <div>
         <AnimatePresence mode="wait">
-          {isLoading && <Preloader />}
+          {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
         </AnimatePresence>
         <BgParallex />
         <Projects />

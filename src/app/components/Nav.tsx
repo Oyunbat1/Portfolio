@@ -7,24 +7,24 @@ import Link from "../components/Link"
 const navItems = [
     {
         title: "Home",
-        href: "#",
+        href: "/",
     },
     {
         title: "Work",
-        href: "#work",
+        href: "Work",
     },
     {
         title: "About",
-        href: "#about",
+        href: "About",
     },
     {
         title: "Contact",
-        href: "#contact",
+        href: "Contact",
     },
 
 ]
 
-const Nav = ({ setIsActive }: { setIsActive: any }) => {
+const Nav = ({ }: { setIsActive: any }) => {
     const pathname = usePathname();
     const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
@@ -35,7 +35,7 @@ const Nav = ({ setIsActive }: { setIsActive: any }) => {
             initial="initial"
             animate="enter"
             exit="exit"
-            className='h-screen bg-[rgb(41,41,41)] fixed right-0 top-0 text-white z-20'
+            className='h-screen bg-[rgb(41,41,41)] fixed right-0 top-0 text-white z-10'
         >
 
             <div className='box-border h-full p-[80px] flex flex-col justify-between'>
