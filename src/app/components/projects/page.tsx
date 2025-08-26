@@ -49,7 +49,6 @@ const projects = [
         year: "2024",
         role: "Full-stack developer"
     },
-
 ]
 
 const scaleAnimation = {

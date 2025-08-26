@@ -31,7 +31,7 @@ export default function ProjectItem({ index, title, manageModal, isMobile, image
                 onMouseEnter={(e) => { manageModal(true, index, e.clientX, e.clientY) }} onMouseLeave={(e) => { manageModal(false, index, e.clientX, e.clientY) }}
                 className="flex flex-col w-full justify-center items-center  cursor-pointer "
             >
-                <div className={`bg-[${color}] p-[20px]`}>
+                <div style={{ backgroundColor: color }} className={`p-[20px]`}>
                     <Image src={`/${image}`} alt="project images" width={200} height={200} className='w-[340px] h-[300px] p-[30px]' ></Image>
                 </div>
                 <h2 className={`text-[36px]   transition-transform duration-500 group-hover:-translate-x-2 w-[360px]   py-2 border-b border-b-gray-400  ${barlow.className}`}>
@@ -47,10 +47,9 @@ export default function ProjectItem({ index, title, manageModal, isMobile, image
                     </p>
                 </div>
             </div> : <div>
-
                 <div
                     onMouseEnter={(e) => { manageModal(true, index, e.clientX, e.clientY) }} onMouseLeave={(e) => { manageModal(false, index, e.clientX, e.clientY) }}
-                    className={`${isTablet ? " group flex  items-center justify-around w-[900px] xl:w-[1200px]  px-[10px] py-[50px] border-t border-gray-300 cursor-pointer transition-all duration-200 last:border-b hover:opacity-50 group " : "flex flex-col w-full justify-center items-center  cursor-pointer"}`}
+                    className={`${isTablet ? "group flex  items-center justify-around w-[900px] xl:w-[1200px]  px-[10px] py-[50px] border-t border-gray-300 cursor-pointer transition-all duration-200 last:border-b hover:opacity-50 " : "flex flex-col w-full justify-center items-center  cursor-pointer"}`}
                 >
 
                     {isTablet ? "" : <div className={`bg-[${color}] p-[20px]`}>

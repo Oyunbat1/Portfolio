@@ -68,7 +68,7 @@ export default function Header() {
         <>
             <div
                 ref={header}
-                className={`fixed top-0 z-10 flex w-full items-center justify-between px-9 py-8 ${pathname === "/" ? "text-white" : "text-black"} font-serif ${showHeader ? "bg-red-200" : ""}`}
+                className={` top-0 z-10 flex w-full items-center justify-between px-9 py-8 ${pathname === "/" ? "text-white" : "text-black"} font-serif ${showHeader ? "bg-red-200" : ""}`}
             >
                 <Magnetic>
                     <div className="flex cursor-pointer items-center group">
@@ -95,7 +95,7 @@ export default function Header() {
                             <div
                                 key={i}
                                 onClick={() => setIsActive(!isActive)}
-                                className="relative flex cursor-pointer flex-col items-center px-4 py-2 group z-30"
+                                className="relative flex cursor-pointer flex-col items-center px-4 py-2 group z-50"
                             >
                                 <AnimatePresence mode="wait">
                                     {isActive ? (
@@ -135,7 +135,7 @@ export default function Header() {
                         <Magnetic key={i}>
                             <div
                                 onClick={() => NavigatePages(item)}
-                                className="relative flex cursor-pointer flex-col items-center px-4 py-2 group"
+                                className="relative flex cursor-pointer flex-col items-center px-4 py-2 group z-30"
                             >
                                 <a
                                     className={`cursor-pointer ${pathname === "/" ? "text-white" : "text-black"
