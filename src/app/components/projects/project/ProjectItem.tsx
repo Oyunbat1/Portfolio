@@ -50,7 +50,7 @@ export default function ProjectItem({ index, title, manageModal, isMobile, image
 
                 <div
                     onMouseEnter={(e) => { manageModal(true, index, e.clientX, e.clientY) }} onMouseLeave={(e) => { manageModal(false, index, e.clientX, e.clientY) }}
-                    className={`${isTablet ? "flex  items-center justify-around w-[900px] xl:w-[1200px]  px-[10px] py-[50px] border-t border-gray-300 cursor-pointer transition-all duration-200 last:border-b hover:opacity-50 group " : "flex flex-col w-full justify-center items-center  cursor-pointer"}`}
+                    className={`${isTablet ? " group flex  items-center justify-around w-[900px] xl:w-[1200px]  px-[10px] py-[50px] border-t border-gray-300 cursor-pointer transition-all duration-200 last:border-b hover:opacity-50 group " : "flex flex-col w-full justify-center items-center  cursor-pointer"}`}
                 >
 
                     {isTablet ? "" : <div className={`bg-[${color}] p-[20px]`}>

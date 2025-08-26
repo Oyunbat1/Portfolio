@@ -7,24 +7,24 @@ import Link from "../components/Link"
 const navItems = [
     {
         title: "Home",
-        href: "#",
+        href: "/",
     },
     {
         title: "Work",
-        href: "#work",
+        href: "Work",
     },
     {
         title: "About",
-        href: "#about",
+        href: "About",
     },
     {
         title: "Contact",
-        href: "#contact",
+        href: "Contact",
     },
 
 ]
 
-const Nav = ({ setIsActive }: { setIsActive: any }) => {
+const Nav = ({ }: { setIsActive: any }) => {
     const pathname = usePathname();
     const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 

@@ -4,8 +4,9 @@ import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { useState, useEffect } from "react";
 import BurgerMenu from "./components/BurgerMenu";
-import { AnimatePresence } from "framer-motion";
-
+import { AnimatePresence, motion } from "framer-motion";
+import Header from "./components/Header";
+import { usePathname } from "next/navigation";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -22,6 +23,7 @@ export default function RootLayout({
 }>) {
   const [isActive, setIsActive] = useState(false);
   const [showMenu, setShowMenu] = useState(false)
+  const pathname = usePathname();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 420) {
@@ -39,7 +41,9 @@ export default function RootLayout({
       <body
         className={` ${playfair.variable}  antialiased`}
       >
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
+          {pathname !== "/" && <Header></Header>}
+
           {showMenu && (
             <BurgerMenu
               key="burger"
@@ -47,9 +51,9 @@ export default function RootLayout({
               setIsActive={setIsActive}
             />
           )}
+          {children}
         </AnimatePresence>
-        {children}
       </body>
-    </html>
+    </html >
   );
 }

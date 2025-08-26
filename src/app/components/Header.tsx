@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AnimatePresence, motion } from "framer-motion";
 import Magnetic from "@/app/common/Magnetic"
@@ -11,19 +12,32 @@ import gsap from "gsap";
 
 export default function Header() {
     const [isMobile, setIsMobile] = useState(false)
+    const [showHeader, setShowHeader] = useState(false);
     const header = useRef<HTMLDivElement>(null);
     const pathname = usePathname();
+    const router = useRouter();
     const button = useRef<HTMLDivElement>(null);
     const [isActive, setIsActive] = useState(false)
+    const headerValues = ["About", "Contact", "Work"]
     useEffect(() => {
-
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
+        const handleScreenY = () => {
+            setShowHeader(window.screenY >= 200);
+        }
+        handleScreenY();
         handleResize();
         window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        window.addEventListener("scroll", handleScreenY)
+        return () => { window.removeEventListener("resize", handleResize), window.removeEventListener("scroll", handleScreenY) };
     }, [pathname]);
+
+    const NavigatePages = (page: string) => {
+        router.push(`/${page}`);
+    };
+
+
 
     useLayoutEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -54,9 +68,8 @@ export default function Header() {
         <>
             <div
                 ref={header}
-                className="absolute top-0 z-10 flex w-full items-center justify-between px-9 py-8 text-white font-serif"
+                className={`fixed top-0 z-10 flex w-full items-center justify-between px-9 py-8 ${pathname === "/" ? "text-white" : "text-black"} font-serif ${showHeader ? "bg-red-200" : ""}`}
             >
-
                 <Magnetic>
                     <div className="flex cursor-pointer items-center group">
                         <p className="transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:rotate-[360deg]">
@@ -92,7 +105,8 @@ export default function Header() {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 10 }}
                                             transition={{ duration: 0.3 }}
-                                            className="cursor-pointer"
+                                            className={`cursor-pointer ${pathname === "/" ? "text-white" : "text-black"
+                                                }`}
                                         >
                                             X
                                         </motion.span>
@@ -103,7 +117,8 @@ export default function Header() {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 10 }}
                                             transition={{ duration: 0.3 }}
-                                            className="cursor-pointer"
+                                            className={`cursor-pointer ${pathname === "/" ? "text-white" : "text-black"
+                                                }`}
                                         >
                                             Menu
                                         </motion.span>
@@ -111,22 +126,29 @@ export default function Header() {
                                 </AnimatePresence>
 
 
-                                <div className="absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full bg-white transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100" />
+                                <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${pathname === "/" ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
                             </div>
                         </Magnetic>
                     ))}
                 </div> : <div className="flex items-center space-x-6">
-                    {["Work", "About", "Contact"].map((item, i) => (
-                        <Magnetic>
+                    {headerValues.map((item, i) => (
+                        <Magnetic key={i}>
                             <div
-                                key={i}
+                                onClick={() => NavigatePages(item)}
                                 className="relative flex cursor-pointer flex-col items-center px-4 py-2 group"
                             >
-                                <a className="cursor-pointer">{item}</a>
-                                <div className="absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full bg-white transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100" />
+                                <a
+                                    className={`cursor-pointer ${pathname === "/" ? "text-white" : "text-black"
+                                        }`}
+                                >
+                                    {item}
+                                </a>
+
+                                <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${pathname === "/" ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
                             </div>
                         </Magnetic>
                     ))}
+
                 </div>}
                 <AnimatePresence mode="wait">{isActive && <Nav setIsActive={setIsActive} />}</AnimatePresence>
             </div>

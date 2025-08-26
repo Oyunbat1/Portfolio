@@ -34,7 +34,9 @@ export default function Parallex() {
     const y = useTransform(scrollYProgress, [0, 1], ["0vh", "150vh"]);
     return (
         <motion.div variants={landingPageSlideUp} initial="initial" animate="enter" >
+
             <div ref={containerRef} className="h-screen overflow-hidden">
+
                 <motion.div style={{ y }} className="relative h-full">
                     <Image
                         src={isMobile ? ProfileMobile : ProfileDesktop}

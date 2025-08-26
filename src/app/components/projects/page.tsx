@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { Easing, motion } from 'framer-motion';
 import gsap from 'gsap';
 import { Barlow_Condensed } from "next/font/google";
-import RoundedButton from '@/app/common/RoundedButton';
+import MoreButton from "../../common/MoreButton"
+import { useRouter } from "next/navigation"
 import { style } from 'framer-motion/client';
 const barlow = Barlow_Condensed({
     subsets: ["latin"],
@@ -34,6 +35,20 @@ const projects = [
         year: "2024",
         role: "Full-stack developer"
     },
+    {
+        title: "Movie app",
+        src: "bg.png",
+        color: "#000000",
+        year: "2024",
+        role: "Full-stack developer"
+    },
+    {
+        title: "To Do app",
+        src: "bg.png",
+        color: "#000000",
+        year: "2024",
+        role: "Full-stack developer"
+    },
 
 ]
 
@@ -44,31 +59,21 @@ const scaleAnimation = {
 }
 
 export default function Home() {
-
-    const [modal, setModal] = useState({ active: false, index: 0, x: 0, y: 0 })
-    const { active, index, x, y } = modal;
+    const router = useRouter();
+    const [modal, setModal] = useState({ active: false, index: 0 })
+    const { active, index } = modal;
     const modalContainer = useRef(null);
     const cursor = useRef(null);
-    const cursorLabel = useRef(null);
-    const xMoveContainer = useRef<((value: number) => gsap.core.Tween) | null>(null);
-    const yMoveContainer = useRef<((value: number) => gsap.core.Tween) | null>(null);
     const xMoveCursor = useRef<((value: number) => gsap.core.Tween) | null>(null);
     const yMoveCursor = useRef<((value: number) => gsap.core.Tween) | null>(null);
-    // const xMoveCursorLabel = useRef<((value: number) => gsap.core.Tween) | null>(null);
-    // const yMoveCursorLabel = useRef<((value: number) => gsap.core.Tween) | null>(null);
     const [isMobile, setIsMobile] = useState(false)
     const [isTablet, setIsTablet] = useState(false)
     console.log(isTablet, "HEREEE")
 
     useEffect(() => {
-        xMoveContainer.current = gsap.quickTo(modalContainer.current, "left", { duration: 0.8, ease: "power3" })
-        yMoveContainer.current = gsap.quickTo(modalContainer.current, "top", { duration: 0.8, ease: "power3" })
 
         xMoveCursor.current = gsap.quickTo(cursor.current, "left", { duration: 0.5, ease: "power3" })
         yMoveCursor.current = gsap.quickTo(cursor.current, "top", { duration: 0.5, ease: "power3" })
-
-        // xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "left", { duration: 0.45, ease: "power3" })
-        // yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "top", { duration: 0.45, ease: "power3" })
 
         const handleResize = () => {
             const width = window.innerWidth;
@@ -80,20 +85,19 @@ export default function Home() {
         return () => { window.removeEventListener("resize", handleResize) }
     }, [])
 
+    const navigationToPage = () => {
+        router.push("/Work")
+    }
 
     const moveItems = (x: number, y: number) => {
-        xMoveContainer.current?.(x);
-        yMoveContainer.current?.(y);
+        console.log(x, y)
         xMoveCursor.current?.(x);
         yMoveCursor.current?.(y);
-        // xMoveCursorLabel.current?.(x);
-        // yMoveCursorLabel.current?.(y);
     };
     const manageModal = (active: boolean, index: number, x: number, y: number) => {
-        setModal((prev) => ({ ...prev, active, index, x, y }));
-        if (active) {
-            moveItems(x, y)
-        }
+
+        setModal({ active, index })
+        moveItems(x, y)
     };
 
     return (
@@ -108,26 +112,16 @@ export default function Home() {
                     })
                 }
             </div>
-            <motion.div ref={modalContainer} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"} className='h-[350px] w-[400px]  fixed top-1/2 left-1/2 bg-white  overflow-hidden z-10'>
-                <div style={{ top: index * -100 + "%" }} className='h-full w-full relative transition-[top] duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]'>
-                    {
-                        projects.map((project, index) => {
-                            const { src, color } = project
-                            return <div className='h-full w-full flex items-center justify-center' style={{ backgroundColor: color }} key={`modal_${index}`}>
-                                <Image
-                                    src={`/${src}`}
-                                    width={300}
-                                    height={0}
-                                    alt="image"
-                                    className='h-auto'
-                                />
-                            </div>
-                        })
-                    }
-                </div>
-            </motion.div>
-
-            <motion.div ref={cursor} className="w-[80px] h-[80px] rounded-full bg-[#455CE9] text-white fixed items-center justify-center font-[300] z-20" variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"}></motion.div>
+            <div onClick={navigationToPage}>
+                <MoreButton >
+                    <span className="relative flex items-center justify-center group">
+                        More work
+                        <span className="absolute -top-2 -right-3  text-gray-600 group-hover:text-white font-[300]  text-xs rounded-full px-2 py-0.5">
+                            {projects.length}
+                        </span>
+                    </span>
+                </MoreButton>
+            </div>
         </main >
     )
 }

@@ -35,7 +35,7 @@ const Link = ({ data, isActive, setSelectedIndicator }: LinkProps) => {
 
             <NextLink
                 className="transform transition duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)] hover:translate-x-4 group"
-                href={href} >
+                href={href}>
                 {title}
             </NextLink>
 
