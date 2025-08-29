@@ -1,6 +1,7 @@
 "use client"
 import { Barlow_Condensed, } from "next/font/google";
 import { useEffect, useState } from 'react';
+import { motion } from "framer-motion"
 import Image from "next/image";
 const barlow = Barlow_Condensed({
     subsets: ["latin"],
@@ -21,12 +22,15 @@ const InlineImage = ({ filteredProjects }: any) => {
         window.addEventListener("resize", handleResize)
         return () => { window.removeEventListener("resize", handleResize) }
     }, [])
+    const navigationToProjects = (link: string) => {
+        window.open(link, "_blank");
+    }
     return (
-        <div>
+        <motion.div >
 
-            <div className="md:grid md:grid-cols-2 md:items-center md:gap-2 ">
+            <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="md:grid md:grid-cols-2 md:items-center md:gap-2 ">
                 {filteredProjects.map((items: any, index: number) => (
-                    <div>
+                    <div onClick={() => { navigationToProjects(items.link) }} key={index} >
 
                         <div
 
@@ -61,8 +65,8 @@ const InlineImage = ({ filteredProjects }: any) => {
                         </div>
                     </div>
                 ))}
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     )
 }
 export default InlineImage

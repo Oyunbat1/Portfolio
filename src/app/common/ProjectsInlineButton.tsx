@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Magnetic from "../common/Magnetic"
 
+
 const InlineButton = ({ children, imageFilter, btn, backgroundColor = "#455CE9", }: { children: any, imageFilter: any, btn: any, backgroundColor?: string }) => {
     const circle = useRef<HTMLDivElement | null>(null);
     const timeline = useRef<GSAPTimeline | null>(null);
@@ -29,7 +30,7 @@ const InlineButton = ({ children, imageFilter, btn, backgroundColor = "#455CE9",
 
 
         <Magnetic>
-            <div className={`rounded-l-full rounded-r-full ${imageFilter === btn ? "bg-black" : ""} border border-[#888]  cursor-pointer relative flex items-center justify-center mt-[40px] mb-[40px] w-auto  h-auto  p-[22px_36px] lg:p-[28px_42px] overflow-hidden group  transition duration-300`} onMouseEnter={manageMouseEnter}
+            <div className={`rounded-l-full rounded-r-full ${imageFilter === btn ? "bg-black" : ""} border border-[#888]  cursor-pointer relative flex items-center justify-center mt-[40px] mb-[40px] w-auto  h-auto p-[30px] overflow-hidden group  transition duration-300`} onMouseEnter={manageMouseEnter}
                 onMouseLeave={manageMouseLeave}
             >   <span className={`relative z-60 text-[12px] ${imageFilter === btn ? "text-white" : "text-black"} font-[600] transition-colors duration-300 group-hover:text-white`}>
                     <div>{children}</div>
