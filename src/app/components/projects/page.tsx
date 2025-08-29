@@ -16,40 +16,61 @@ const easing: Easing = [0.76, 0, 0.24, 1]
 const projects = [
     {
         title: "Workplace 2.0",
-        src: "bg.png",
-        color: "#000000",
+        src: "project/vibemesh.png",
+        color: "#b0b076",
         year: "2025",
-        role: "Full-stack developer"
+        role: "Full-stack developer",
+        link: "https://workplace-2-0.vercel.app/"
     },
     {
         title: "Sainkanzlei.com",
-        src: "bg.png",
-        color: "#000000",
+        src: "project/sainkanzlei.png",
+        color: "#c2c2b4",
         year: "2025",
-        role: "Front-end developer"
+        role: "Front-end developer",
+        link: "https://sainkanzlei.com/"
     },
     {
         title: "Food delivery",
-        src: "bg.png",
-        color: "#000000",
+        src: "project/fooddelivery.png",
+        color: "#a6a6a6",
         year: "2024",
-        role: "Full-stack developer"
+        role: "Full-stack developer",
+        link: "https://food-delivery-front-end-sand.vercel.app/"
     },
     {
         title: "Movie app",
-        src: "bg.png",
-        color: "#000000",
+        src: "project/movieapp.png",
+        color: "#b0b076",
         year: "2024",
-        role: "Full-stack developer"
+        role: "Full-stack developer",
+        link: "https://movie-app-rosy-mu.vercel.app/"
     },
     {
         title: "To Do app",
-        src: "bg.png",
-        color: "#000000",
+        src: "project/todolist.jpg",
+        color: "#ffe0e0",
         year: "2024",
-        role: "Full-stack developer"
+        role: "Front-end developer",
+        link: "https://todo-kappa-murex.vercel.app/"
     },
-]
+    {
+        title: "Snake game",
+        src: "project/snakegame.png",
+        color: "#c2c2b4",
+        year: "2024",
+        role: "Front-end developer",
+        link: "https://snake-snowy-psi.vercel.app/"
+    },
+    {
+        title: "Weather App",
+        src: "project/weatherapp.png",
+        color: "#a6a6a6",
+        year: "2024",
+        role: "Full-stack developer",
+        link: "https://weather-app-eight-gold-39.vercel.app/"
+    },
+];
 
 const scaleAnimation = {
     initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -105,9 +126,9 @@ export default function Home() {
             <div className=" w-full  flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col items-center justify-center mt-[60px] ">
                 {
                     isMobile ? projects.slice(0, 2).map((project, index) => {
-                        return <Project isTablet={isTablet} role={project.role} index={index} title={project.title} image={project.src} manageModal={manageModal} color={project.color} key={index} isMobile={isMobile} year={project.year} />
+                        return <Project isTablet={isTablet} link={project.link} role={project.role} index={index} title={project.title} image={project.src} manageModal={manageModal} color={project.color} key={index} isMobile={isMobile} year={project.year} />
                     }) : projects.slice(0, 4).map((project, index) => {
-                        return <Project isTablet={isTablet} role={project.role} index={index} title={project.title} image={project.src} manageModal={manageModal} color={project.color} key={index} isMobile={isMobile} year={project.year} />
+                        return <Project isTablet={isTablet} link={project.link} role={project.role} index={index} title={project.title} image={project.src} manageModal={manageModal} color={project.color} key={index} isMobile={isMobile} year={project.year} />
                     })
                 }
             </div>
