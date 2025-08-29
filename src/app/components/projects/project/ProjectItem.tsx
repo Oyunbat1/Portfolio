@@ -21,13 +21,15 @@ type ProjectItemProps = {
     color: string;
     year: string;
     role: string;
+    link: string;
     isTablet: boolean
 };
-export default function ProjectItem({ index, title, manageModal, isMobile, image, color, year, role, isTablet }: ProjectItemProps) {
+export default function ProjectItem({ index, link, title, manageModal, isMobile, image, color, year, role, isTablet }: ProjectItemProps) {
 
     return (
         <>
             {isMobile ? <div
+                onClick={() => { window.open(link, "_blank") }}
                 onMouseEnter={(e) => { manageModal(true, index, e.clientX, e.clientY) }} onMouseLeave={(e) => { manageModal(false, index, e.clientX, e.clientY) }}
                 className="flex flex-col w-full justify-center items-center  cursor-pointer "
             >

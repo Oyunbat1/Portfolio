@@ -63,7 +63,10 @@ export default function Header() {
             },
         });
     }, []);
-
+    const handleToHomePage = () => {
+        alert("home")
+        router.push("/")
+    }
     return (
         <>
             <div
@@ -71,7 +74,7 @@ export default function Header() {
                 className={` top-0 z-10 flex w-full items-center justify-between px-9 py-8 ${pathname === "/" ? "text-white" : "text-black"} font-serif ${showHeader ? "bg-red-200" : ""}`}
             >
                 <Magnetic>
-                    <div className="flex cursor-pointer items-center group">
+                    <div onClick={handleToHomePage} className="flex cursor-pointer items-center group ">
                         <p className="transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:rotate-[360deg]">
                             ©
                         </p>
