@@ -100,8 +100,8 @@ export default function Home() {
     };
 
     return (
-        <main onMouseMove={(e) => { moveItems(e.clientX, e.clientY) }} className="flex flex-col  mt-[120px] mb-[120px]  items-center relative ">
-            {isTablet ? <p className={`text-gray-400 absolute left-40 ${barlow.className}`}>Recent work</p> : ""}
+        <main onMouseMove={(e) => { moveItems(e.clientX, e.clientY) }} className="flex flex-col  mt-[40px] mb-[120px]  items-center relative ">
+            {isTablet ? <p className={`text-gray-400 absolute left-40 ${barlow.className}`}>Recent work</p> : <p className={`text-gray-400 absolute  border-b w-[360px]  md:w-[660px]  ${barlow.className}`}>Recent work</p>}
             <div className=" w-full  flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col items-center justify-center mt-[60px] ">
                 {
                     isMobile ? projects.slice(0, 2).map((project, index) => {
