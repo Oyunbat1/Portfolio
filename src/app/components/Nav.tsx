@@ -35,7 +35,7 @@ const Nav = ({ }: { setIsActive: any }) => {
             initial="initial"
             animate="enter"
             exit="exit"
-            className='h-screen bg-[rgb(41,41,41)] fixed right-0 top-0 text-white z-10'
+            className='h-screen bg-[rgb(41,41,41)] fixed right-0 top-0 text-white z-30'
         >
 
             <div className='box-border h-full p-[80px] flex flex-col justify-between'>

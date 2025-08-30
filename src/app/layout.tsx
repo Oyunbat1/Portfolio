@@ -26,7 +26,7 @@ export default function RootLayout({
   const pathname = usePathname();
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 420) {
+      if (window.scrollY > 160) {
         setShowMenu(true)
       } else {
         setShowMenu(false)

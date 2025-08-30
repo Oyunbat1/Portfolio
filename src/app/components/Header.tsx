@@ -64,7 +64,6 @@ export default function Header() {
         });
     }, []);
     const handleToHomePage = () => {
-        alert("home")
         router.push("/")
     }
     return (
