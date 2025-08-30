@@ -35,7 +35,7 @@ const BurgerMenu = ({ isActive, setIsActive }: { isActive: any; setIsActive: any
                     exit={{ opacity: 0, scale: 0.5, y: -20 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     onClick={() => setIsActive(!isActive)}
-                    className={`fixed mt-[60px] right-6 m-[20px] z-30 ${isMobile ? `w-[60px] h-[60px] bg-black hover:bg-blue-600 transition-colors duration-300 ` : `w-[80px] h-[80px] bg-black hover:bg-blue-600 transition-colors duration-300 `} rounded-full cursor-pointer flex items-center justify-center overflow-hidden  `}
+                    className={`fixed mt-[60px] right-6 m-[20px] z-30 ${isMobile ? ` top-1 w-[60px] h-[60px] bg-black hover:bg-blue-600 transition-colors duration-300 ` : `w-[80px] h-[80px] bg-black hover:bg-blue-600 transition-colors duration-300 `} rounded-full cursor-pointer flex items-center justify-center overflow-hidden  `}
                 >
 
                     <motion.div

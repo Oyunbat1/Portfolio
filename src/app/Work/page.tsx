@@ -84,7 +84,6 @@ const WorkPage = () => {
 
     const filters: FilterType[] = ["All", "Front-End", "Full-Stack"];
 
-    // ✅ FIX: make it objects instead of JSX directly
     const filterWithImage: {
         value: FilterProjectWithImageAndText;
         icon: JSX.Element;
@@ -147,9 +146,9 @@ const WorkPage = () => {
                 <div className="mt-[60px] flex flex-col lg:mt-[60px]">
                     <div>
                         <h1
-                            className={`text-[36px] ml-[20px] md:text-[46px] lg:text-[66px] xl:text-[72px] w-[360px] md:ml-[80px] md:w-[420px] lg:w-[720px] xl:w-[820px] lg:ml-[100px] ${ubuntu.className}`}
+                            className={`text-[36px] ml-[20px] md:text-[46px] lg:text-[66px] xl:text-[72px] w-[360px] md:ml-[80px] md:w-[420px] lg:w-[720px] xl:w-[1020px] lg:ml-[100px] ${ubuntu.className}`}
                         >
-                            Creating next level digital products
+                            Empowering brands through thoughtful development
                         </h1>
                     </div>
                     <div className="flex justify-between md:ml-[80px] lg:ml-[100px]">
