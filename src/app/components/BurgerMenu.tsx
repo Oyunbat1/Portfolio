@@ -56,7 +56,7 @@ const BurgerMenu = ({ isActive, setIsActive }: { isActive: any; setIsActive: any
 
 
             <AnimatePresence mode="wait">
-                {isActive && <Nav setIsActive={() => { }} />}
+                {isActive && <Nav setIsActive={setIsActive} />}
             </AnimatePresence>
         </>
     );

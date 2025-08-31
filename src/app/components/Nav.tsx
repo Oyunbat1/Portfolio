@@ -24,7 +24,7 @@ const navItems = [
 
 ]
 
-const Nav = ({ }: { setIsActive: any }) => {
+const Nav = ({ setIsActive }: { setIsActive: (value: boolean) => void }) => {
     const pathname = usePathname();
     const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
@@ -39,7 +39,14 @@ const Nav = ({ }: { setIsActive: any }) => {
         >
 
             <div className='box-border h-full p-[80px] flex flex-col justify-between'>
-
+                <div className="flex justify-end ">
+                    <button
+                        onClick={() => setIsActive(false)}
+                        className="text-white text-2xl font-bold hover:text-gray-400 transition"
+                    >
+                        X
+                    </button>
+                </div>
                 <div onMouseLeave={() => { setSelectedIndicator(pathname) }} className='flex flex-col text-[56px] gap-[12px] mt-[10px]' >
 
                     <div className='text-[rgb(153,153,153)] border-b border-solid border-b-[rgb(153,153,153)] uppercase text-[11px] mb-[40px] pb-1' >

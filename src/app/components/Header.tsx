@@ -100,19 +100,7 @@ export default function Header() {
                                 className="relative flex cursor-pointer flex-col items-center px-4 py-2 group z-50"
                             >
                                 <AnimatePresence mode="wait">
-                                    {isActive ? (
-                                        <motion.span
-                                            key="close"
-                                            initial={{ opacity: 0, y: -10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: 10 }}
-                                            transition={{ duration: 0.3 }}
-                                            className={`cursor-pointer ${pathname === "/" ? "text-white" : "text-black"
-                                                }`}
-                                        >
-                                            X
-                                        </motion.span>
-                                    ) : (
+                                    {isActive ? "" : (
                                         <motion.span
                                             key="menu"
                                             initial={{ opacity: 0, y: -10 }}
