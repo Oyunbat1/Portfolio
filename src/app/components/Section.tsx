@@ -2,7 +2,13 @@ import Image from "next/image";
 import Background from "../../../public/bg.png";
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useRef } from 'react';
+import { Josefin_Sans } from "next/font/google";
 import Text from "./Text"
+const josefinSans = Josefin_Sans({
+    subsets: ["latin"],
+    weight: ["100", "200", "300", "400", "500", "600", "700"],
+    style: ["normal", "italic"]
+});
 export default function Section() {
 
     const container = useRef(null);

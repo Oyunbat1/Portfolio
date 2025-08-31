@@ -9,12 +9,17 @@ import Header from "./Header";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
 import Globus from "../../../public/globus.gif"
-import { Bebas_Neue } from "next/font/google";
+import { Bebas_Neue, Josefin_Sans } from "next/font/google";
 import { landingPageSlideUp } from "./../js/anim"
 const bebas = Bebas_Neue({
     subsets: ["latin"],
     weight: "400"
 })
+const josefinSans = Josefin_Sans({
+    subsets: ["latin"],
+    weight: ["100", "200", "300", "400", "500", "600", "700"],
+    style: ["normal", "italic"]
+});
 export default function Parallex() {
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
@@ -48,7 +53,7 @@ export default function Parallex() {
                     <div className="absolute top-26 lg:top-46 left-0 w-full h-full flex items-center justify-center">
                         <InfiniteText />
                     </div>
-                    {isMobile ? <div className={`absolute  text-white flex justify-between items-end w-full px-10 h-full  ${bebas.className}`}>
+                    {isMobile ? <div className={`absolute  text-white flex justify-between items-end w-full px-10 h-full  ${josefinSans.className}`}>
                         <div className="flex flex-col gap-1 absolute bottom">
                             <ArrowDownRight />
                             <div className="flex justify-center items-center gap-10">

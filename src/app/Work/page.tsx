@@ -1,12 +1,14 @@
 "use client";
 import { Ubuntu } from "next/font/google";
-import { JSX, useEffect, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 import FilterButton from "../common/FilterButtonsOfWork";
 import InlineText from "./components/InlineText";
 import { Grid3x2, Rows4 } from "lucide-react";
 import InlineButton from "../common/ProjectsInlineButton";
 import InlineImage from "./components/InlineImage";
+import { motion, useTransform, useScroll } from "framer-motion"
 import { link } from "fs";
+import Contact from "../Contact/page";
 
 const ubuntu = Ubuntu({
     subsets: ["latin"],
@@ -77,11 +79,12 @@ type FilterType = "All" | "Front-End" | "Full-Stack";
 type FilterProjectWithImageAndText = "inlineText" | "images";
 
 const WorkPage = () => {
+
     const [isTablet, setIsTablet] = useState(false);
     const [filter, setFilter] = useState<FilterType>("All");
     const [imageFilter, setImageFilter] =
         useState<FilterProjectWithImageAndText>("inlineText");
-
+    const mainContainer = useRef(null)
     const filters: FilterType[] = ["All", "Front-End", "Full-Stack"];
 
     const filterWithImage: {
@@ -139,10 +142,15 @@ const WorkPage = () => {
             );
         }
     };
+    const { scrollYProgress: scrollYProgress3 } = useScroll({
+        target: mainContainer,
+        offset: ["start end", 'end start']
+    })
 
+    const height = useTransform(scrollYProgress3, [0, 0.9], [50, 0])
     return (
         <>
-            <div className="flex justify-center items-center p-[0px_20px]">
+            <div ref={mainContainer} className="flex justify-center items-center p-[0px_20px]">
                 <div className="mt-[60px] flex flex-col lg:mt-[60px]">
                     <div>
                         <h1
@@ -188,6 +196,14 @@ const WorkPage = () => {
                     {filterWithImageProject()}
                 </div>
             </div>
+            <motion.div
+
+                style={{ height }}
+                className="bg-white relative mt-[100px] "
+            >
+                <div className="h-[1400%] w-[100%]  rounded-b-[50%] bg-white z-[10] absolute shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
+            </motion.div>
+            <Contact />
         </>
     );
 };
