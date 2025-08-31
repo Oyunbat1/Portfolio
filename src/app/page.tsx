@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import Preloader from "./components/Preloader";
 import Projects from "@/app/components/projects/page"
 import SlidingSkill from "./components/SlidingSkill";
+import Contact from "@/app/Contact/page"
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function Home() {
         <BgParallex />
         <Projects />
         <SlidingSkill />
-        <div className="h-screen w-screen bg-red-300"></div>
+        <Contact />
       </div>
     </>
   );

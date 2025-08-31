@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Magnetic from '../common/Magnetic';
 
-const RoundedButton = ({ children, backgroundColor = "#455CE9", ...attributes }: { children: any, backgroundColor?: string }) => {
+const ContactButton = ({ children, backgroundColor = "#455CE9", ...attributes }: { children: any, backgroundColor?: string }) => {
     const circle = useRef<HTMLDivElement | null>(null);
     const timeline = useRef<GSAPTimeline | null>(null);
     let timeoutId: number | null = null;
@@ -27,14 +27,16 @@ const RoundedButton = ({ children, backgroundColor = "#455CE9", ...attributes }:
 
     return (
         <Magnetic>
-            <div className='bg-[#1C1D20] rounded-full text-white'>
+            <div className='text-white'>
                 <div
-                    className="rounded-full border border-[#888] cursor-pointer relative flex items-center justify-center w-[120px] h-[120px] lg:w-[130px] xl:w-[160px] xl:h-[160px] lg:h-[130px] p-[10px] overflow-hidden group hover:bg-blue-600 transition duration-300"
+                    className="rounded-l-full rounded-r-full border border-[#888] cursor-pointer relative flex items-center justify-center my-2 w-[340px] h-[60px] sm:w-[260px] sm:gap-2 lg:w-[360px] md:w-[260px] md:gap-2 md:mt-[40px] lg:h-[60px] xl:w-[320px] xl:h-[60px] p-[10px] overflow-hidden group  transition duration-300 "
                     onMouseEnter={manageMouseEnter}
                     onMouseLeave={manageMouseLeave}
                     {...attributes}
                 >
-                    {children}
+                    <span className="relative z-10 text-white  font-[600] transition-colors duration-300 group-hover:text-white">
+                        {children}
+                    </span>
                     <div ref={circle} style={{ backgroundColor }} className='w-full absolute rounded-full h-[150%] top-full'></div>
                 </div>
             </div>
@@ -42,4 +44,4 @@ const RoundedButton = ({ children, backgroundColor = "#455CE9", ...attributes }:
     );
 };
 
-export default RoundedButton;
+export default ContactButton;
