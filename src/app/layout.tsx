@@ -1,19 +1,11 @@
 "use client"
-
-import { Playfair_Display } from "next/font/google";
+import React from "react";
 import "./globals.css";
 import { useState, useEffect } from "react";
 import BurgerMenu from "./components/BurgerMenu";
 import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import { usePathname } from "next/navigation";
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-playfair",
-});
-
-
 
 
 export default function RootLayout({
@@ -39,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${playfair.variable}  antialiased`}
+
       >
         {pathname !== "/" && <Header></Header>}
         <AnimatePresence>

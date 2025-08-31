@@ -22,6 +22,7 @@ export default function Page() {
             <div className='h-screen'>
                 <Section />
             </div>
+
         </main>
     )
 }
