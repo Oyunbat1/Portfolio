@@ -5,7 +5,7 @@ import { useScroll, useTransform, motion } from 'framer-motion';
 import AboutMeImage from "../../../public/about/profile-about.jpg"
 import DesktopAboutMeImage from "../../../public/bg.png"
 import AboutChildImage from "../../../public/about/child-about.jpeg"
-import Contact from "@/app/Contact/page"
+import Footer from "../components/Footer";
 import Globus from "../../../public/globus.gif"
 import { ArrowDownRight } from "lucide-react"
 import Image from "next/image";
@@ -154,7 +154,7 @@ const Page = () => {
             >
                 <div className="h-[1400%] w-[100%]  rounded-b-[50%] bg-white z-[10] absolute shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
             </motion.div>
-            <Contact />
+            <Footer />
 
         </div>
     )

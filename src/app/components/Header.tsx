@@ -70,7 +70,9 @@ export default function Header() {
         <>
             <div
                 ref={header}
-                className={` top-0 z-10 flex w-full items-center justify-between px-9 py-8 ${pathname === "/" ? "text-white" : "text-black"} font-serif ${showHeader ? "bg-red-200" : ""}`}
+                className={`top-0 z-10 flex w-full items-center justify-between px-9 py-8 
+    ${(pathname === "/" || pathname === "/Contact") ? "text-white" : "text-black"} ${pathname === "/Contact" ? "bg-[#292a2b] " : ""}
+    font-serif ${showHeader ? "bg-red-200" : ""}`}
             >
                 <Magnetic>
                     <div onClick={handleToHomePage} className="flex cursor-pointer items-center group ">
@@ -107,7 +109,7 @@ export default function Header() {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 10 }}
                                             transition={{ duration: 0.3 }}
-                                            className={`cursor-pointer ${pathname === "/" ? "text-white" : "text-black"
+                                            className={`cursor-pointer ${(pathname === "/" || pathname === "/Contact") ? "text-white" : "text-black"
                                                 }`}
                                         >
                                             Menu
@@ -116,7 +118,7 @@ export default function Header() {
                                 </AnimatePresence>
 
 
-                                <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${pathname === "/" ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
+                                <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${(pathname === "/" || pathname === "/Contact") ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
                             </div>
                         </Magnetic>
                     ))}
@@ -128,13 +130,13 @@ export default function Header() {
                                 className="relative flex cursor-pointer flex-col items-center px-4 py-2 group z-30"
                             >
                                 <a
-                                    className={`cursor-pointer ${pathname === "/" ? "text-white" : "text-black"
+                                    className={`cursor-pointer ${(pathname === "/" || pathname === "/Contact") ? "text-white" : "text-black"
                                         }`}
                                 >
                                     {item}
                                 </a>
 
-                                <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${pathname === "/" ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
+                                <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${(pathname === "/" || pathname === "/Contact") ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
                             </div>
                         </Magnetic>
                     ))}

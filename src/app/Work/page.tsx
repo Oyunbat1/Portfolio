@@ -8,7 +8,7 @@ import InlineButton from "../common/ProjectsInlineButton";
 import InlineImage from "./components/InlineImage";
 import { motion, useTransform, useScroll } from "framer-motion"
 import { link } from "fs";
-import Contact from "../Contact/page";
+import Footer from "../components/Footer";
 
 const ubuntu = Ubuntu({
     subsets: ["latin"],
@@ -203,7 +203,7 @@ const WorkPage = () => {
             >
                 <div className="h-[1400%] w-[100%]  rounded-b-[50%] bg-white z-[10] absolute shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
             </motion.div>
-            <Contact />
+            <Footer />
         </>
     );
 };
