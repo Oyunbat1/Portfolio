@@ -4,6 +4,7 @@ import BgParallex from "@/app/components/bgParallex/page"
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "./components/Preloader";
+import PageLoader from "./components/PageLoader";
 import Projects from "@/app/components/projects/page"
 import SlidingSkill from "./components/SlidingSkill";
 import Footer from "./components/Footer";

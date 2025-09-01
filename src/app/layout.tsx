@@ -7,6 +7,8 @@ import BurgerMenu from "./components/BurgerMenu";
 import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import { usePathname } from "next/navigation";
+import PageTransitionWrapper from "./components/PageTransitionWrapper";
+
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -42,7 +44,7 @@ export default function RootLayout({
         className={` ${playfair.variable}  antialiased`}
       >
         {pathname !== "/" && <Header></Header>}
-        <AnimatePresence>
+                <AnimatePresence>
           {showMenu && (
             <BurgerMenu
               key="burger"
@@ -52,7 +54,10 @@ export default function RootLayout({
           )}
         </AnimatePresence>
 
-        {children}
+        <PageTransitionWrapper>
+          {children}
+        </PageTransitionWrapper>
+      
       </body>
     </html>
   );

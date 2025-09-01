@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react"
 import { Ubuntu, Josefin_Sans } from "next/font/google";
-import { useScroll, useTransform, motion } from 'framer-motion';
+import { useScroll, useTransform, motion, useInView } from 'framer-motion';
 import AboutMeImage from "../../../public/about/profile-about.jpg"
 import DesktopAboutMeImage from "../../../public/bg.png"
 import AboutChildImage from "../../../public/about/child-about.jpeg"

@@ -1,8 +1,8 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import Project from './project/ProjectItem';
-import Image from 'next/image';
-import { Easing, motion } from 'framer-motion';
+import { projectsSlideUp } from '../../js/anim'
+import { Easing, motion, useInView } from 'framer-motion';
 import gsap from 'gsap';
 import { Barlow_Condensed } from "next/font/google";
 import MoreButton from "../../common/MoreButton"
@@ -88,7 +88,8 @@ export default function Home() {
     const yMoveCursor = useRef<((value: number) => gsap.core.Tween) | null>(null);
     const [isMobile, setIsMobile] = useState(false)
     const [isTablet, setIsTablet] = useState(false)
-    console.log(isTablet, "HEREEE")
+
+    const isInView = useInView(modalContainer)
 
     useEffect(() => {
 
@@ -123,7 +124,7 @@ export default function Home() {
     return (
         <main onMouseMove={(e) => { moveItems(e.clientX, e.clientY) }} className="flex flex-col  mt-[40px] mb-[120px]  items-center relative ">
             {isTablet ? <p className={`text-gray-400 absolute left-40 ${barlow.className}`}>Recent work</p> : <p className={`text-gray-400 absolute  border-b w-[360px]  md:w-[660px]  ${barlow.className}`}>Recent work</p>}
-            <div className=" w-full  flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col items-center justify-center mt-[60px] ">
+            <motion.div ref={modalContainer} variants={projectsSlideUp} animate={isInView ? "open" : "closed"} transition={{ duration: 1, ease: easing }} className=" w-full  flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col items-center justify-center mt-[60px] ">
                 {
                     isMobile ? projects.slice(0, 2).map((project, index) => {
                         return <Project isTablet={isTablet} link={project.link} role={project.role} index={index} title={project.title} image={project.src} manageModal={manageModal} color={project.color} key={index} isMobile={isMobile} year={project.year} />
@@ -131,7 +132,7 @@ export default function Home() {
                         return <Project isTablet={isTablet} link={project.link} role={project.role} index={index} title={project.title} image={project.src} manageModal={manageModal} color={project.color} key={index} isMobile={isMobile} year={project.year} />
                     })
                 }
-            </div>
+            </motion.div>
             <div onClick={navigationToPage}>
                 <MoreButton >
                     <span className="relative flex items-center justify-center group">
