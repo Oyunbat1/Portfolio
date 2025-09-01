@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
 import Magnetic from "../common/Magnetic";
 import { Josefin_Sans } from "next/font/google";
+import Link from "next/link";
 import AboutMeImage from "../../../public/mobile/profile.jpg"
 const josefinSans = Josefin_Sans({
     subsets: ["latin"],
@@ -36,10 +37,10 @@ export default function Contact() {
             {isTablet ? <motion.div
                 style={{ y }}
                 ref={container}
-                className="text-white flex flex-col gap-6 items-center  bg-[#292a2b] relative h-auto md:bg-amber-800 lg:bg-green-200 xl:bg-blue-200 "
+                className="text-white flex flex-col gap-6 items-center  bg-[#292a2b] relative h-auto"
             >
 
-                <div className="flex flex-col mt-[100px] w-full justify-center items-center relative">
+                <div className="flex flex-col mt-[50px] w-full justify-center items-center relative">
                     <motion.svg
                         style={{ rotate, scale: 2 }}
                         width="9"
@@ -139,29 +140,29 @@ export default function Contact() {
 
                             <div className="flex flex-wrap gap-6 items-start">
                                 <Magnetic>
-                                    <p className="text-sm cursor-pointer relative group">
+                                    <Link href="https://www.facebook.com/oyunbat.bat.560/" target="_blank" className="text-sm cursor-pointer relative group">
                                         Facebook
                                         <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                    </p>
+                                    </Link>
                                 </Magnetic>
 
                                 <Magnetic>
-                                    <p className="text-sm cursor-pointer relative group">
+                                    <Link href="https://www.instagram.com/oyunbat_dev/?igsh=MTZrc2k3ajI3OXVldg%3D%3D&utm_source=qr#" target="_blank" className="text-sm cursor-pointer relative group">
                                         Instagram
                                         <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                    </p>
+                                    </Link>
                                 </Magnetic>
                                 <Magnetic>
-                                    <p className="text-sm cursor-pointer relative group">
+                                    <Link href="https://github.com/Oyunbat1" target="_blank" className="text-sm cursor-pointer relative group">
                                         Github
                                         <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                    </p>
+                                    </Link>
                                 </Magnetic>
                                 <Magnetic>
-                                    <p className="text-sm cursor-pointer relative group">
-                                        Linkedin
+                                    <Link href="https://www.linkedin.com/in/oyunbat-bat-26376a329/" target="_blank" className="text-sm cursor-pointer relative group">
+                                        LinkedIn
                                         <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                    </p>
+                                    </Link>
                                 </Magnetic></div>
                         </div>
 
@@ -191,7 +192,7 @@ export default function Contact() {
                 ref={container}
                 className="text-white flex flex-col gap-6 items-center  bg-[#292a2b] relative h-auto "
             >
-                <div className=" w-full flex justify-around mt-[200px]">
+                <div className=" w-full flex justify-around mt-[40px]">
                     <div className="flex flex-col gap-10">
                         <span className={`flex items-center gap-2 w-[400px] ${josefinSans.className} text-[46px] lg:text-[66px] lg:w-[560px]`}>
                             Let's start a project together</span>
@@ -269,41 +270,34 @@ export default function Contact() {
 
                                 <div className="flex flex-col gap-2 lg:gap-6 items-start">
                                     <Magnetic>
-                                        <p className="text-sm cursor-pointer relative group">
+                                        <Link href="https://www.facebook.com/oyunbat.bat.560/" target="_blank" className="text-sm cursor-pointer relative group">
                                             Facebook
                                             <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                        </p>
+                                        </Link>
                                     </Magnetic>
 
                                     <Magnetic>
-                                        <p className="text-sm cursor-pointer relative group">
+                                        <Link href="https://www.instagram.com/oyunbat_dev/?igsh=MTZrc2k3ajI3OXVldg%3D%3D&utm_source=qr#" target="_blank" className="text-sm cursor-pointer relative group">
                                             Instagram
                                             <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                        </p>
+                                        </Link>
                                     </Magnetic>
                                     <Magnetic>
-                                        <p className="text-sm cursor-pointer relative group">
+                                        <Link href="https://github.com/Oyunbat1" target="_blank" className="text-sm cursor-pointer relative group">
                                             Github
                                             <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                        </p>
+                                        </Link>
                                     </Magnetic>
                                     <Magnetic>
-                                        <p className="text-sm cursor-pointer relative group">
-                                            Linkedin
+                                        <Link href="https://www.linkedin.com/in/oyunbat-bat-26376a329/" target="_blank" className="text-sm cursor-pointer relative group">
+                                            LinkedIn
                                             <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                        </p>
+                                        </Link>
                                     </Magnetic></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
 
                 <div className=" m-[40px_0px] relative">
                     <motion.div
@@ -334,29 +328,29 @@ export default function Contact() {
 
                             <div className="flex  gap-6 items-start">
                                 <Magnetic>
-                                    <p className="text-sm cursor-pointer relative group">
+                                    <Link href="https://www.facebook.com/oyunbat.bat.560/" target="_blank" className="text-sm cursor-pointer relative group">
                                         Facebook
                                         <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                    </p>
+                                    </Link>
                                 </Magnetic>
 
                                 <Magnetic>
-                                    <p className="text-sm cursor-pointer relative group">
+                                    <Link href="https://www.instagram.com/oyunbat_dev/?igsh=MTZrc2k3ajI3OXVldg%3D%3D&utm_source=qr#" target="_blank" className="text-sm cursor-pointer relative group">
                                         Instagram
                                         <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                    </p>
+                                    </Link>
                                 </Magnetic>
                                 <Magnetic>
-                                    <p className="text-sm cursor-pointer relative group">
+                                    <Link href="https://github.com/Oyunbat1" target="_blank" className="text-sm cursor-pointer relative group">
                                         Github
                                         <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                    </p>
+                                    </Link>
                                 </Magnetic>
                                 <Magnetic>
-                                    <p className="text-sm cursor-pointer relative group">
-                                        Linkedin
+                                    <Link href="https://www.linkedin.com/in/oyunbat-bat-26376a329/" target="_blank" className="text-sm cursor-pointer relative group">
+                                        LinkedIn
                                         <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                    </p>
+                                    </Link>
                                 </Magnetic></div>
                         </div>
 

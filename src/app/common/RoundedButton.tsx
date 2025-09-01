@@ -29,7 +29,7 @@ const RoundedButton = ({ children, backgroundColor, ...attributes }: { children:
         <Magnetic>
             <div style={{ backgroundColor }} className='z-30 rounded-full text-white'>
                 <div
-                    className="rounded-full border border-[#888] cursor-pointer relative flex items-center justify-center w-[140px] h-[140px] lg:w-[130px] xl:w-[160px] xl:h-[160px] lg:h-[130px] p-[10px] overflow-hidden group hover:bg-blue-600 transition duration-300"
+                    className="rounded-full border border-[#888] cursor-pointer relative flex items-center justify-center w-[120px] h-[120px] lg:w-[130px] xl:w-[160px] xl:h-[160px] lg:h-[130px] p-[10px] overflow-hidden group hover:bg-blue-600 transition duration-300"
                     onMouseEnter={manageMouseEnter}
                     onMouseLeave={manageMouseLeave}
                     {...attributes}

@@ -57,13 +57,12 @@ const Nav = ({ setIsActive }: { setIsActive: (value: boolean) => void }) => {
                         navItems.map((data, index) => {
 
                             return (
-                                <div key={index}>
+                                <div className='ml-4' key={index}>
                                     <Link
                                         data={{ ...data, index }} setSelectedIndicator={setSelectedIndicator} isActive={selectedIndicator == data.href}
                                     ></Link>
                                 </div>
                             )
-
                         })
 
                     }
