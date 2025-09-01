@@ -70,7 +70,6 @@ export const descriptionSlideUp:Variants = {
         transition: {duration: 0.5}
     }
 }
-
 export const descriptionOpacity:Variants = {
     initial: {
         opacity: 0
@@ -81,6 +80,36 @@ export const descriptionOpacity:Variants = {
     },
     closed: {
         opacity: 0,
+        transition: {duration: 0.5}
+    }
+}
+
+export const projectsSlideUp:Variants = {
+
+    initial: {
+        y: "30%"
+    },
+    open: (i) => ({
+        y: "0%",
+        transition: {duration: 3}
+    }),
+    closed: {
+        y: "10%",
+        transition: {duration: 0.5}
+    }
+}
+
+export const aboutDescriptionSlideUp:Variants = {
+
+    initial: {
+        y: "100%"
+    },
+    open: (i) => ({
+        y: "0%",
+        transition: {duration: 0.8, delay: 0.1 * i}
+    }),
+    closed: {
+        y: "100%",
         transition: {duration: 0.5}
     }
 }
