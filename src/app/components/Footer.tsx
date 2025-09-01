@@ -7,6 +7,7 @@ import { useScroll, motion, useTransform } from "framer-motion";
 import Magnetic from "../common/Magnetic";
 import { useRouter } from "next/navigation";
 import AboutMeImage from "../../../public/mobile/profile.jpg"
+import Link from "next/link";
 export default function Footer() {
     const container = useRef(null);
     const router = useRouter();
@@ -73,7 +74,7 @@ export default function Footer() {
                     </motion.svg>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-2   mt-[70px] md:mt-[20px] mx-6 sm:mx-12 md:mx-[200px]">
+                <div className="flex flex-col sm:flex-row gap-2   mt-[70px] md:mt-[40px] mx-6 sm:mx-12 md:mx-[200px]">
                     <Rounded>
                         <p className="text-sm md:text-base">oyunbat9958@gmail.com</p>
                     </Rounded>
@@ -89,7 +90,7 @@ export default function Footer() {
                         <span className="flex flex-col gap-2">
                             <h3 className="text-gray-400 font-light text-base">Code by</h3>
                             <p className="text-sm cursor-pointer relative group">
-                                Oyunbat_Dev ©
+                                © Oyunbat
                                 <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
                             </p>
                         </span>
@@ -107,29 +108,29 @@ export default function Footer() {
 
                         <div className="flex flex-wrap gap-6 items-start">
                             <Magnetic>
-                                <p className="text-sm cursor-pointer relative group">
+                                <Link href="https://www.facebook.com/oyunbat.bat.560/" target="_blank" className="text-sm cursor-pointer relative group">
                                     Facebook
                                     <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                </p>
+                                </Link>
                             </Magnetic>
 
                             <Magnetic>
-                                <p className="text-sm cursor-pointer relative group">
+                                <Link href="https://www.instagram.com/oyunbat_dev/?igsh=MTZrc2k3ajI3OXVldg%3D%3D&utm_source=qr#" target="_blank" className="text-sm cursor-pointer relative group">
                                     Instagram
                                     <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                </p>
+                                </Link>
                             </Magnetic>
                             <Magnetic>
-                                <p className="text-sm cursor-pointer relative group">
+                                <Link href="https://github.com/Oyunbat1" target="_blank" className="text-sm cursor-pointer relative group">
                                     Github
                                     <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                </p>
+                                </Link>
                             </Magnetic>
                             <Magnetic>
-                                <p className="text-sm cursor-pointer relative group">
-                                    Linkedin
+                                <Link href="https://www.linkedin.com/in/oyunbat-bat-26376a329/" target="_blank" className="text-sm cursor-pointer relative group">
+                                    LinkedIn
                                     <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
-                                </p>
+                                </Link>
                             </Magnetic></div>
                     </div>
                 </div>
