@@ -2,22 +2,24 @@
 import React, { useRef } from 'react'
 import { useInView, motion } from 'framer-motion'
 import { descriptionSlideUp, descriptionOpacity } from '../js/anim'
-import { Barlow_Condensed, Josefin_Sans } from "next/font/google";
-import RoundedButton from '../common/RoundedButton';
-const barlow = Barlow_Condensed({
-    subsets: ["latin"],
-    weight: "400"
-})
+import { Josefin_Sans } from "next/font/google";
+import GetInRounded from "../common/RoundedButton";
+import { useRouter } from 'next/navigation';
+
 const josefinSans = Josefin_Sans({
     subsets: ["latin"],
     weight: ["100", "200", "300", "400", "500", "600", "700"],
     style: ["normal", "italic"]
 });
+
 export default function Description() {
     const phrase = "I turn ideas into responsive and engaging web experiences powered by modern technologies"
     const description = useRef(null)
     const isInView = useInView(description)
-    console.log(isInView, "Is working")
+    const router = useRouter();
+    const handleToAboutMe = () => {
+        router.push('/About')
+    }
     return (
         <div ref={description} className='flex justify-center mt-[100px] mb-[100px] pl-[100px] pr-[100px] h-auto items-center '>
             <div className='flex flex-col gap-[50px] relative justify-center items-center'>
@@ -28,10 +30,10 @@ export default function Description() {
                 </p>
                 <div className='flex gap-[20px] md:gap-[140px] lg:gap-[220px] xl:gap-[360px] justify-center items-center'>
                     <motion.p className='text-[14px] font-[300] w-[240px] md:text-[20px] lg:text-[26px] md:w-[380px] lg:w-[440px] pl-4' variants={descriptionOpacity} animate={isInView ? "open" : "closed"}>Driven by curiosity I explore new technologies to craft interfaces that inspire and engage</motion.p>
-                    <div data-scroll data-scroll-speed={0.1}>
-                        <RoundedButton backgroundColor="">
+                    <div onClick={handleToAboutMe} data-scroll data-scroll-speed={0.1}>
+                        <GetInRounded backgroundColor={"#334BD3"} >
                             <p className=' text-[12px] lg:text-[18px] relative z-1 transition-colors ease-linear duration-400 '>About me</p>
-                        </RoundedButton>
+                        </GetInRounded>
                     </div>
                 </div>
             </div>
