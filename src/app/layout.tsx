@@ -10,15 +10,13 @@ import { usePathname } from "next/navigation";
 import { ApolloProvider } from "@apollo/client/react";
 import { client } from "../lib/apollo-client";
 import PageTransitionWrapper from "./components/PageTransitionWrapper";
+import { Toaster } from "sonner";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-playfair",
 });
-
-
-
 
 export default function RootLayout({
   children,
@@ -46,22 +44,29 @@ export default function RootLayout({
         className={` ${playfair.variable}  antialiased`}
       >
         <ApolloProvider client={client}>
-        {pathname !== "/" && <Header></Header>}
-                <AnimatePresence>
-          {showMenu && (
-            <BurgerMenu
-              key="burger"
-              isActive={isActive}
-              setIsActive={setIsActive}
-            />
-          )}
-        </AnimatePresence>
+          {pathname !== "/" && <Header></Header>}
+          <AnimatePresence>
+            {showMenu && (
+              <BurgerMenu
+                key="burger"
+                isActive={isActive}
+                setIsActive={setIsActive}
+              />
+            )}
+          </AnimatePresence>
 
-        <PageTransitionWrapper>
-          {children}
-        </PageTransitionWrapper>
-      
+          <PageTransitionWrapper>
+            {children}
+          </PageTransitionWrapper>
+
         </ApolloProvider>
+
+        {/* Toast notifications positioned at top right */}
+        <Toaster
+          position="top-right"
+          closeButton
+          duration={3000}
+        />
       </body>
     </html>
   );
