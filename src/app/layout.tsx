@@ -4,6 +4,7 @@ import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { useState, useEffect } from "react";
 import BurgerMenu from "./components/BurgerMenu";
+import gsap from "gsap";
 import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import { usePathname } from "next/navigation";
@@ -27,6 +28,35 @@ export default function RootLayout({
   const [showMenu, setShowMenu] = useState(false)
   const pathname = usePathname();
   useEffect(() => {
+    const cursor = document.getElementById("cursor");
+    const grow = () => gsap.to(cursor, { scale: 4, duration: 0.3 });
+    const shrink = () => gsap.to(cursor, { scale: 1, duration: 0.3 });
+    document.querySelectorAll("h3 ,p ,h1,h2,span").forEach((el) => {
+      el.addEventListener("mouseenter", grow);
+      el.addEventListener("mouseleave", shrink);
+    });
+    if (!cursor) return;
+    const moveCursor = (e: MouseEvent) => {
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.4,
+        ease: "power3.out",
+      });
+    };
+
+    window.addEventListener("mousemove", moveCursor);
+    return () => {
+      window.removeEventListener("mousemove", moveCursor);
+      document.querySelectorAll("a, button").forEach((el) => {
+        el.removeEventListener("mouseenter", grow);
+        el.removeEventListener("mouseleave", shrink);
+      });
+    };
+  }, []);
+
+  useEffect(() => {
+
     const handleScroll = () => {
       if (window.scrollY > 160) {
         setShowMenu(true)
@@ -60,7 +90,10 @@ export default function RootLayout({
           </PageTransitionWrapper>
 
         </ApolloProvider>
-
+        <div
+          id="cursor"
+          className="hidden md:block fixed top-0 left-0 w-4 h-4 bg-blue-600 rounded-full pointer-events-none z-[9999]"
+        />
         <Toaster
           position="top-right"
           closeButton
