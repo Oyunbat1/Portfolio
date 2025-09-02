@@ -7,6 +7,8 @@ import BurgerMenu from "./components/BurgerMenu";
 import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import { usePathname } from "next/navigation";
+import { ApolloProvider } from "@apollo/client/react";
+import { client } from "../lib/apollo-client";
 import PageTransitionWrapper from "./components/PageTransitionWrapper";
 
 const playfair = Playfair_Display({
@@ -43,6 +45,7 @@ export default function RootLayout({
       <body
         className={` ${playfair.variable}  antialiased`}
       >
+        <ApolloProvider client={client}>
         {pathname !== "/" && <Header></Header>}
                 <AnimatePresence>
           {showMenu && (
@@ -58,6 +61,7 @@ export default function RootLayout({
           {children}
         </PageTransitionWrapper>
       
+        </ApolloProvider>
       </body>
     </html>
   );
