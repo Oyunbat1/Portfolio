@@ -61,7 +61,6 @@ export default function RootLayout({
 
         </ApolloProvider>
 
-        {/* Toast notifications positioned at top right */}
         <Toaster
           position="top-right"
           closeButton
