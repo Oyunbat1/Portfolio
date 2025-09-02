@@ -19,8 +19,15 @@ export default function InfiniteText() {
     let direction = 1
 
     useEffect(() => {
+        // Check if refs are available before proceeding
+        if (!slider.current) return;
+        
         gsap.registerPlugin(ScrollTrigger)
-        gsap.to(slider.current, {
+        
+        // Add null check for slider.current
+        const sliderElement = slider.current;
+        
+        gsap.to(sliderElement, {
             scrollTrigger: {
                 trigger: document.documentElement,
                 start: 0,
@@ -29,10 +36,20 @@ export default function InfiniteText() {
                 onUpdate: e => direction = e.direction,
             }
         })
+        
         requestAnimationFrame(animation)
+        
+        // Cleanup function
+        return () => {
+            // Kill the ScrollTrigger to prevent memory leaks
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        }
     }, [])
 
     const animation = () => {
+        // Add null check before using slider.current
+        if (!slider.current) return;
+        
         if (xPercent <= -100) xPercent = 0;
         if (xPercent >= 100) xPercent = 0;
         gsap.set(slider.current, { xPercent: xPercent })
