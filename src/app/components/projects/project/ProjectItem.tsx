@@ -1,7 +1,8 @@
 'use client';
 import React from 'react'
 import { Barlow_Condensed } from "next/font/google";
-import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Image from 'next/image';
 const barlow = Barlow_Condensed({
     subsets: ["latin"],
@@ -26,6 +27,9 @@ type ProjectItemProps = {
 };
 export default function ProjectItem({ index, link, title, manageModal, isMobile, image, color, year, role, isTablet }: ProjectItemProps) {
 
+    const handleToEachProject = (link: string) => {
+        window.open(link, "_blank")
+    }
     return (
         <>
             {isMobile ? <div
@@ -51,6 +55,7 @@ export default function ProjectItem({ index, link, title, manageModal, isMobile,
             </div> : <div>
                 <div
                     onMouseEnter={(e) => { manageModal(true, index, e.clientX, e.clientY) }} onMouseLeave={(e) => { manageModal(false, index, e.clientX, e.clientY) }}
+                    onClick={() => handleToEachProject(link)}
                     className={`${isTablet ? "group flex  items-center justify-around w-[900px] xl:w-[1200px]  px-[10px] py-[50px] border-t border-gray-300 cursor-pointer transition-all duration-200 last:border-b hover:opacity-50 " : "flex flex-col w-full justify-center items-center  cursor-pointer"}`}
                 >
 
