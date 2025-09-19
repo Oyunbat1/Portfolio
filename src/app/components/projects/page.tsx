@@ -123,7 +123,7 @@ export default function Home() {
 
     return (
         <main onMouseMove={(e) => { moveItems(e.clientX, e.clientY) }} className="flex flex-col  mt-[40px] mb-[120px]  items-center relative ">
-            {isTablet ? <p className={`text-gray-400 absolute left-40 ${barlow.className}`}>Recent work</p> : <p className={`text-gray-400 absolute  border-b w-[360px]  md:w-[660px]  ${barlow.className}`}>Recent work</p>}
+            {isTablet ? <p className={`text-gray-400 absolute left-40 ${barlow.className}`}>Сүүлд хийсэн төслүүд</p> : <p className={`text-gray-400 absolute  border-b w-[360px]  md:w-[660px]  ${barlow.className}`}>Сүүлд хийсэн төслүүд</p>}
             <motion.div ref={modalContainer} variants={projectsSlideUp} animate={isInView ? "open" : "closed"} transition={{ duration: 1, ease: easing }} className=" w-full  flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col items-center justify-center mt-[60px] ">
                 {
                     isMobile ? projects.slice(0, 2).map((project, index) => {
@@ -136,7 +136,7 @@ export default function Home() {
             <div onClick={navigationToPage}>
                 <MoreButton >
                     <span className="relative flex items-center justify-center group">
-                        More work
+                        Бусад төслүүд
                         <span className="absolute -top-2 -right-3  text-gray-600 group-hover:text-white font-[300]  text-xs rounded-full px-2 py-0.5">
                             {projects.length}
                         </span>

@@ -60,7 +60,7 @@ export default function Contact() {
                                 fill="white"
                             />
                         </motion.svg>
-                        <span className={`flex items-center gap-2 ${josefinSans.className} text-[46px]`}>
+                        <span className={`flex items-center gap-2 ${josefinSans.className} text-[36px]`}>
                             <Image
                                 alt="image"
                                 src={AboutMeImage}
@@ -68,23 +68,23 @@ export default function Contact() {
                                 height={80}
                                 className="object-cover w-[50px] h-[50px] rounded-full"
                             />
-                            Let's start a
+                            Одооноос
                         </span>
-                        <span className={`flex ${josefinSans.className} text-[46px]`}>
-                            project together
+                        <span className={`flex ${josefinSans.className} text-[36px]`}>
+                            хамтарч ажиллацгаая.
                         </span>
                     </div>
 
                     <div className="w-full flex flex-col gap-4 items-start pl-[20px]">
                         <div className="flex flex-col gap-2">
-                            <h3 className={`text-gray-400 font-light text-base`}>Contact details</h3>
+                            <h3 className={`text-gray-400 font-light text-base`}>Холбогдох мэдээлэл</h3>
                             <div>
                                 <p>oyunbat9958@gmail.com</p>
                                 <p>+976 80661615</p>
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <h3 className={`text-gray-400 font-light text-base`}>Location</h3>
+                            <h3 className={`text-gray-400 font-light text-base`}>Байршил</h3>
                             <p>Ulaanbaatar,Mongolia</p>
                         </div>
                     </div>
@@ -108,7 +108,7 @@ export default function Contact() {
                     <div className="w-full flex justify-around mt-[40px]">
                         <div className="flex flex-col gap-10">
                             <span className={`flex items-center gap-2 w-[400px] ${josefinSans.className} text-[46px] lg:text-[66px] lg:w-[560px]`}>
-                                Let's start a project together
+                                Одооноос  хамтарч ажиллацгаая.
                             </span>
                             <Form isTablet={isTablet} />
                         </div>
@@ -137,14 +137,14 @@ export default function Contact() {
 
                             <div className="w-full flex flex-col gap-4 items-start pl-[20px]">
                                 <div className="flex flex-col gap-2">
-                                    <h3 className={`text-gray-400 font-light text-base`}>Contact details</h3>
+                                    <h3 className={`text-gray-400 font-light text-base`}>Холбогдох мэдээлэл</h3>
                                     <div className="flex flex-col gap-2 lg:gap-6">
                                         <p>oyunbat9958@gmail.com</p>
                                         <p>+976 80661615</p>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <h3 className={`text-gray-400 font-light text-base`}>Location</h3>
+                                    <h3 className={`text-gray-400 font-light text-base`}>Байршил</h3>
                                     <p>Ulaanbaatar,Mongolia</p>
                                 </div>
                                 <Social isTablet={isTablet} />

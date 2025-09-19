@@ -156,7 +156,7 @@ const WorkPage = () => {
                         <h1
                             className={`text-[36px] ml-[20px] md:text-[46px] lg:text-[66px] xl:text-[72px] w-[360px] md:ml-[80px] md:w-[420px] lg:w-[720px] xl:w-[1020px] lg:ml-[100px] ${ubuntu.className}`}
                         >
-                            Empowering brands through thoughtful development
+                            Миний хөгжүүлсэн төслүүдтэй маань танилцаарай...
                         </h1>
                     </div>
                     <div className="flex justify-between md:ml-[80px] lg:ml-[100px]">

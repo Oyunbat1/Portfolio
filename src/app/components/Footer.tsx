@@ -38,10 +38,10 @@ export default function Footer() {
                                 className="object-cover"
                             />
                         </div>
-                        <h2 className="ml-2 text-[8vw] md:text-[5vw] font-light">Let's work</h2>
+                        <h2 className="ml-2 text-[8vw] md:text-[5vw] font-light">Одооноос хамтарч</h2>
                     </span>
 
-                    <h2 className="text-[8vw] md:text-[5vw] font-light m-0">together</h2>
+                    <h2 className="text-[8vw] md:text-[5vw] font-light m-0">ажилцгаая</h2>
 
                     <motion.div
                         onClick={() => router.push('/Contact')}
@@ -52,7 +52,7 @@ export default function Footer() {
                             backgroundColor={"#2563EB"}
                         >
                             <p className="m-0 text-[14px] md:text-base font-light z-20 relative">
-                                Get in touch
+                                Энд дараарай
                             </p>
                         </GetInRounded>
                     </motion.div>

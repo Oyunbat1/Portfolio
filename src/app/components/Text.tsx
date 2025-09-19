@@ -13,7 +13,7 @@ const josefinSans = Josefin_Sans({
 export default function Text() {
     const description = useRef(null)
     const isInView = useInView(description)
-    const phrase = "Building software that solves real problems with clean, efficient code."
+    const phrase = "` Ирээдүйг хүлээхдээ бид амьдралаа алддаг. Амьдрал бол хүлээлт биш, харин одоо цаг юм ` гэж Seneca хэлсэн байдаг."
     return (
         <div ref={description} className={`m-0 leading-[1.8] flex gap-2 lg:gap-6  w-[300px] md:w-[500px] lg:w-[800px] xl:w-[800px] flex-wrap  justify-center ${josefinSans.className} my-40 z-10`}>
             {phrase.split(" ").map((word, index) => {

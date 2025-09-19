@@ -31,9 +31,9 @@ const InlineText = ({ filteredProjects }: any) => {
             {
                 isTablet && (
                     <div className="group flex justify-around items-center  w-[900px] lg:w-[900px] xl:w-[1200px]  px-[10px] py-[20px] pl-[120px] text-gray-400">
-                        <h1 className="text-[14px]">PROJECTS</h1>
-                        <h1 className="text-[14px] pl-[180px]">SERVICES</h1>
-                        <h1 className="text-[14px]">YEAR</h1>
+                        <h1 className="text-[14px]">ТӨСЛҮҮД</h1>
+                        <h1 className="text-[14px] pl-[180px]">ҮҮРЭГ</h1>
+                        <h1 className="text-[14px]">ХУГАЦАА </h1>
                     </div>
                 )
             }

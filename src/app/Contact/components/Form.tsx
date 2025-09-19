@@ -69,7 +69,7 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">01</p>
-                        <label htmlFor="name" className="text-[20px]">What's your name?</label>
+                        <label htmlFor="name" className="text-[20px]">Таны нэр хэн бэ?</label>
                     </div>
                     <input
                         type="text"
@@ -84,7 +84,7 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">02</p>
-                        <label htmlFor="email" className="text-[20px] ">What's your email?</label>
+                        <label htmlFor="email" className="text-[20px] ">Таны е-майл хаяг юу вэ?</label>
                     </div>
                     <input
                         type="email"
@@ -99,11 +99,11 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">03</p>
-                        <label htmlFor="company" className="text-[20px]">What's the name of your organization?</label>
+                        <label htmlFor="company" className="text-[20px]">Та ямар мэргэжилтэй вэ?</label>
                     </div>
                     <input
                         type="text"
-                        placeholder="oyunbatcompany@.com *"
+                        placeholder="software engineer *"
                         className="ml-6 text-[18px]  border-none outline-none"
                         required
                         value={formData.company}
@@ -114,7 +114,7 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">04</p>
-                        <label htmlFor="service" className="text-[20px]">What services are you looking for?</label>
+                        <label htmlFor="service" className="text-[20px]">Ямар байдлаар хамтарч ажиллахыг хүсэж байна вэ?</label>
                     </div>
                     <input
                         type="text"
@@ -129,10 +129,10 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">05</p>
-                        <label htmlFor="message" className="text-[20px]">Your message?</label>
+                        <label htmlFor="message" className="text-[20px]">Надад хэлэх зүйл байвал энэ хэсэгт бичиж үлдээгээрэй?</label>
                     </div>
                     <textarea
-                        placeholder="Hello Oyunbat,can you help me with ...*"
+                        placeholder="Сайнуу Оюунбатаа, вебсайт хийдэг сайт мэдэх үү?...*"
                         className="ml-6 text-[18px] min-h-[100px] resize-none  border-none outline-none"
                         required
                         value={formData.message}
@@ -148,7 +148,7 @@ export default function Form({ isTablet }: FormProps) {
                     >
                         <GetInRounded backgroundColor={"#2563EB"}>
                             <p className={`m-0 text-[18px] md:text-base font-light z-50 ${josefinSans.className} font-[500] relative`}>
-                                {loading ? 'Sending...' : 'Send it!'}
+                                {loading ? 'Илгээж байна...' : 'Илгээх!'}
                             </p>
                         </GetInRounded>
                     </button>
