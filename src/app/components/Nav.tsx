@@ -21,6 +21,10 @@ const navItems = [
         title: "Contact",
         href: "/Contact",
     },
+    {
+        title: "Community",
+        href: "/Community",
+    },
 
 ]
 
@@ -47,7 +51,7 @@ const Nav = ({ setIsActive }: { setIsActive: (value: boolean) => void }) => {
                         X
                     </button>
                 </div>
-                <div onMouseLeave={() => { setSelectedIndicator(pathname) }} className='flex flex-col text-[56px] gap-[12px] mt-[10px]' >
+                <div onMouseLeave={() => { setSelectedIndicator(pathname) }} className='flex flex-col text-[42px] gap-[12px] mt-[10px]' >
 
                     <div className='text-[rgb(153,153,153)] border-b border-solid border-b-[rgb(153,153,153)] uppercase text-[11px] mb-[40px] pb-1' >
                         <p>Navigation</p>

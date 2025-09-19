@@ -60,7 +60,7 @@ export default function Contact() {
                                 fill="white"
                             />
                         </motion.svg>
-                        <span className={`flex items-center gap-2 ${josefinSans.className} text-[36px]`}>
+                        <span className={`flex items-center gap-2 ${josefinSans.className} text-[30px]`}>
                             <Image
                                 alt="image"
                                 src={AboutMeImage}
@@ -70,7 +70,7 @@ export default function Contact() {
                             />
                             Одооноос
                         </span>
-                        <span className={`flex ${josefinSans.className} text-[36px]`}>
+                        <span className={`flex ${josefinSans.className} text-[30px]`}>
                             хамтарч ажиллацгаая.
                         </span>
                     </div>

@@ -23,12 +23,12 @@ export default function Footer() {
         <motion.div
             style={{ y }}
             ref={container}
-            className="text-white flex flex-col items-center justify-center bg-[#292a2b] relative"
+            className="text-white flex flex-col items-center justify-center bg-[#292a2b] relative "
         >
 
-            <div className="mt-[120px] w-full max-w-[1800px] bg-[#292a2b]">
+            <div className="mt-[180px] w-full max-w-[1800px] bg-[#292a2b]">
 
-                <div className="relative border-b border-[#868686] pb-[60px] md:pb-[100px] mx-6 sm:mx-12 md:mx-[200px]">
+                <div className="relative border-b border-[#868686] pb-[60px] md:pb-[30px] mx-6 sm:mx-12 md:mx-[200px] ">
                     <span className="flex items-center">
                         <div className="w-[70px] h-[70px] md:w-[100px] md:h-[100px] relative rounded-full overflow-hidden">
                             <Image
@@ -84,7 +84,7 @@ export default function Footer() {
                 </div>
 
 
-                <div className="flex flex-col md:flex-row justify-between  mt-[30px] mb-[30px] md:mt-[80px] px-6 sm:px-12 md:px-20">
+                <div className="flex flex-col md:flex-row justify-between  mt-[30px] mb-[50px] md:mt-[80px] px-6 sm:px-12 md:px-20">
 
                     <div className="flex flex-row sm:flex-row  gap-6 sm:gap-10 mb-[40px]">
                         <span className="flex flex-col gap-2">

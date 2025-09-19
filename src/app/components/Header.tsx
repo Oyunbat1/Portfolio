@@ -18,7 +18,7 @@ export default function Header() {
     const router = useRouter();
     const button = useRef<HTMLDivElement>(null);
     const [isActive, setIsActive] = useState(false)
-    const headerValues = ["About", "Contact", "Work"]
+    const headerValues = ["About", "Contact", "Work", "Community"]
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
