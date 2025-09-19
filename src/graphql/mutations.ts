@@ -4,6 +4,7 @@ export const CREATE_MESSAGE = gql`
   mutation CreateMessage(
     $name: String!
     $email: String!
+    $social: String!
     $company: String!
     $service: String!
     $message: String!
@@ -11,12 +12,14 @@ export const CREATE_MESSAGE = gql`
     createMessage(
       name: $name
       email: $email
+      social: $social
       company: $company
       service: $service
       message: $message
     ) {
       id
       name
+      social
       email
       company
       service

@@ -19,6 +19,7 @@ export default function Form({ isTablet }: FormProps) {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        social: '',
         company: '',
         service: '',
         message: ''
@@ -45,6 +46,7 @@ export default function Form({ isTablet }: FormProps) {
                 setFormData({
                     name: '',
                     email: '',
+                    social: '',
                     company: '',
                     service: '',
                     message: ''
@@ -95,10 +97,25 @@ export default function Form({ isTablet }: FormProps) {
                         onChange={(e) => handleInputChange('email', e.target.value)}
                     />
                 </div>
-
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">03</p>
+                        <label htmlFor="email" className="text-[20px] ">Та аль нэг сошиал хаягаа зөв оруулна уу?</label>
+                    </div>
+                    <input
+                        type="text"
+                        placeholder="oyunbatdev *"
+                        className="ml-6 text-[18px]  border-none outline-none"
+                        required
+                        value={formData.social}
+                        onChange={(e) => handleInputChange('social', e.target.value)}
+                    />
+                </div>
+
+
+                <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
+                    <div className="flex items-center gap-2 pt-[20px]">
+                        <p className="text-gray-400 text-[12px]">04</p>
                         <label htmlFor="company" className="text-[20px]">Та ямар мэргэжилтэй вэ?</label>
                     </div>
                     <input
@@ -113,7 +130,7 @@ export default function Form({ isTablet }: FormProps) {
 
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
-                        <p className="text-gray-400 text-[12px]">04</p>
+                        <p className="text-gray-400 text-[12px]">05</p>
                         <label htmlFor="service" className="text-[20px]">Ямар байдлаар хамтарч ажиллахыг хүсэж байна вэ?</label>
                     </div>
                     <input
@@ -128,7 +145,7 @@ export default function Form({ isTablet }: FormProps) {
 
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
-                        <p className="text-gray-400 text-[12px]">05</p>
+                        <p className="text-gray-400 text-[12px]">06</p>
                         <label htmlFor="message" className="text-[20px]">Надад хэлэх зүйл байвал энэ хэсэгт бичиж үлдээгээрэй?</label>
                     </div>
                     <textarea

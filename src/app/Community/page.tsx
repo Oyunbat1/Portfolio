@@ -1,11 +1,8 @@
 "use client"
-import React, { useEffect, useState } from "react"
-import { Ubuntu, Josefin_Sans } from "next/font/google";
+import React, { useState } from "react"
+import { Ubuntu } from "next/font/google";
 import { useScroll, useTransform, motion, useInView } from 'framer-motion';
 import Rounded from "../common/MorePartreon";
-// import AboutMeImage from "../../../public/about/profile-about.jpg"
-// import DesktopAboutMeImage from "../../../public/bg.png"
-// import AboutChildImage from "../../../public/about/child-about.jpeg"
 import Courses from "@/constants/course";
 import Footer from "../components/Footer";
 import Globus from "../../../public/globus.gif"
@@ -18,11 +15,7 @@ const ubuntu = Ubuntu({
     weight: ["300", "400", "500", "700"],
     style: ["normal", "italic"],
 });
-// const josefinSans = Josefin_Sans({
-//     subsets: ["latin"],
-//     weight: ["100", "200", "300", "400", "500", "600", "700"],
-//     style: ["normal", "italic"]
-// });
+
 const Page = () => {
     const [isTablet, setIsTablet] = useState(false);
     const mainContainer = useRef(null);
@@ -50,19 +43,23 @@ const Page = () => {
                 </div>
 
             </div>
+
             <div ref={container} className=" flex flex-col   ">
                 {Courses.map((items, index) => {
                     const targetScale = 1 - ((Courses.length - index) * 0.05)
                     return < Card {...items} i={index} progress={scrollYProgress} range={[index * 0.25, 1]} targetScale={targetScale} />
                 })}
             </div>
+            <div className=" mt-[60px] m-[0px_30px] lg:m-[0px_100px] md:text-[26px] lg:text-[66px] xl:text-[72px] ">
+                <h1 className={`text-[16px] lg:text-[28px] ${ubuntu.className}`}>Өөрийн гэсэн тодорхой салбарын мэдлэг, ур чадвар бүхий туршлагатай хувь хүмүүс/мэргэжилтэнгүүдэд хэрхэн үүнийгээ зөв зохистой ашиглах , бүтээмжээ ихэсгэх,МӨН тодорхой чиглэлээр бизнес эрхэлдэг хүмүүст гарын доорх материалаар бүтээгдэхүүнээ хэрхэн суртчилахад нь тусалж, хамгийн сүүлийн үеийн хиймэл оюун ухаан болон сошиал медиа стратегийг ашиглан илүү их хандалт, хэрэглэгчдийг татах талдээр туслахаар шийдсэн.</h1>
+            </div>
             <div className="px-6 md:px-20 lg:px-40 py-16 bg-gradient-to-b from-white to-gray-50 text-gray-800">
                 <div className="max-w-4xl mx-auto text-center space-y-8">
-                    <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight">
+                    <h1 className={`text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight ${ubuntu.className}`}>
                         Энэхүү <span className="text-blue-600">Community</span>-д та хэрхэн элсэх вэ?
                     </h1>
 
-                    <div className="space-y-6 text-left sm:text-lg leading-relaxed">
+                    <div className={`space-y-6 text-left sm:text-lg leading-relaxed ${ubuntu.className}`}>
                         <p>
                             <span className="font-semibold text-blue-600">1.</span> Та доорх
                             вебсайт-д бүртгэлээ үүсгэнэ.
@@ -86,7 +83,7 @@ const Page = () => {
                     </div>
 
                     <div className="pt-8">
-                        <p className="text-gray-600 mb-4">Доорх вебсайт-тай танилцаарай:</p>
+                        <p className={`text-gray-600 mb-4 ${ubuntu.className}`}>Доорх вебсайт-тай танилцаарай:</p>
                         <div className="flex justify-center">
                             <a
                                 href="https://www.patreon.com/cw/OyunbatDev"
