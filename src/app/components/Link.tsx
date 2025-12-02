@@ -17,7 +17,6 @@ type LinkProps = {
 const Link = ({ data, isActive, setSelectedIndicator }: LinkProps) => {
     const { title, href, index } = data;
     return (
-
         <motion.div
             className='relative flex items-center'
             onMouseEnter={() => { setSelectedIndicator(href) }}

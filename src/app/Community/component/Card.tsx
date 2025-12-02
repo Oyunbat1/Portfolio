@@ -41,7 +41,7 @@ export default function Card({ title, description, image, imageDesktop, color, i
                    group transition-all duration-500 ease-in-out hover:scale-105 "
             >
 
-                <motion.div style={{ scale: imageScale }} className="w-[500px] rounded-2xl overflow-hidden" >
+                <motion.div className="w-[500px] rounded-2xl overflow-hidden" >
                     <Image
                         alt="img"
                         src={isDesktop ? `/${imageDesktop}` : `/${image}`}

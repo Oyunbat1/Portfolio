@@ -21,10 +21,6 @@ const navItems = [
         title: "Contact",
         href: "/Contact",
     },
-    {
-        title: "Community",
-        href: "/Community",
-    },
 
 ]
 

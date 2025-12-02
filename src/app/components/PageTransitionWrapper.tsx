@@ -18,7 +18,7 @@ const PageTransitionWrapper = ({ children }: PageTransitionWrapperProps) => {
     // Don't show loader on initial load
     if (currentPath && currentPath !== pathname) {
       setIsLoading(true);
-      
+
       // Hide loader after animation completes (reduced time to prevent lagging)
       const timer = setTimeout(() => {
         setIsLoading(false);
@@ -26,7 +26,7 @@ const PageTransitionWrapper = ({ children }: PageTransitionWrapperProps) => {
 
       return () => clearTimeout(timer);
     }
-    
+
     setCurrentPath(pathname);
   }, [pathname, currentPath]);
 
@@ -34,13 +34,13 @@ const PageTransitionWrapper = ({ children }: PageTransitionWrapperProps) => {
     <>
       <AnimatePresence mode="wait">
         {isLoading && (
-          <PageLoader 
+          <PageLoader
             key="page-loader"
             onComplete={() => setIsLoading(false)}
           />
         )}
       </AnimatePresence>
-      
+
       {children}
     </>
   );
