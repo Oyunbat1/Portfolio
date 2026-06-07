@@ -36,7 +36,6 @@ export default function Form({ isTablet }: FormProps) {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
         try {
             const result = await createMessage({
                 variables: formData
