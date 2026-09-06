@@ -47,7 +47,7 @@ const Page = () => {
             <div ref={container} className=" flex flex-col   ">
                 {Courses.map((items, index) => {
                     const targetScale = 1 - ((Courses.length - index) * 0.05)
-                    return < Card {...items} i={index} progress={scrollYProgress} range={[index * 0.25, 1]} targetScale={targetScale} />
+                    return <Card key={items.id} {...items} i={index} progress={scrollYProgress} range={[index * 0.25, 1]} targetScale={targetScale} />
                 })}
             </div>
             <div className=" mt-[60px] m-[0px_30px] lg:m-[0px_100px] md:text-[26px] lg:text-[66px] xl:text-[72px] ">

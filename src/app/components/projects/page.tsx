@@ -3,11 +3,9 @@ import { useState, useEffect, useRef } from 'react';
 import Project from './project/ProjectItem';
 import { projectsSlideUp } from '../../js/anim'
 import { Easing, motion, useInView } from 'framer-motion';
-import gsap from 'gsap';
 import { Barlow_Condensed } from "next/font/google";
 import MoreButton from "../../common/MoreButton"
 import { useRouter } from "next/navigation"
-import { style } from 'framer-motion/client';
 const barlow = Barlow_Condensed({
     subsets: ["latin"],
     weight: "400"
@@ -83,9 +81,6 @@ export default function Home() {
     const [modal, setModal] = useState({ active: false, index: 0 })
     const { active, index } = modal;
     const modalContainer = useRef(null);
-    const cursor = useRef(null);
-    const xMoveCursor = useRef<((value: number) => gsap.core.Tween) | null>(null);
-    const yMoveCursor = useRef<((value: number) => gsap.core.Tween) | null>(null);
     const [isMobile, setIsMobile] = useState(false)
     const [isTablet, setIsTablet] = useState(false)
 
@@ -93,8 +88,6 @@ export default function Home() {
 
     useEffect(() => {
 
-        xMoveCursor.current = gsap.quickTo(cursor.current, "left", { duration: 0.5, ease: "power3" })
-        yMoveCursor.current = gsap.quickTo(cursor.current, "top", { duration: 0.5, ease: "power3" })
 
         const handleResize = () => {
             const width = window.innerWidth;
@@ -110,19 +103,13 @@ export default function Home() {
         router.push("/Work")
     }
 
-    const moveItems = (x: number, y: number) => {
-        console.log(x, y)
-        xMoveCursor.current?.(x);
-        yMoveCursor.current?.(y);
-    };
     const manageModal = (active: boolean, index: number, x: number, y: number) => {
 
         setModal({ active, index })
-        moveItems(x, y)
     };
 
     return (
-        <main onMouseMove={(e) => { moveItems(e.clientX, e.clientY) }} className="flex flex-col  mt-[40px] mb-[120px]  items-center relative ">
+        <main className="flex flex-col  mt-[40px] mb-[120px]  items-center relative ">
             {isTablet ? <p className={`text-gray-400 absolute left-40 ${barlow.className}`}>Сүүлд хийсэн төслүүд</p> : <p className={`text-gray-400 absolute  border-b w-[360px]  md:w-[660px]  ${barlow.className}`}>Сүүлд хийсэн төслүүд</p>}
             <motion.div ref={modalContainer} variants={projectsSlideUp} animate={isInView ? "open" : "closed"} transition={{ duration: 1, ease: easing }} className=" w-full  flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col items-center justify-center mt-[60px] ">
                 {

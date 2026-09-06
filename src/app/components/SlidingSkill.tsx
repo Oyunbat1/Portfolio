@@ -35,16 +35,16 @@ const SlidingSkill = () => {
         <div className='mb-6 mx-[40px]'> <p className={`text-gray-400 lg:pb-10 lg:pl-10 border-b  ${barlow.className}`}>Одоо байгаа ур чадварууд</p></div>
         <div ref={containerRef} className='w-screen gap-[20px] flex flex-col justify-center overflow-hidden'>
             <motion.div className='flex gap-[40px] ' style={{ x: x1 }}>{slider1.map((skill) => (
-                <h3 className={`text-[26px] sm:text-[32px] md:text-[38px] lg:text-[46px] xl:text-[56px]  ${josefinSans.className}`}>{skill}</h3>
+                <h3 key={skill} className={`text-[26px] sm:text-[32px] md:text-[38px] lg:text-[46px] xl:text-[56px]  ${josefinSans.className}`}>{skill}</h3>
             ))}</motion.div>
             <motion.div className='flex gap-[40px] ' style={{ x: x2 }}>{slider2.map((skill) => (
-                <h3 className={`text-[26px] sm:text-[32px] md:text-[38px] lg:text-[46px] xl:text-[56px]  ${josefinSans.className}`}>{skill}</h3>
+                <h3 key={skill} className={`text-[26px] sm:text-[32px] md:text-[38px] lg:text-[46px] xl:text-[56px]  ${josefinSans.className}`}>{skill}</h3>
             ))}</motion.div>
             <motion.div className='flex gap-[40px] ' style={{ x: x3 }}>{slider3.map((skill) => (
-                <h3 className={`text-[26px] sm:text-[32px] md:text-[38px] lg:text-[46px] xl:text-[56px]  ${josefinSans.className}`}>{skill}</h3>
+                <h3 key={skill} className={`text-[26px] sm:text-[32px] md:text-[38px] lg:text-[46px] xl:text-[56px]  ${josefinSans.className}`}>{skill}</h3>
             ))}</motion.div>
             <motion.div className='flex gap-[40px] ' style={{ x: x4 }}>{slider4.map((skill) => (
-                <h3 className={`text-[26px] sm:text-[32px] md:text-[38px] lg:text-[46px] xl:text-[56px]  ${josefinSans.className}`}>{skill}</h3>
+                <h3 key={skill} className={`text-[26px] sm:text-[32px] md:text-[38px] lg:text-[46px] xl:text-[56px]  ${josefinSans.className}`}>{skill}</h3>
             ))}</motion.div>
 
         </div >

@@ -1,12 +1,10 @@
 "use client";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AnimatePresence, motion } from "framer-motion";
 import Magnetic from "@/app/common/Magnetic"
 import Nav from "./Nav";
-import gsap from "gsap";
 
 
 
@@ -16,7 +14,6 @@ export default function Header() {
     const header = useRef<HTMLDivElement>(null);
     const pathname = usePathname();
     const router = useRouter();
-    const button = useRef<HTMLDivElement>(null);
     const [isActive, setIsActive] = useState(false)
     const headerValues = ["About", "Contact", "Work"]
     useEffect(() => {
@@ -39,30 +36,6 @@ export default function Header() {
 
 
 
-    useLayoutEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.to(button.current, {
-            scrollTrigger: {
-                trigger: document.documentElement,
-                start: 0,
-                end: window.innerHeight,
-                onLeave: () => {
-                    gsap.to(button.current, {
-                        scale: 1,
-                        duration: 0.25,
-                        ease: "power1.out",
-                    });
-                },
-                onEnterBack: () => {
-                    gsap.to(button.current, {
-                        scale: 0,
-                        duration: 0.25,
-                        ease: "power1.out",
-                    });
-                },
-            },
-        });
-    }, []);
     const handleToHomePage = () => {
         router.push("/")
     }
@@ -95,9 +68,8 @@ export default function Header() {
 
                 {isMobile ? <div className="flex items-center space-x-6">
                     {["Menu"].map((item, i) => (
-                        <Magnetic>
+                        <Magnetic key={i}>
                             <div
-                                key={i}
                                 onClick={() => setIsActive(!isActive)}
                                 className="relative flex cursor-pointer flex-col items-center px-4 py-2 group z-50"
                             >
