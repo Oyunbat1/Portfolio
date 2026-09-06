@@ -62,6 +62,10 @@ const mn = {
             p6: "Сайнуу Оюунбатаа, вебсайт хийдэг сайт мэдэх үү?...*",
             submit: "Илгээх!",
             sending: "Илгээж байна...",
+            toastSuccess: "Мессеж амжилттай илгээгдлээ! 🎉",
+            toastSuccessDesc: "Надтай холбогдсонд баярлалаа. Удахгүй хариу өгье!",
+            toastError: "Мессеж илгээхэд алдаа гарлаа",
+            toastErrorDesc: "Дахин оролдоно уу, эсвэл и-мэйлээр шууд холбогдоорой.",
         },
     },
 };
@@ -130,6 +134,10 @@ const en: typeof mn = {
             p6: "Hi Oyunbat, do you know anyone who builds websites?...*",
             submit: "Send!",
             sending: "Sending...",
+            toastSuccess: "Message sent successfully! 🎉",
+            toastSuccessDesc: "Thank you for contacting me. I'll get back to you soon!",
+            toastError: "Failed to send message",
+            toastErrorDesc: "Please try again or contact me directly via email.",
         },
     },
 };

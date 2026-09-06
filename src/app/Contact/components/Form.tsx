@@ -52,16 +52,16 @@ export default function Form({ isTablet }: FormProps) {
                     service: '',
                     message: ''
                 });
-                toast.success("Message sent successfully! 🎉", {
+                toast.success(t.contact.form.toastSuccess, {
                     duration: 3000,
-                    description: "Thank you for contacting me. I'll get back to you soon!"
+                    description: t.contact.form.toastSuccessDesc
                 });
             }
         } catch (err) {
             console.error('Error sending message:', err);
-            toast.error("Failed to send message", {
+            toast.error(t.contact.form.toastError, {
                 duration: 4000,
-                description: "Please try again or contact me directly via email."
+                description: t.contact.form.toastErrorDesc
             });
         }
     };

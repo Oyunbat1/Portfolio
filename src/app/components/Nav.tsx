@@ -5,29 +5,15 @@ import { menuSlide } from "../js/anim"
 import Link from "../components/Link"
 import { useLang } from "@/i18n/LanguageProvider"
 
-const navItems = [
-    {
-        title: "Home",
-        href: "/",
-    },
-    {
-        title: "Work",
-        href: "/Work",
-    },
-    {
-        title: "About",
-        href: "/About",
-    },
-    {
-        title: "Contact",
-        href: "/Contact",
-    },
-
-]
-
 const Nav = ({ setIsActive }: { setIsActive: (value: boolean) => void }) => {
     const pathname = usePathname();
     const { t } = useLang();
+    const navItems = [
+        { title: t.nav.home, href: "/" },
+        { title: t.nav.work, href: "/Work" },
+        { title: t.nav.about, href: "/About" },
+        { title: t.nav.contact, href: "/Contact" },
+    ];
     const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
     return (
