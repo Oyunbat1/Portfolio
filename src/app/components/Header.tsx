@@ -10,7 +10,6 @@ import Nav from "./Nav";
 
 export default function Header() {
     const [isMobile, setIsMobile] = useState(false)
-    const [showHeader, setShowHeader] = useState(false);
     const header = useRef<HTMLDivElement>(null);
     const pathname = usePathname();
     const router = useRouter();
@@ -20,14 +19,9 @@ export default function Header() {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
-        const handleScreenY = () => {
-            setShowHeader(window.screenY >= 200);
-        }
-        handleScreenY();
         handleResize();
         window.addEventListener("resize", handleResize);
-        window.addEventListener("scroll", handleScreenY)
-        return () => { window.removeEventListener("resize", handleResize), window.removeEventListener("scroll", handleScreenY) };
+        return () => window.removeEventListener("resize", handleResize);
     }, [pathname]);
 
     const NavigatePages = (page: string) => {
@@ -45,7 +39,7 @@ export default function Header() {
                 ref={header}
                 className={`top-0 z-10 flex w-full items-center justify-between px-9 py-8 
     ${(pathname === "/" || pathname === "/Contact") ? "text-white" : "text-black"} ${pathname === "/Contact" ? "bg-[#292a2b] " : ""}
-    font-serif ${showHeader ? "bg-red-200" : ""}`}
+    font-serif`}
             >
                 <Magnetic>
                     <div onClick={handleToHomePage} className="flex cursor-pointer items-center group ">

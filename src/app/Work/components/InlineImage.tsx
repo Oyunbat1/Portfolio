@@ -2,7 +2,7 @@
 import { Barlow_Condensed, } from "next/font/google";
 import { useEffect, useState } from 'react';
 import { motion } from "framer-motion"
-import Image from "next/image";
+import ProjectThumb from "@/app/components/projects/ProjectThumb";
 const barlow = Barlow_Condensed({
     subsets: ["latin"],
     weight: "400"
@@ -10,7 +10,6 @@ const barlow = Barlow_Condensed({
 
 
 const InlineImage = ({ filteredProjects }: any) => {
-    console.log(filteredProjects, "FILTEREDPROJECT")
     const [isTablet, setIsTablet] = useState(false)
     //filteredProject 
     useEffect(() => {
@@ -23,7 +22,7 @@ const InlineImage = ({ filteredProjects }: any) => {
         return () => { window.removeEventListener("resize", handleResize) }
     }, [])
     const navigationToProjects = (link: string) => {
-        window.open(link, "_blank");
+        if (link) window.open(link, "_blank");
     }
     return (
         <motion.div >
@@ -37,9 +36,7 @@ const InlineImage = ({ filteredProjects }: any) => {
                             className={`${isTablet ? "group flex justify-around items-center  lg:flex-col w-[500px] xl:w-[600px]  px-[10px] py-[50px] border-t border-gray-300 cursor-pointer transition-all duration-200  hover:opacity-50 " : "flex flex-col w-full justify-center items-center  cursor-pointer"}`}
                         >
 
-                            <div style={{ backgroundColor: items.color }} className={`p-[20px]`}>
-                                <Image src={`/${items.src}`} alt="project images" width={200} height={200} className='w-[300px] lg:w-[500px] lg:h-[340px] h-[220px] p-[30px]' ></Image>
-                            </div>
+                            <ProjectThumb src={items.src} color={items.color} title={items.title} className='w-[300px] lg:w-[500px] lg:h-[340px] h-[220px] p-[30px]' />
                             {isTablet ? <h2 className={`${barlow.className} ${isTablet ? "text-[36px] lg:text-[32px] transition-transform duration-500 group-hover:-translate-x-2 w-[480px]  py-2   " : "text-[36px]    transition-transform duration-500 group-hover:-translate-x-2 w-[320px]  py-2 border-b border-b-gray-400 "}`}>
                                 {items.title}
                             </h2> : <h2 className={`${barlow.className} ${isTablet ? "text-[36px] lg:text-[72px]  transition-transform duration-500 group-hover:-translate-x-2 w-[380px]  py-2   " : "text-[36px]    transition-transform duration-500 group-hover:-translate-x-2 w-[320px]  py-2 border-b border-b-gray-400 "}`}>

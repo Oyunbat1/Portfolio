@@ -28,7 +28,7 @@ export default function Section() {
     return (
         <div
             ref={container}
-            className='relative flex items-center justify-center h-screen '
+            className='relative flex items-center justify-center h-[100svh] '
             style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
         >
             <Text />

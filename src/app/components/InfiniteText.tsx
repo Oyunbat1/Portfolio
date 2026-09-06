@@ -59,7 +59,7 @@ export default function InfiniteText() {
     }
 
     return (
-        <div ref={slider} className={`text-[#fff] flex relative  md:bg-amber-200 lg:bg-red-400 xl:bg-green-200 w-full justify-center items-center ${bebas.className}`}>
+        <div ref={slider} className={`text-[#fff] flex relative w-full justify-center items-center ${bebas.className}`}>
             <p ref={firstText} className="text-[132px] md:text-[152px] xl:text-[170px] absolute -left-260 md:-left-260 xl:-left-280">  Oyunbat-Batnasan </p>
             <p ref={secondText} className={`text-[132px] md:text-[152px] xl:text-[170px] absolute whitespace-nowrap`}>  Oyunbat-Batnasan </p>
             <p ref={thirdText} className="text-[132px] md:text-[152px] xl:text-[170px] absolute -right-260 md:-right-240 xl:-right-260 whitespace-nowrap"> Oyunbat-Batnasan </p>

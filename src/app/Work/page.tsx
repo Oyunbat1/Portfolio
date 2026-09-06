@@ -7,8 +7,8 @@ import { Grid3x2, Rows4 } from "lucide-react";
 import InlineButton from "../common/ProjectsInlineButton";
 import InlineImage from "./components/InlineImage";
 import { motion, useTransform, useScroll } from "framer-motion"
-import { link } from "fs";
 import Footer from "../components/Footer";
+import { projects } from "@/constants/projects";
 
 const ubuntu = Ubuntu({
     subsets: ["latin"],
@@ -16,66 +16,8 @@ const ubuntu = Ubuntu({
     style: ["normal", "italic"],
 });
 
-const projects = [
-    {
-        title: "Workplace 2.0",
-        src: "project/vibemesh.png",
-        color: "#b0b076",
-        year: "2025",
-        role: "Full-stack developer",
-        link: "https://workplace-2-0.vercel.app/"
-    },
-    {
-        title: "Sainkanzlei.com",
-        src: "project/sainkanzlei.png",
-        color: "#c2c2b4",
-        year: "2025",
-        role: "Front-end developer",
-        link: "https://sainkanzlei.com/"
-    },
-    {
-        title: "Food delivery",
-        src: "project/fooddelivery.png",
-        color: "#a6a6a6",
-        year: "2024",
-        role: "Full-stack developer",
-        link: "https://food-delivery-front-end-sand.vercel.app/"
-    },
-    {
-        title: "Movie app",
-        src: "project/movieapp.png",
-        color: "#b0b076",
-        year: "2024",
-        role: "Full-stack developer",
-        link: "https://movie-app-rosy-mu.vercel.app/"
-    },
-    {
-        title: "To Do app",
-        src: "project/todolist.jpg",
-        color: "#ffe0e0",
-        year: "2024",
-        role: "Front-end developer",
-        link: "https://todo-kappa-murex.vercel.app/"
-    },
-    {
-        title: "Snake game",
-        src: "project/snakegame.png",
-        color: "#c2c2b4",
-        year: "2024",
-        role: "Front-end developer",
-        link: "https://snake-snowy-psi.vercel.app/"
-    },
-    {
-        title: "Weather App",
-        src: "project/weatherapp.png",
-        color: "#a6a6a6",
-        year: "2024",
-        role: "Full-stack developer",
-        link: "https://weather-app-eight-gold-39.vercel.app/"
-    },
-];
 
-type FilterType = "All" | "Front-End" | "Full-Stack";
+type FilterType = "All" | "Front-End" | "Full-Stack" | "Mobile";
 type FilterProjectWithImageAndText = "inlineText" | "images";
 
 const WorkPage = () => {
@@ -85,7 +27,7 @@ const WorkPage = () => {
     const [imageFilter, setImageFilter] =
         useState<FilterProjectWithImageAndText>("inlineText");
     const mainContainer = useRef(null)
-    const filters: FilterType[] = ["All", "Front-End", "Full-Stack"];
+    const filters: FilterType[] = ["All", "Front-End", "Full-Stack", "Mobile"];
 
     const filterWithImage: {
         value: FilterProjectWithImageAndText;
@@ -102,6 +44,9 @@ const WorkPage = () => {
         ).length,
         "Full-Stack": projects.filter((p) =>
             p.role.toLowerCase().includes("full")
+        ).length,
+        Mobile: projects.filter((p) =>
+            p.role.toLowerCase().includes("mobile")
         ).length,
     };
 
@@ -123,6 +68,8 @@ const WorkPage = () => {
             return project.role.toLowerCase().includes("front");
         if (filter === "Full-Stack")
             return project.role.toLowerCase().includes("full");
+        if (filter === "Mobile")
+            return project.role.toLowerCase().includes("mobile");
         return true;
     });
 

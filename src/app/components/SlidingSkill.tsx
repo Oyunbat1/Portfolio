@@ -12,14 +12,14 @@ const barlow = Barlow_Condensed({
     subsets: ["latin"],
     weight: "400"
 })
-import Lenis from 'lenis'; const bevan = Bevan({
+const bevan = Bevan({
     subsets: ["latin"],
     weight: "400"
 });
-const slider1 = ["REACT", "TYPESCRIPT", "NEXT.JS", "JAVASCRIPT", "MONGODB"]
-const slider2 = ["HTML5", "CSS3", "TAILWINDCSS", "FRAMER", "FIGMA"]
-const slider3 = ["RESTAPI", "POSTMAN", "GIT", "GITHUB", "UNIT_TESTING"]
-const slider4 = ["SASS", "NODE.JS", "EXPRESS.JS", "GRAPHQL", "E2E_TESTING"]
+const slider1 = ["FLUTTER", "DART", "GETX", "SHOREBIRD", "TESTFLIGHT"]
+const slider2 = ["CLAUDE", "MCP", "AI_AGENTS", "PROMPT_DESIGN", "AUTOMATION"]
+const slider3 = ["REACT", "NEXT.JS", "TYPESCRIPT", "TAILWINDCSS", "FRAMER_MOTION"]
+const slider4 = ["NODE.JS", "EXPRESS.JS", "MONGODB", "GRAPHQL", "PYTHON"]
 const SlidingSkill = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({

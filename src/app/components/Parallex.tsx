@@ -36,19 +36,23 @@ export default function Parallex() {
         offset: ["start start", "end start"]
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], ["0vh", "150vh"]);
+    const y = useTransform(scrollYProgress, [0, 1], ["0svh", "30svh"]);
     return (
         <motion.div variants={landingPageSlideUp} initial="initial" animate="enter" >
 
-            <div ref={containerRef} className="h-screen overflow-hidden">
+            <div ref={containerRef} className="relative h-[100svh] overflow-hidden">
 
-                <motion.div style={{ y }} className="relative h-full">
+                <motion.div style={{ y }} className="absolute inset-x-0 -top-[15svh] h-[130svh] will-change-transform">
                     <Image
                         src={isMobile ? ProfileMobile : ProfileDesktop}
                         fill
+                        priority
+                        sizes="100vw"
                         alt="image"
                         style={{ objectFit: "cover" }}
                     />
+                </motion.div>
+                <div className="relative h-full">
                     <Header />
                     <div className="absolute top-26 lg:top-46 left-0 w-full h-full flex items-center justify-center">
                         <InfiniteText />
@@ -83,7 +87,7 @@ export default function Parallex() {
                         </div>
                     </div>}
 
-                </motion.div>
+                </div>
             </div>
         </motion.div>
     )

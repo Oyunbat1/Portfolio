@@ -20,9 +20,47 @@ const josefinSans = Josefin_Sans({
     weight: ["100", "200", "300", "400", "500", "600", "700"],
     style: ["normal", "italic"]
 });
+const services = [
+    {
+        title: "Flutter mobile хөгжүүлэгч",
+        description: "Flutter, Dart, GetX ашиглан iOS болон Android аппликейшн бүтээх, Shorebird / TestFlight-аар release хийх.",
+    },
+    {
+        title: "AI agent бүтээх",
+        description: "Claude (Projects, Skills, MCP) ашиглан таны бизнесийн давтагдах ажлуудыг автоматжуулсан AI agent хөгжүүлэх.",
+    },
+    {
+        title: "Frontend хөгжүүлэгч",
+        description: "React, Next.js, Tailwind, Framer-motion, Gsap ашиглан responsive, pixel perfect, interactive вебсайтуудыг угсрах.",
+    },
+    {
+        title: "Backend инженер",
+        description: "REST API-г хөгжүүлэх, мэдээллийн санг удирдах, гүйцэтгэлийг хангах.",
+    },
+    {
+        title: "Full-stack хөгжүүлэгч",
+        description: "Би санаа гаргахаас эхлээд байршуулах хүртэл цогц шийдлүүдийг хүргэх.",
+    },
+    {
+        title: "Claude-аар бүтээмжээ нэмэгдүүлэх",
+        description: "Claude зэрэг хиймэл оюуны хэрэгслийг ашиглан таны өдөр тутмын ажлын бүтээмжийг ихэсгэх.",
+    },
+    {
+        title: "Гар утасаа ухаалаг ашиглах",
+        description: "Таны өдөр тутамдаа хийдэг ажлуудыг гар утасныхаа тусламжтай хамгийн бүтээмжтэй ажиллах.",
+    },
+    {
+        title: "Social media хөгжүүлэлт",
+        description: "AI болон бусад технологиудыг ашиглан таны instagram, facebook page зэрэг social аккаунтуудыг хөгжүүлэх.",
+    },
+    {
+        title: "Бичлэг янзлах",
+        description: "Зөвхөн гар утасаа ашиглаад сүүлийн үеийн тренд бичлэгүүдийг янзлах.",
+    },
+];
+
 const Page = () => {
     const [isTablet, setIsTablet] = useState(false);
-    console.log(isTablet, "IS HEREE")
     const mainContainer = useRef(null);
     const container = useRef(null);
     const secondContainer = useRef(null);
@@ -69,10 +107,10 @@ const Page = () => {
                 {isTablet ? "" : <div className="flex flex-col gap-3 mt-[60px] mb-[20px]">
                     <ArrowDownRight className="ml-[20px]"></ArrowDownRight>
                     <p className={`ml-[20px] mr-[20px] font-mono leading-loose  ${josefinSans.className} `}>Сайн байна уу, намайг Оюунбат гэдэг.
-                        Программ хангамжийн инженер мэргэжилтэй, өөрийн сошиал хаягаараа бичлэг хэрхэн гар утсаараа янзлах ,  хувийн брэндээ хэрхэн хөгжүүлэх ,  хиймэл оюуны  хэрэгслийг өдөр тутамдаа хэрхэн
-                        ашиглах аргуудын талаар тасралтгүй 2 жил контент хийсэн байна. Одоогоор хиймэл оюун маш эрчимтэй хөгжиж байгаатай холбогдуулан тасралтгүй суралцаж, сурч мэдсэн зүйлсээ сошиал медиадаа тогтмол хуваалцаж яваа инженер,
-                        mobilegrapher, контент бүтээгч залуу байна. Төдийлөн байгууллага болон хувь хүмүүстэй хамтарч ажиллаад байдаггүй ч 3+ байгууллагатай хамтран
-                        ажилласан бөгөөд жилийн хугацаанд хөгжүүлэгчээр 4 төсөл дээр ажилласан туршлагатай.</p>
+                        Программ хангамжийн инженер. Mezorn технологийн компанид Flutter mobile хөгжүүлэгчээр дадлагажиж, сарын 520,000 идэвхтэй хэрэглэгчтэй UBCab такси платформ болон
+                        уур амьсгалын өөрчлөлтийн эсрэг чиглэсэн Treelings төсөл дээр production түвшний ажил гүйцэтгэсэн. Үүний зэрэгцээ бичлэг хэрхэн гар утсаараа янзлах, хувийн брэндээ хэрхэн хөгжүүлэх,
+                        хиймэл оюуны хэрэгслийг өдөр тутамдаа хэрхэн ашиглах талаар 2 жил тасралтгүй контент хийж, Instagram дээр 8000+, Facebook дээр 20000+ дагагчтай болсон.
+                        Одоогоор Claude дээр гүнзгий мэргэшиж, жижиг бизнесүүдэд зориулсан AI agent бүтээх, AI-д шинээр суралцаж буй хүмүүст зөвлөх чиглэлээр ажиллаж байна.</p>
                 </div>
                 }
             </div>
@@ -81,10 +119,10 @@ const Page = () => {
                     {isTablet ? <div className="flex flex-col gap-3 mt-[60px] mb-[140px] ml-[40px] lg:ml-[100px] lg:pl-[100px] lg:mt-[100px]">
                         <ArrowDownRight className="ml-[20px]"></ArrowDownRight>
                         <p className={`ml-[20px] mr-[20px] font-mono lg:text-[20px] leading-loose ${josefinSans.className} `}>Сайн байна уу, намайг Оюунбат гэдэг.
-                            Программ хангамжийн инженер мэргэжилтэй, өөрийн сошиал хаягаараа бичлэг хэрхэн гар утсаараа янзлах ,  хувийн брэндээ хэрхэн хөгжүүлэх ,  хиймэл оюуны  хэрэгслийг өдөр тутамдаа хэрхэн
-                            ашиглах аргуудын талаар тасралтгүй 2 жил контент хийсэн байна. Одоогоор хиймэл оюун маш эрчимтэй хөгжиж байгаатай холбогдуулан тасралтгүй суралцаж, сурч мэдсэн зүйлсээ сошиал медиадаа тогтмол хуваалцаж яваа инженер,
-                            mobilegrapher, контент бүтээгч залуу байна. Төдийлөн байгууллага болон хувь хүмүүстэй хамтарч ажиллаад байдаггүй ч 3+ байгууллагатай хамтран
-                            ажилласан бөгөөд жилийн хугацаанд хөгжүүлэгчээр 4 төсөл дээр ажилласан туршлагатай.</p>
+                        Программ хангамжийн инженер. Mezorn технологийн компанид Flutter mobile хөгжүүлэгчээр дадлагажиж, сарын 520,000 идэвхтэй хэрэглэгчтэй UBCab такси платформ болон
+                        уур амьсгалын өөрчлөлтийн эсрэг чиглэсэн Treelings төсөл дээр production түвшний ажил гүйцэтгэсэн. Үүний зэрэгцээ бичлэг хэрхэн гар утсаараа янзлах, хувийн брэндээ хэрхэн хөгжүүлэх,
+                        хиймэл оюуны хэрэгслийг өдөр тутамдаа хэрхэн ашиглах талаар 2 жил тасралтгүй контент хийж, Instagram дээр 8000+, Facebook дээр 20000+ дагагчтай болсон.
+                        Одоогоор Claude дээр гүнзгий мэргэшиж, жижиг бизнесүүдэд зориулсан AI agent бүтээх, AI-д шинээр суралцаж буй хүмүүст зөвлөх чиглэлээр ажиллаж байна.</p>
                     </div> : ""}
                     <div className='relative left-0 h-[70vh] w-full sm:mt-[100px] lg:mt-[200px]'>
                         <motion.div style={{ y }} className='relative m-[0px_20px] sm:m-[0px_60px]  h-full lg:w-[500px] '>
@@ -99,78 +137,16 @@ const Page = () => {
                     <h2 className={`text-[36px] mt-[60px] ml-[20px] mb-[40px] lg:text-[56px] ${ubuntu.className}`}>Би таньд эдгээр зүйлүүд дээр тус болж чадна ...</h2>
                     {isTablet ? "" : <hr className="m-[0px_20px] text-gray-400 mb-[40px]" />}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-[20px] ml-[20px]">
-                        {isTablet ? <div className="h-[140px] flex flex-col gap-[40px] ">
-                            <p className="text-gray-500">01</p>
-                            <hr className=" text-gray-400 " />
-                            <div> <h4 className={`text-[22px] mb-[10px] lg:text-[32px] ${ubuntu.className}`}>Frontend хөгжүүлэгч</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>React, Next.js ,Tailwind ,Framer-motion ,Gsap ашиглан responsive , pixel perfect , interactive , animated вебсайтуудыг угсрах.<div className=""></div></p>
+                        {services.map((service, i) => (
+                            <div key={service.title} className="flex flex-col gap-[40px]">
+                                {isTablet && <p className="text-gray-500">{String(i + 1).padStart(2, "0")}</p>}
+                                <hr className="mr-[20px] text-gray-400" />
+                                <div className="h-[140px] flex flex-col gap-[10px]">
+                                    <h4 className={`text-[22px] mb-[10px] lg:text-[32px] ${ubuntu.className}`}>{service.title}</h4>
+                                    <p className={`text-[18px] ${josefinSans.className}`}>{service.description}</p>
+                                </div>
                             </div>
-                        </div> : <div className="h-[140px] flex flex-col gap-[10px] ">
-                            <h4 className={`text-[22px] mb-[10px] lg:text-[32px] ${ubuntu.className}`}>Frontend хөгжүүлэгч</h4>
-                            <p className={` text-[18px] ${josefinSans.className}`}>React, Next.js ,Tailwind ,Framer-motion ,Gsap ашиглан responsive , pixel perfect , interactive , animated вебсайтуудыг угсрах.</p>
-                        </div>}
-                        {isTablet ? <div className="flex flex-col gap-[40px]">
-                            <p className="text-gray-500">02</p>
-                            <hr className="mr-[20px] text-gray-400 m-[0px_0px]" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] lg:text-[32px] ${ubuntu.className}`}>Backend инженер</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>REST API-г хөгжүүлэх, мэдээллийн санг удирдах, гүйцэтгэлийг хангах.</p>
-                            </div></div> : <div>
-                            <hr className="mr-[20px] text-gray-400 m-[40px_0px]" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] ${ubuntu.className}`}>Backend инженер</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}> REST API-г хөгжүүлэх, мэдээллийн санг удирдах, гүйцэтгэлийг хангах.</p>
-                            </div></div>}
-                        {isTablet ? <div className="flex flex-col gap-[40px]">
-                            <p className="text-gray-500">03</p>
-                            <hr className="mr-[20px]  text-gray-400" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] lg:text-[32px] ${ubuntu.className}`}>Full-stack хөгжүүлэгч</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>Би санаа гаргахаас эхлээд байршуулах хүртэл цогц шийдлүүдийг хүргэх.</p></div></div> : <div>
-                            <hr className="mr-[20px] mb-[40px] text-gray-400" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] ${ubuntu.className}`}>Full Projects</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>Би санаа гаргахаас эхлээд байршуулах хүртэл цогц шийдлүүдийг хүргэх.</p></div></div>}
-                        {isTablet ? <div className="flex flex-col gap-[40px]">
-                            <p className="text-gray-500">04</p>
-                            <hr className="mr-[20px]  text-gray-400" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] lg:text-[32px] ${ubuntu.className}`}>Гар утасаа ухаалаг ашиглах</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>Таны өдөр тутамдаа хийдэг ажлуудыг гар утасныхаа тусламжтай хамгийн бүтээмжтэй ажиллах.</p></div></div> : <div>
-                            <hr className="mr-[20px] mb-[40px] text-gray-400" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] ${ubuntu.className}`}>Гар утасаа ухаалаг ашиглах</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>Таны өдөр тутамдаа хийдэг ажлуудыг гар утасныхаа тусламжтай хамгийн бүтээмжтэй ажиллах.</p></div></div>}
-                        {isTablet ? <div className="flex flex-col gap-[40px]">
-                            <p className="text-gray-500">05</p>
-                            <hr className="mr-[20px]  text-gray-400" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] lg:text-[32px] ${ubuntu.className}`}>Social media хөгжүүлэлт</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>AI болон бусад технологиудыг ашиглан таны instagram , facebook page - зэрэг social аккаунтуудыг хөгжүүлэх.</p></div></div> : <div>
-                            <hr className="mr-[20px] mb-[40px] text-gray-400" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] ${ubuntu.className}`}>Social media хөгжүүлэлт</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>AI болон бусад технологиудыг ашиглан таны instagram , facebook page - зэрэг social аккаунтуудыг хөгжүүлэх.</p></div></div>}
-                        {isTablet ? <div className="flex flex-col gap-[40px]">
-                            <p className="text-gray-500">06</p>
-                            <hr className="mr-[20px]  text-gray-400" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] lg:text-[32px] ${ubuntu.className}`}>Бичлэг янзлах</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>Зөвхөн гар утасаа ашиглаад сүүлийн үеийн тренд бичлэгүүдийг янзлах</p></div></div> : <div>
-                            <hr className="mr-[20px] mb-[40px] text-gray-400" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] ${ubuntu.className}`}>Бичлэг янзлах</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>Зөвхөн гар утасаа ашиглаад сүүлийн үеийн тренд бичлэгүүдийг янзлах.</p></div></div>}
-                        {isTablet ? <div className="flex flex-col gap-[40px]">
-                            <p className="text-gray-500">07</p>
-                            <hr className="mr-[20px]  text-gray-400" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] lg:text-[32px] ${ubuntu.className}`}>Claude-аар бүтээмжээ нэмэгдүүлэх</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>Claude зэрэг хиймэл оюуны хэрэгслийг ашиглан таны өдөр тутмын ажлын бүтээмжийг ихэсгэх.</p></div></div> : <div>
-                            <hr className="mr-[20px] mb-[40px] text-gray-400" />
-                            <div className="h-[140px] flex flex-col gap-[10px] ">
-                                <h4 className={`text-[22px] mb-[10px] ${ubuntu.className}`}>Claude-аар бүтээмжээ нэмэгдүүлэх</h4>
-                                <p className={` text-[18px] ${josefinSans.className}`}>Claude зэрэг хиймэл оюуны хэрэгслийг ашиглан таны өдөр тутмын ажлын бүтээмжийг ихэсгэх.</p></div></div>}
+                        ))}
                     </div>
                 </div>
             </div>
@@ -181,8 +157,8 @@ const Page = () => {
                         Суралцах...
                     </h2>
                     <p className={`text-[18px] font-[400] leading-loose ${josefinSans.className}`}>
-                        Миний хувьд Pinecone кодчиллын академийг Full-Stack хөгжүүлэгчээр, Монгол Улсын Боловсролын Их Сургуулийг программ хангамжийн инженер мэргэжлээр төгссөн. Одоогоор Mezorn технологийн компанид
-                        гар утасны хөгжүүлэгчээр ажиллаж байна. Мэргэжлийн хажуугаар өөрийгөө хөгжүүлэхийг чухалчилдаг — сэтгэл зүй, харилцаа, бие бялдар гурвыг тэнцвэртэй байлгахыг зорьдог. Гүйх, дугуй унах хоёрыг тогтмол хэвшил болгохоор хичээж байна.
+                        Миний хувьд Pinecone кодчиллын академийг Full-Stack хөгжүүлэгчээр, Монгол Улсын Боловсролын Их Сургуулийг программ хангамжийн инженер мэргэжлээр 2026 онд төгссөн. Mezorn технологийн компанид
+                        Flutter mobile хөгжүүлэгчээр ажилласан бөгөөд одоогоор хиймэл оюуны чиглэлээр гүнзгийрч, шинэ боломжуудыг судалж байна. Мэргэжлийн хажуугаар өөрийгөө хөгжүүлэхийг чухалчилдаг — сэтгэл зүй, харилцаа, бие бялдар гурвыг тэнцвэртэй байлгахыг зорьдог. Гүйх, дугуй унах хоёрыг тогтмол хэвшил болгохоор хичээж байна.
                         Хэрвээ та надтай хамтарч ажиллах , хувьчилсан зөвлөгөө авах хүсэлтэй бол холбоо барих хэсгээр орон надтай холбогдоорой.</p>
                 </div>
 

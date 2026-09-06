@@ -8,18 +8,14 @@ import Section from '../Section';
 
 export default function Page() {
     useEffect(() => {
-        const lenis = new Lenis()
-        function raf(time: number) {
-            lenis.raf(time)
-            requestAnimationFrame(raf)
-        }
-        requestAnimationFrame(raf)
+        const lenis = new Lenis({ autoRaf: true })
+        return () => lenis.destroy()
     }, [])
     return (
         <main>
             <Parallex />
             <Description />
-            <div className='h-screen'>
+            <div className='h-[100svh]'>
                 <Section />
             </div>
 

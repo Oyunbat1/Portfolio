@@ -29,13 +29,14 @@ export default function RootLayout({
   const pathname = usePathname();
   useEffect(() => {
     const cursor = document.getElementById("cursor");
-    const grow = () => gsap.to(cursor, { scale: 4, duration: 0.3 });
+    const grow = () => gsap.to(cursor, { scale: 3, duration: 0.3 });
     const shrink = () => gsap.to(cursor, { scale: 1, duration: 0.3 });
     document.querySelectorAll("h3 ,p ,h1,h2,span").forEach((el) => {
       el.addEventListener("mouseenter", grow);
       el.addEventListener("mouseleave", shrink);
     });
     if (!cursor) return;
+    gsap.set(cursor, { xPercent: -50, yPercent: -50 });
     const moveCursor = (e: MouseEvent) => {
       gsap.to(cursor, {
         x: e.clientX,
@@ -65,7 +66,7 @@ export default function RootLayout({
         setIsActive(false)
       }
     }
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
   return (
@@ -92,7 +93,7 @@ export default function RootLayout({
         </ApolloProvider>
         <div
           id="cursor"
-          className="hidden md:block fixed top-0 left-0 w-4 h-4 bg-blue-600 rounded-full pointer-events-none z-[9999]"
+          className="hidden md:block fixed top-0 left-0 w-2 h-2 bg-blue-600 rounded-full pointer-events-none z-[9999]"
         />
         <Toaster
           position="top-right"
