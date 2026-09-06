@@ -29,7 +29,7 @@ const FilterButton = ({ children, filter, count, btn, backgroundColor = "#455CE9
 
 
         <Magnetic>
-            <div className={`rounded-l-full rounded-r-full ${filter === btn ? "bg-black" : ""} border border-[#888]  cursor-pointer relative flex items-center justify-center mt-[40px] mb-[40px] w-auto  h-auto  p-[12px_26px] ml-[20px] lg:p-[28px_42px] overflow-hidden group  transition duration-300`} onMouseEnter={manageMouseEnter}
+            <div className={`rounded-l-full rounded-r-full ${filter === btn ? "bg-black" : ""} border border-[#888]  cursor-pointer relative flex items-center justify-center w-full lg:w-auto h-auto p-[14px_22px] lg:my-[40px] lg:ml-[20px] lg:p-[28px_42px] overflow-hidden group  transition duration-300`} onMouseEnter={manageMouseEnter}
                 onMouseLeave={manageMouseLeave}
             >   <span className={`relative z-20 text-[12px] ${filter === btn ? "text-white" : "text-black"} font-[600] transition-colors duration-300 group-hover:text-white`}>
                     <div>{children}</div>

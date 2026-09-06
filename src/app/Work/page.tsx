@@ -9,6 +9,7 @@ import InlineImage from "./components/InlineImage";
 import { motion, useTransform, useScroll } from "framer-motion"
 import Footer from "../components/Footer";
 import { projects } from "@/constants/projects";
+import { useLang } from "@/i18n/LanguageProvider";
 
 const ubuntu = Ubuntu({
     subsets: ["latin"],
@@ -21,6 +22,7 @@ type FilterType = "All" | "Front-End" | "Full-Stack" | "Mobile";
 type FilterProjectWithImageAndText = "inlineText" | "images";
 
 const WorkPage = () => {
+    const { t } = useLang();
 
     const [isTablet, setIsTablet] = useState(false);
     const [filter, setFilter] = useState<FilterType>("All");
@@ -101,14 +103,14 @@ const WorkPage = () => {
                 <div className="mt-[60px] flex flex-col lg:mt-[60px]">
                     <div>
                         <h1
-                            className={`text-[36px] ml-[20px] md:text-[46px] lg:text-[66px] xl:text-[72px] w-[360px] md:ml-[80px] md:w-[420px] lg:w-[720px] xl:w-[1020px] lg:ml-[100px] ${ubuntu.className}`}
+                            className={`text-[36px] ml-[20px] md:text-[46px] lg:text-[66px] xl:text-[72px] w-full max-w-[360px] md:max-w-[420px] lg:max-w-[720px] xl:max-w-[1020px] md:ml-[80px] lg:ml-[100px] ${ubuntu.className}`}
                         >
-                            Миний хөгжүүлсэн төслүүдтэй маань танилцаарай...
+                            {t.work.title}
                         </h1>
                     </div>
-                    <div className="flex justify-between md:ml-[80px] lg:ml-[100px]">
+                    <div className="flex flex-wrap items-center justify-between gap-y-2 md:ml-[80px] lg:ml-[100px]">
 
-                        <div className="flex">
+                        <div className="grid grid-cols-2 gap-3 w-full my-8 lg:my-0 lg:flex lg:w-auto lg:gap-0">
                             {filters.map((btn, index) => (
                                 <div key={index} onClick={() => setFilter(btn)}>
                                     <FilterButton count={counts[btn]} filter={filter} btn={btn}>

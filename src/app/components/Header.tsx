@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Magnetic from "@/app/common/Magnetic"
 import Nav from "./Nav";
+import LanguageToggle from "../common/LanguageToggle";
+import { useLang } from "@/i18n/LanguageProvider";
 
 
 
@@ -14,7 +16,9 @@ export default function Header() {
     const pathname = usePathname();
     const router = useRouter();
     const [isActive, setIsActive] = useState(false)
-    const headerValues = ["About", "Contact", "Work"]
+    const { t, lang } = useLang();
+    const headerValues = ["About", "Contact", "Work"] as const;
+    const navLabels = { About: t.nav.about, Contact: t.nav.contact, Work: t.nav.work };
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
@@ -37,7 +41,7 @@ export default function Header() {
         <>
             <div
                 ref={header}
-                className={`top-0 z-10 flex w-full items-center justify-between px-9 py-8 
+                className={`top-0 z-10 flex w-full items-center justify-between gap-4 px-5 py-6 md:px-9 md:py-8 
     ${(pathname === "/" || pathname === "/Contact") ? "text-white" : "text-black"} ${pathname === "/Contact" ? "bg-[#292a2b] " : ""}
     font-serif`}
             >
@@ -60,7 +64,8 @@ export default function Header() {
                     </div>
                 </Magnetic>
 
-                {isMobile ? <div className="flex items-center space-x-6">
+                {isMobile ? <div className="flex items-center space-x-2">
+                    <LanguageToggle />
                     {["Menu"].map((item, i) => (
                         <Magnetic key={i}>
                             <div
@@ -70,7 +75,7 @@ export default function Header() {
                                 <AnimatePresence mode="wait">
                                     {isActive ? "" : (
                                         <motion.span
-                                            key="menu"
+                                            key={`menu-${lang}`}
                                             initial={{ opacity: 0, y: -10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 10 }}
@@ -78,7 +83,7 @@ export default function Header() {
                                             className={`cursor-pointer ${(pathname === "/" || pathname === "/Contact") ? "text-white" : "text-black"
                                                 }`}
                                         >
-                                            Menu
+                                            {t.nav.menu}
                                         </motion.span>
                                     )}
                                 </AnimatePresence>
@@ -89,6 +94,16 @@ export default function Header() {
                         </Magnetic>
                     ))}
                 </div> : <div className="flex items-center space-x-6">
+                    <LanguageToggle />
+                    <AnimatePresence mode="wait" initial={false}>
+                        <motion.div
+                            key={lang}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.18 }}
+                            className="flex items-center space-x-6"
+                        >
                     {headerValues.map((item, i) => (
                         <Magnetic key={i}>
                             <div
@@ -99,14 +114,15 @@ export default function Header() {
                                     className={`cursor-pointer ${(pathname === "/" || pathname === "/Contact") ? "text-white" : "text-black"
                                         }`}
                                 >
-                                    {item}
+                                    {navLabels[item]}
                                 </a>
 
                                 <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${(pathname === "/" || pathname === "/Contact") ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
                             </div>
                         </Magnetic>
                     ))}
-
+                        </motion.div>
+                    </AnimatePresence>
                 </div>}
                 <AnimatePresence mode="wait">{isActive && <Nav setIsActive={setIsActive} />}</AnimatePresence>
             </div>

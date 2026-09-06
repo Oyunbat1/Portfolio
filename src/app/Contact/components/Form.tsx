@@ -5,6 +5,7 @@ import { CREATE_MESSAGE } from '../../../graphql/mutations';
 import { Josefin_Sans } from "next/font/google";
 import GetInRounded from "../../common/RoundedButton";
 import { toast } from "sonner"
+import { useLang } from "@/i18n/LanguageProvider";
 const josefinSans = Josefin_Sans({
     subsets: ["latin"],
     weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -16,6 +17,7 @@ interface FormProps {
 }
 
 export default function Form({ isTablet }: FormProps) {
+    const { t } = useLang();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -70,7 +72,7 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">01</p>
-                        <label htmlFor="name" className="text-[20px]">Таны нэр хэн бэ?</label>
+                        <label htmlFor="name" className="text-[20px]">{t.contact.form.q1}</label>
                     </div>
                     <input
                         type="text"
@@ -85,7 +87,7 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">02</p>
-                        <label htmlFor="email" className="text-[20px] ">Таны е-майл хаяг юу вэ?</label>
+                        <label htmlFor="email" className="text-[20px] ">{t.contact.form.q2}</label>
                     </div>
                     <input
                         type="email"
@@ -99,11 +101,11 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">03</p>
-                        <label htmlFor="email" className="text-[20px] ">Та аль нэг сошиал хаягаа зөв оруулна уу?</label>
+                        <label htmlFor="email" className="text-[20px] ">{t.contact.form.q3}</label>
                     </div>
                     <input
                         type="text"
-                        placeholder="oyunbatdev *"
+                        placeholder={t.contact.form.p3}
                         className="ml-6 text-[18px]  border-none outline-none"
                         required
                         value={formData.social}
@@ -115,11 +117,11 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">04</p>
-                        <label htmlFor="company" className="text-[20px]">Та ямар мэргэжилтэй вэ?</label>
+                        <label htmlFor="company" className="text-[20px]">{t.contact.form.q4}</label>
                     </div>
                     <input
                         type="text"
-                        placeholder="software engineer *"
+                        placeholder={t.contact.form.p4}
                         className="ml-6 text-[18px]  border-none outline-none"
                         required
                         value={formData.company}
@@ -130,11 +132,11 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">05</p>
-                        <label htmlFor="service" className="text-[20px]">Ямар байдлаар хамтарч ажиллахыг хүсэж байна вэ?</label>
+                        <label htmlFor="service" className="text-[20px]">{t.contact.form.q5}</label>
                     </div>
                     <input
                         type="text"
-                        placeholder="Web development , Designing...*"
+                        placeholder={t.contact.form.p5}
                         className="ml-6 text-[18px]  border-none outline-none"
                         required
                         value={formData.service}
@@ -145,10 +147,10 @@ export default function Form({ isTablet }: FormProps) {
                 <div className={`flex flex-col gap-4 border-t border-gray-600 ${josefinSans.className}`}>
                     <div className="flex items-center gap-2 pt-[20px]">
                         <p className="text-gray-400 text-[12px]">06</p>
-                        <label htmlFor="message" className="text-[20px]">Надад хэлэх зүйл байвал энэ хэсэгт бичиж үлдээгээрэй?</label>
+                        <label htmlFor="message" className="text-[20px]">{t.contact.form.q6}</label>
                     </div>
                     <textarea
-                        placeholder="Сайнуу Оюунбатаа, вебсайт хийдэг сайт мэдэх үү?...*"
+                        placeholder={t.contact.form.p6}
                         className="ml-6 text-[18px] min-h-[100px] resize-none  border-none outline-none"
                         required
                         value={formData.message}
@@ -164,7 +166,7 @@ export default function Form({ isTablet }: FormProps) {
                     >
                         <GetInRounded backgroundColor={"#2563EB"}>
                             <p className={`m-0 text-[18px] md:text-base font-light z-50 ${josefinSans.className} font-[500] relative`}>
-                                {loading ? 'Илгээж байна...' : 'Илгээх!'}
+                                {loading ? t.contact.form.sending : t.contact.form.submit}
                             </p>
                         </GetInRounded>
                     </button>

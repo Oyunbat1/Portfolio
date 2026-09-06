@@ -8,6 +8,7 @@ import MoreButton from "../../common/MoreButton"
 import { useRouter } from "next/navigation"
 import { projects } from "@/constants/projects"
 import ProjectModal from "./ProjectModal"
+import { useLang } from "@/i18n/LanguageProvider"
 const barlow = Barlow_Condensed({
     subsets: ["latin"],
     weight: "400"
@@ -16,6 +17,7 @@ const easing: Easing = [0.76, 0, 0.24, 1]
 
 export default function Home() {
     const router = useRouter();
+    const { t } = useLang();
     const [modal, setModal] = useState({ active: false, index: 0 })
     const { active, index } = modal;
     const modalContainer = useRef(null);
@@ -50,7 +52,7 @@ export default function Home() {
 
     return (
         <main className="flex flex-col  mt-[40px] mb-[120px]  items-center relative ">
-            {isTablet ? <p className={`text-gray-400 absolute left-40 ${barlow.className}`}>Сүүлд хийсэн төслүүд</p> : <p className={`text-gray-400 absolute  border-b w-[360px]  md:w-[660px]  ${barlow.className}`}>Сүүлд хийсэн төслүүд</p>}
+            {isTablet ? <p className={`text-gray-400 absolute left-40 ${barlow.className}`}>{t.home.recentProjects}</p> : <p className={`text-gray-400 absolute  border-b w-[360px]  md:w-[660px]  ${barlow.className}`}>{t.home.recentProjects}</p>}
             <motion.div ref={modalContainer} variants={projectsSlideUp} animate={isInView ? "open" : "closed"} transition={{ duration: 1, ease: easing }} className=" w-full  flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col items-center justify-center mt-[60px] ">
                 {
                     shownProjects.map((project, index) => (
@@ -62,7 +64,7 @@ export default function Home() {
             <div onClick={navigationToPage}>
                 <MoreButton >
                     <span className="relative flex items-center justify-center group">
-                        Бусад төслүүд
+                        {t.home.moreProjects}
                         <span className="absolute -top-2 -right-3  text-gray-600 group-hover:text-white font-[300]  text-xs rounded-full px-2 py-0.5">
                             {projects.length}
                         </span>

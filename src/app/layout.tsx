@@ -12,6 +12,7 @@ import { ApolloProvider } from "@apollo/client/react";
 import { client } from "../lib/apollo-client";
 import PageTransitionWrapper from "./components/PageTransitionWrapper";
 import { Toaster } from "sonner";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -75,6 +76,7 @@ export default function RootLayout({
         className={` ${playfair.variable}  antialiased`}
       >
         <ApolloProvider client={client}>
+          <LanguageProvider>
           {pathname !== "/" && <Header></Header>}
           <AnimatePresence>
             {showMenu && (
@@ -90,6 +92,7 @@ export default function RootLayout({
             {children}
           </PageTransitionWrapper>
 
+          </LanguageProvider>
         </ApolloProvider>
         <div
           id="cursor"

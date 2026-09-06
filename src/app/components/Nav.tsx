@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { menuSlide } from "../js/anim"
 import Link from "../components/Link"
+import { useLang } from "@/i18n/LanguageProvider"
 
 const navItems = [
     {
@@ -26,6 +27,7 @@ const navItems = [
 
 const Nav = ({ setIsActive }: { setIsActive: (value: boolean) => void }) => {
     const pathname = usePathname();
+    const { t } = useLang();
     const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
     return (
@@ -50,7 +52,7 @@ const Nav = ({ setIsActive }: { setIsActive: (value: boolean) => void }) => {
                 <div onMouseLeave={() => { setSelectedIndicator(pathname) }} className='flex flex-col text-[42px] gap-[12px] mt-[10px]' >
 
                     <div className='text-[rgb(153,153,153)] border-b border-solid border-b-[rgb(153,153,153)] uppercase text-[11px] mb-[40px] pb-1' >
-                        <p>Navigation</p>
+                        <p>{t.nav.navigation}</p>
                     </div>
                     {
 
@@ -68,7 +70,7 @@ const Nav = ({ setIsActive }: { setIsActive: (value: boolean) => void }) => {
                     }
                 </div>
                 <div className='flex flex-col w-full  gap-[10px]' >
-                    <div><p className='text-[rgb(153,153,153)] text-[11px]'>Socials</p></div>
+                    <div><p className='text-[rgb(153,153,153)] text-[11px]'>{t.nav.socials}</p></div>
                     <div className='flex w-full gap-[10px]'>
                         <a className="no-underline text-white font-[300] border-b border-transparent transition duration-300 ease-in-out hover:border-white">
                             Facebook

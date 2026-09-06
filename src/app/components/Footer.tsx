@@ -8,7 +8,9 @@ import Magnetic from "../common/Magnetic";
 import { useRouter } from "next/navigation";
 import AboutMeImage from "../../../public/mobile/profile.jpg"
 import Link from "next/link";
+import { useLang } from "@/i18n/LanguageProvider";
 export default function Footer() {
+    const { t } = useLang();
     const container = useRef(null);
     const router = useRouter();
     const { scrollYProgress } = useScroll({
@@ -38,10 +40,10 @@ export default function Footer() {
                                 className="object-cover"
                             />
                         </div>
-                        <h2 className="ml-2 text-[8vw] md:text-[5vw] font-light">Одооноос хамтарч</h2>
+                        <h2 className="ml-2 text-[8vw] md:text-[5vw] font-light">{t.footer.ctaLine1}</h2>
                     </span>
 
-                    <h2 className="text-[8vw] md:text-[5vw] font-light m-0">ажилцгаая</h2>
+                    <h2 className="text-[8vw] md:text-[5vw] font-light m-0">{t.footer.ctaLine2}</h2>
 
                     <motion.div
                         onClick={() => router.push('/Contact')}
@@ -52,7 +54,7 @@ export default function Footer() {
                             backgroundColor={"#2563EB"}
                         >
                             <p className="m-0 text-[14px] md:text-base font-light z-20 relative">
-                                Энд дараарай
+                                {t.footer.cta}
                             </p>
                         </GetInRounded>
                     </motion.div>
@@ -88,14 +90,14 @@ export default function Footer() {
 
                     <div className="flex flex-row sm:flex-row  gap-6 sm:gap-10 mb-[40px]">
                         <span className="flex flex-col gap-2">
-                            <h3 className="text-gray-400 font-light text-base">Code by</h3>
+                            <h3 className="text-gray-400 font-light text-base">{t.footer.codeBy}</h3>
                             <p className="text-sm cursor-pointer relative group">
                                 © Oyunbat
                                 <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
                             </p>
                         </span>
                         <span className="flex flex-col gap-2">
-                            <h3 className="text-gray-400 font-light text-base">Date</h3>
+                            <h3 className="text-gray-400 font-light text-base">{t.footer.date}</h3>
                             <p className="text-sm cursor-pointer relative group">
                                 2025.08.26
                                 <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-white transition-all duration-200 group-hover:w-full"></span>
@@ -104,7 +106,7 @@ export default function Footer() {
                     </div>
 
                     <div className="flex flex-col  gap-2 items-start">
-                        <h3 className="text-gray-400 font-light text-base">Socials</h3>
+                        <h3 className="text-gray-400 font-light text-base">{t.footer.socials}</h3>
 
                         <div className="flex flex-wrap gap-6 items-start">
                             <Magnetic>

@@ -51,7 +51,7 @@ const PageLoader = ({ onComplete }: PreloaderProps) => {
             variants={slideUp} 
             initial="initial" 
             exit="exit" 
-            className='h-screen w-screen flex items-center justify-center bg-black fixed z-50'
+            className='fixed inset-x-0 top-0 h-[100dvh] flex items-center justify-center bg-black z-50'
             onAnimationComplete={(definition) => {
                 if (definition === "exit" && onComplete) {
                     onComplete();
@@ -68,7 +68,7 @@ const PageLoader = ({ onComplete }: PreloaderProps) => {
                     >
                         {pageName}
                     </motion.p>
-                    <svg className='absolute top-0 w-full h-[calc(100%+_300px)]'>
+                    <svg className='absolute top-0 left-0 w-full h-[calc(100%+_300px)]'>
                         <motion.path 
                             className={`fill-[#000000]`} 
                             variants={curve} 

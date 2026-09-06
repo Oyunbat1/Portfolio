@@ -5,6 +5,7 @@ import { descriptionSlideUp, descriptionOpacity } from '../js/anim'
 import GetInRounded from "../common/RoundedButton";
 import { useRouter } from 'next/navigation';
 import { Josefin_Sans } from "next/font/google";
+import { useLang } from "@/i18n/LanguageProvider";
 const josefinSans = Josefin_Sans({
     subsets: ["latin"],
     weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -12,7 +13,8 @@ const josefinSans = Josefin_Sans({
 });
 
 export default function Description() {
-    const phrase = "Би өөрт байгаа ямар нэгэн  шинэ санаагаа сүүлийн үеийн техник технологиудыг ашиглан бодит болгох гэж оролдох сонирхолтой."
+    const { t } = useLang();
+    const phrase = t.home.intro
     const description = useRef(null)
     const isInView = useInView(description)
     const router = useRouter();
@@ -31,7 +33,7 @@ export default function Description() {
 
                     <div onClick={handleToAboutMe} data-scroll data-scroll-speed={0.1}>
                         <GetInRounded backgroundColor={"#334BD3"} >
-                            <p className=' text-[12px] lg:text-[18px] relative z-1 transition-colors ease-linear duration-400 '>Миний тухай</p>
+                            <p className=' text-[12px] lg:text-[18px] relative z-1 transition-colors ease-linear duration-400 '>{t.home.aboutMe}</p>
                         </GetInRounded>
                     </div>
                 </div>

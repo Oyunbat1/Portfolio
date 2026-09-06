@@ -9,6 +9,7 @@ import Form from "./components/Form";
 import Social from "./components/Social";
 import SocialAccount from "./components/SocialAccount";
 import SocialContact from "./components/SocialContact";
+import { useLang } from "@/i18n/LanguageProvider";
 
 const josefinSans = Josefin_Sans({
     subsets: ["latin"],
@@ -17,6 +18,7 @@ const josefinSans = Josefin_Sans({
 });
 
 export default function Contact() {
+    const { t } = useLang();
     const container = useRef(null);
     const [isTablet, setIsTablet] = useState(false);
 
@@ -68,24 +70,24 @@ export default function Contact() {
                                 height={80}
                                 className="object-cover w-[50px] h-[50px] rounded-full"
                             />
-                            Одооноос
+                            {t.contact.headlineShort}
                         </span>
                         <span className={`flex ${josefinSans.className} text-[30px]`}>
-                            хамтарч ажиллацгаая.
+                            {t.contact.headlineRest}
                         </span>
                     </div>
 
                     <div className="w-full flex flex-col gap-4 items-start pl-[20px]">
                         <div className="flex flex-col gap-2">
-                            <h3 className={`text-gray-400 font-light text-base`}>Холбогдох мэдээлэл</h3>
+                            <h3 className={`text-gray-400 font-light text-base`}>{t.contact.contactInfo}</h3>
                             <div>
                                 <p>oyunbat9958@gmail.com</p>
                                 <p>+976 80661615</p>
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <h3 className={`text-gray-400 font-light text-base`}>Байршил</h3>
-                            <p>Ulaanbaatar,Mongolia</p>
+                            <h3 className={`text-gray-400 font-light text-base`}>{t.contact.location}</h3>
+                            <p>{t.contact.locationValue}</p>
                         </div>
                     </div>
 
@@ -108,7 +110,7 @@ export default function Contact() {
                     <div className="w-full flex justify-around mt-[40px]">
                         <div className="flex flex-col gap-10">
                             <span className={`flex items-center gap-2 w-[400px] ${josefinSans.className} text-[46px] lg:text-[66px] lg:w-[560px]`}>
-                                Одооноос  хамтарч ажиллацгаая.
+                                {t.contact.headline}
                             </span>
                             <Form isTablet={isTablet} />
                         </div>
@@ -137,15 +139,15 @@ export default function Contact() {
 
                             <div className="w-full flex flex-col gap-4 items-start pl-[20px]">
                                 <div className="flex flex-col gap-2">
-                                    <h3 className={`text-gray-400 font-light text-base`}>Холбогдох мэдээлэл</h3>
+                                    <h3 className={`text-gray-400 font-light text-base`}>{t.contact.contactInfo}</h3>
                                     <div className="flex flex-col gap-2 lg:gap-6">
                                         <p>oyunbat9958@gmail.com</p>
                                         <p>+976 80661615</p>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <h3 className={`text-gray-400 font-light text-base`}>Байршил</h3>
-                                    <p>Ulaanbaatar,Mongolia</p>
+                                    <h3 className={`text-gray-400 font-light text-base`}>{t.contact.location}</h3>
+                                    <p>{t.contact.locationValue}</p>
                                 </div>
                                 <Social isTablet={isTablet} />
                             </div>

@@ -40,11 +40,11 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
     }
 
     return (
-        <motion.div variants={slideUp} initial="initial" exit="exit" className='h-screen w-screen flex items-center justify-center bg-black fixed z-50'>
+        <motion.div variants={slideUp} initial="initial" exit="exit" className={`fixed inset-x-0 top-0 h-[100dvh] flex items-center justify-center z-50 ${pathname === "/" ? "bg-white" : "bg-black"}`}>
             {dimension.width > 0 &&
                 <>
                     {pathname === "/" ? <motion.p className='flex text-black text-[42px] items-center absolute z-1' variants={opacity} initial="initial" animate="enter"><span className='block w-[10px] h-[10px] bg-black rounded-full mr-[10px]'></span>{words[index]}</motion.p> : ""}
-                    <svg className='absolute top-0 w-full h-[calc(100%+_300px)]'>
+                    <svg className='absolute top-0 left-0 w-full h-[calc(100%+_300px)]'>
                         <motion.path className={`${pathname === "/" ? "fill-[#ffffff]" : "fill-[#000000]"}`} variants={curve} initial="initial" exit="exit"></motion.path>
                     </svg>
                 </>

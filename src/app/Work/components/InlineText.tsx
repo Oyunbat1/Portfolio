@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Link from "next/link";
 import ProjectThumb from "@/app/components/projects/ProjectThumb";
 import ProjectModal from "@/app/components/projects/ProjectModal";
+import { useLang } from "@/i18n/LanguageProvider";
 const barlow = Barlow_Condensed({
     subsets: ["latin"],
     weight: "400"
@@ -12,6 +13,7 @@ const barlow = Barlow_Condensed({
 
 
 const InlineText = ({ filteredProjects }: any) => {
+    const { t } = useLang();
     const [isTablet, setIsTablet] = useState(false)
     const [modal, setModal] = useState({ active: false, index: 0 })
     //filteredProject 
@@ -32,9 +34,9 @@ const InlineText = ({ filteredProjects }: any) => {
             {
                 isTablet && (
                     <div className="group flex justify-around items-center  w-[900px] lg:w-[900px] xl:w-[1200px]  px-[10px] py-[20px] pl-[120px] text-gray-400">
-                        <h1 className="text-[14px]">ТӨСЛҮҮД</h1>
-                        <h1 className="text-[14px] pl-[180px]">ҮҮРЭГ</h1>
-                        <h1 className="text-[14px]">ХУГАЦАА </h1>
+                        <h1 className="text-[14px]">{t.work.colProject}</h1>
+                        <h1 className="text-[14px] pl-[180px]">{t.work.colRole}</h1>
+                        <h1 className="text-[14px]">{t.work.colYear}</h1>
                     </div>
                 )
             }

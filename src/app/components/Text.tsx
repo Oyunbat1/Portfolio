@@ -5,15 +5,17 @@ import { useRef } from 'react';
 import { useInView, motion } from 'framer-motion';
 import { descriptionSlideUp, } from '../js/anim'
 import { Josefin_Sans } from "next/font/google";
+import { useLang } from "@/i18n/LanguageProvider";
 const josefinSans = Josefin_Sans({
     subsets: ["latin"],
     weight: ["100", "200", "300", "400", "500", "600", "700"],
     style: ["normal", "italic"]
 });
 export default function Text() {
+    const { t } = useLang();
     const description = useRef(null)
     const isInView = useInView(description)
-    const phrase = "` Ирээдүйг хүлээхдээ бид амьдралаа алддаг. Амьдрал бол хүлээлт биш, харин одоо цаг юм ` гэж Seneca хэлсэн байдаг."
+    const phrase = t.home.quote
     return (
         <div ref={description} className={`m-0 leading-[1.8] flex gap-2 lg:gap-6  w-[300px] md:w-[500px] lg:w-[800px] xl:w-[800px] flex-wrap  justify-center ${josefinSans.className} my-40 z-10`}>
             {phrase.split(" ").map((word, index) => {

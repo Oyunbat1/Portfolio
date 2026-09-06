@@ -10,6 +10,7 @@ import Globus from "../../../public/globus.gif"
 import { ArrowDownRight } from "lucide-react"
 import Image from "next/image";
 import { useRef } from 'react';
+import { useLang } from "@/i18n/LanguageProvider";
 const ubuntu = Ubuntu({
     subsets: ["latin"],
     weight: ["300", "400", "500", "700"],
@@ -20,46 +21,10 @@ const josefinSans = Josefin_Sans({
     weight: ["100", "200", "300", "400", "500", "600", "700"],
     style: ["normal", "italic"]
 });
-const services = [
-    {
-        title: "Flutter mobile хөгжүүлэгч",
-        description: "Flutter, Dart, GetX ашиглан iOS болон Android аппликейшн бүтээх, Shorebird / TestFlight-аар release хийх.",
-    },
-    {
-        title: "AI agent бүтээх",
-        description: "Claude (Projects, Skills, MCP) ашиглан таны бизнесийн давтагдах ажлуудыг автоматжуулсан AI agent хөгжүүлэх.",
-    },
-    {
-        title: "Frontend хөгжүүлэгч",
-        description: "React, Next.js, Tailwind, Framer-motion, Gsap ашиглан responsive, pixel perfect, interactive вебсайтуудыг угсрах.",
-    },
-    {
-        title: "Backend инженер",
-        description: "REST API-г хөгжүүлэх, мэдээллийн санг удирдах, гүйцэтгэлийг хангах.",
-    },
-    {
-        title: "Full-stack хөгжүүлэгч",
-        description: "Би санаа гаргахаас эхлээд байршуулах хүртэл цогц шийдлүүдийг хүргэх.",
-    },
-    {
-        title: "Claude-аар бүтээмжээ нэмэгдүүлэх",
-        description: "Claude зэрэг хиймэл оюуны хэрэгслийг ашиглан таны өдөр тутмын ажлын бүтээмжийг ихэсгэх.",
-    },
-    {
-        title: "Гар утасаа ухаалаг ашиглах",
-        description: "Таны өдөр тутамдаа хийдэг ажлуудыг гар утасныхаа тусламжтай хамгийн бүтээмжтэй ажиллах.",
-    },
-    {
-        title: "Social media хөгжүүлэлт",
-        description: "AI болон бусад технологиудыг ашиглан таны instagram, facebook page зэрэг social аккаунтуудыг хөгжүүлэх.",
-    },
-    {
-        title: "Бичлэг янзлах",
-        description: "Зөвхөн гар утасаа ашиглаад сүүлийн үеийн тренд бичлэгүүдийг янзлах.",
-    },
-];
 
 const Page = () => {
+    const { t } = useLang();
+    const services = t.about.services;
     const [isTablet, setIsTablet] = useState(false);
     const mainContainer = useRef(null);
     const container = useRef(null);
@@ -98,7 +63,7 @@ const Page = () => {
         <div ref={mainContainer} >
             <div className=" flex flex-col z-10 relative pb-[20px] m-[0px_40px] sm:gap-[40px]">
                 <div className=" mt-[60px] ml-[20px] md:text-[46px] lg:text-[66px] xl:text-[72px]  md:ml-[80px]">
-                    <h1 className={`text-[42px] lg:text-[70px] ${ubuntu.className}`}>Аз жаргал бол амьдралын утга учир бөгөөд бидний зорьж буй хамгийн дээд зорилго гэж би боддог.</h1>
+                    <h1 className={`text-[42px] lg:text-[70px] ${ubuntu.className}`}>{t.about.headline}</h1>
                 </div>
                 <div className="h-[1px] bg-slate-400 m-[0px_20px] mt-[60px] relative">
                     <div className="w-[100px] h-[100px] md:w-[140px] md:h-[140px] rounded-full bg-[#455CE9] absolute -top-[50px] md:-top-[70px] -translate-x-1/4 right-1 overflow-visible ">
@@ -106,11 +71,7 @@ const Page = () => {
                 </div>
                 {isTablet ? "" : <div className="flex flex-col gap-3 mt-[60px] mb-[20px]">
                     <ArrowDownRight className="ml-[20px]"></ArrowDownRight>
-                    <p className={`ml-[20px] mr-[20px] font-mono leading-loose  ${josefinSans.className} `}>Сайн байна уу, намайг Оюунбат гэдэг.
-                        Программ хангамжийн инженер. Mezorn технологийн компанид Flutter mobile хөгжүүлэгчээр дадлагажиж, сарын 520,000 идэвхтэй хэрэглэгчтэй UBCab такси платформ болон
-                        уур амьсгалын өөрчлөлтийн эсрэг чиглэсэн Treelings төсөл дээр production түвшний ажил гүйцэтгэсэн. Үүний зэрэгцээ бичлэг хэрхэн гар утсаараа янзлах, хувийн брэндээ хэрхэн хөгжүүлэх,
-                        хиймэл оюуны хэрэгслийг өдөр тутамдаа хэрхэн ашиглах талаар 2 жил тасралтгүй контент хийж, Instagram дээр 8000+, Facebook дээр 20000+ дагагчтай болсон.
-                        Одоогоор Claude дээр гүнзгий мэргэшиж, жижиг бизнесүүдэд зориулсан AI agent бүтээх, AI-д шинээр суралцаж буй хүмүүст зөвлөх чиглэлээр ажиллаж байна.</p>
+                    <p className={`ml-[20px] mr-[20px] font-mono leading-loose  ${josefinSans.className} `}>{t.about.bio}</p>
                 </div>
                 }
             </div>
@@ -118,11 +79,7 @@ const Page = () => {
                 <div className="flex flex-col lg:flex-row">
                     {isTablet ? <div className="flex flex-col gap-3 mt-[60px] mb-[140px] ml-[40px] lg:ml-[100px] lg:pl-[100px] lg:mt-[100px]">
                         <ArrowDownRight className="ml-[20px]"></ArrowDownRight>
-                        <p className={`ml-[20px] mr-[20px] font-mono lg:text-[20px] leading-loose ${josefinSans.className} `}>Сайн байна уу, намайг Оюунбат гэдэг.
-                        Программ хангамжийн инженер. Mezorn технологийн компанид Flutter mobile хөгжүүлэгчээр дадлагажиж, сарын 520,000 идэвхтэй хэрэглэгчтэй UBCab такси платформ болон
-                        уур амьсгалын өөрчлөлтийн эсрэг чиглэсэн Treelings төсөл дээр production түвшний ажил гүйцэтгэсэн. Үүний зэрэгцээ бичлэг хэрхэн гар утсаараа янзлах, хувийн брэндээ хэрхэн хөгжүүлэх,
-                        хиймэл оюуны хэрэгслийг өдөр тутамдаа хэрхэн ашиглах талаар 2 жил тасралтгүй контент хийж, Instagram дээр 8000+, Facebook дээр 20000+ дагагчтай болсон.
-                        Одоогоор Claude дээр гүнзгий мэргэшиж, жижиг бизнесүүдэд зориулсан AI agent бүтээх, AI-д шинээр суралцаж буй хүмүүст зөвлөх чиглэлээр ажиллаж байна.</p>
+                        <p className={`ml-[20px] mr-[20px] font-mono lg:text-[20px] leading-loose ${josefinSans.className} `}>{t.about.bio}</p>
                     </div> : ""}
                     <div className='relative left-0 h-[70vh] w-full sm:mt-[100px] lg:mt-[200px]'>
                         <motion.div style={{ y }} className='relative m-[0px_20px] sm:m-[0px_60px]  h-full lg:w-[500px] '>
@@ -134,13 +91,13 @@ const Page = () => {
                     </div>
                 </div>
                 <div className=" flex flex-col sm:m-[0px_40px] sm:mt-[120px] md:m-[0px_40px]">
-                    <h2 className={`text-[36px] mt-[60px] ml-[20px] mb-[40px] lg:text-[56px] ${ubuntu.className}`}>Би таньд эдгээр зүйлүүд дээр тус болж чадна ...</h2>
+                    <h2 className={`text-[36px] mt-[60px] ml-[20px] mb-[40px] lg:text-[56px] ${ubuntu.className}`}>{t.about.servicesTitle}</h2>
                     {isTablet ? "" : <hr className="m-[0px_20px] text-gray-400 mb-[40px]" />}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-[20px] ml-[20px]">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-[20px] mx-[20px]">
                         {services.map((service, i) => (
                             <div key={service.title} className="flex flex-col gap-[40px]">
                                 {isTablet && <p className="text-gray-500">{String(i + 1).padStart(2, "0")}</p>}
-                                <hr className="mr-[20px] text-gray-400" />
+                                <hr className="text-gray-400" />
                                 <div className="h-[140px] flex flex-col gap-[10px]">
                                     <h4 className={`text-[22px] mb-[10px] lg:text-[32px] ${ubuntu.className}`}>{service.title}</h4>
                                     <p className={`text-[18px] ${josefinSans.className}`}>{service.description}</p>
@@ -154,12 +111,10 @@ const Page = () => {
 
                 <div className="flex flex-col gap-[20px] lg:flex-1">
                     <h2 className={`text-[36px] mt-[20px] mb-[10px] lg:text-[56px] ${ubuntu.className}`}>
-                        Суралцах...
+                        {t.about.learningTitle}
                     </h2>
                     <p className={`text-[18px] font-[400] leading-loose ${josefinSans.className}`}>
-                        Миний хувьд Pinecone кодчиллын академийг Full-Stack хөгжүүлэгчээр, Монгол Улсын Боловсролын Их Сургуулийг программ хангамжийн инженер мэргэжлээр 2026 онд төгссөн. Mezorn технологийн компанид
-                        Flutter mobile хөгжүүлэгчээр ажилласан бөгөөд одоогоор хиймэл оюуны чиглэлээр гүнзгийрч, шинэ боломжуудыг судалж байна. Мэргэжлийн хажуугаар өөрийгөө хөгжүүлэхийг чухалчилдаг — сэтгэл зүй, харилцаа, бие бялдар гурвыг тэнцвэртэй байлгахыг зорьдог. Гүйх, дугуй унах хоёрыг тогтмол хэвшил болгохоор хичээж байна.
-                        Хэрвээ та надтай хамтарч ажиллах , хувьчилсан зөвлөгөө авах хүсэлтэй бол холбоо барих хэсгээр орон надтай холбогдоорой.</p>
+                        {t.about.learning}</p>
                 </div>
 
 

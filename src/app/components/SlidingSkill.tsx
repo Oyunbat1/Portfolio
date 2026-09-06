@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLang } from '@/i18n/LanguageProvider';
 import { Bevan, Josefin_Sans, Barlow_Condensed } from "next/font/google";
 
 const josefinSans = Josefin_Sans({
@@ -21,6 +22,7 @@ const slider2 = ["CLAUDE", "MCP", "AI_AGENTS", "PROMPT_DESIGN", "AUTOMATION"]
 const slider3 = ["REACT", "NEXT.JS", "TYPESCRIPT", "TAILWINDCSS", "FRAMER_MOTION"]
 const slider4 = ["NODE.JS", "EXPRESS.JS", "MONGODB", "GRAPHQL", "PYTHON"]
 const SlidingSkill = () => {
+    const { t } = useLang();
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -32,7 +34,7 @@ const SlidingSkill = () => {
     const x4 = useTransform(scrollYProgress, [0, 1], [0, -150])
     const height = useTransform(scrollYProgress, [0, 0.9], [50, 0])
     return (<>
-        <div className='mb-6 mx-[40px]'> <p className={`text-gray-400 lg:pb-10 lg:pl-10 border-b  ${barlow.className}`}>Одоо байгаа ур чадварууд</p></div>
+        <div className='mb-6 mx-[40px]'> <p className={`text-gray-400 lg:pb-10 lg:pl-10 border-b  ${barlow.className}`}>{t.home.skillsLabel}</p></div>
         <div ref={containerRef} className='w-screen gap-[20px] flex flex-col justify-center overflow-hidden'>
             <motion.div className='flex gap-[40px] ' style={{ x: x1 }}>{slider1.map((skill) => (
                 <h3 key={skill} className={`text-[26px] sm:text-[32px] md:text-[38px] lg:text-[46px] xl:text-[56px]  ${josefinSans.className}`}>{skill}</h3>
