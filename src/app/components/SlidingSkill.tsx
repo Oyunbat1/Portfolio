@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLang } from '@/i18n/LanguageProvider';
+import CurveTransition from "./CurveTransition";
 import { Bevan, Josefin_Sans, Barlow_Condensed } from "next/font/google";
 
 const josefinSans = Josefin_Sans({
@@ -32,7 +33,6 @@ const SlidingSkill = () => {
     const x2 = useTransform(scrollYProgress, [0, 1], [0, -150])
     const x3 = useTransform(scrollYProgress, [0, 1], [0, 150])
     const x4 = useTransform(scrollYProgress, [0, 1], [0, -150])
-    const height = useTransform(scrollYProgress, [0, 0.9], [50, 0])
     return (<>
         <div className='mb-6 mx-[40px]'> <p className={`text-gray-400 lg:pb-10 lg:pl-10 border-b  ${barlow.className}`}>{t.home.skillsLabel}</p></div>
         <div ref={containerRef} className='w-screen gap-[20px] flex flex-col justify-center overflow-hidden'>
@@ -50,11 +50,6 @@ const SlidingSkill = () => {
             ))}</motion.div>
 
         </div >
-        <motion.div
-            style={{ height }}
-            className="bg-white relative mt-[100px] "
-        >
-            <div className="h-[1400%] w-[100%]  rounded-b-[50%] bg-white z-[10] absolute shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
-        </motion.div></>)
+            <CurveTransition progress={scrollYProgress} /></>)
 }
 export default SlidingSkill;

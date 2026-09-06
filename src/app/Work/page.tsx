@@ -10,6 +10,7 @@ import { motion, useTransform, useScroll } from "framer-motion"
 import Footer from "../components/Footer";
 import { projects } from "@/constants/projects";
 import { useLang } from "@/i18n/LanguageProvider";
+import CurveTransition from "@/app/components/CurveTransition";
 
 const ubuntu = Ubuntu({
     subsets: ["latin"],
@@ -95,8 +96,6 @@ const WorkPage = () => {
         target: mainContainer,
         offset: ["start end", 'end start']
     })
-
-    const height = useTransform(scrollYProgress3, [0, 0.9], [50, 0])
     return (
         <>
             <div ref={mainContainer} className="flex justify-center items-center p-[0px_20px]">
@@ -145,13 +144,7 @@ const WorkPage = () => {
                     {filterWithImageProject()}
                 </div>
             </div>
-            <motion.div
-
-                style={{ height }}
-                className="bg-white relative mt-[100px] "
-            >
-                <div className="h-[1400%] w-[100%]  rounded-b-[50%] bg-white z-[10] absolute shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
-            </motion.div>
+            <CurveTransition progress={scrollYProgress3} />
             <Footer />
         </>
     );

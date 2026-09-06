@@ -32,11 +32,11 @@ export default function Section() {
             style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
         >
             <Text />
-            <div className='fixed top-[-10vh] left-0 h-[120vh] w-full'>
+            <div className='fixed top-[-10vh] left-0 h-[120vh] w-full will-change-transform [transform:translateZ(0)]'>
 
                 <motion.div style={{ y }} className='relative w-full h-full'>
 
-                    <Image src={Background} fill alt="image" style={{ objectFit: "cover" }} />
+                    <Image src={Background} fill sizes="100vw" alt="image" style={{ objectFit: "cover" }} />
 
                 </motion.div>
 

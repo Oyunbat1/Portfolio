@@ -11,6 +11,7 @@ import { ArrowDownRight } from "lucide-react"
 import Image from "next/image";
 import { useRef } from 'react';
 import { useLang } from "@/i18n/LanguageProvider";
+import CurveTransition from "@/app/components/CurveTransition";
 const ubuntu = Ubuntu({
     subsets: ["latin"],
     weight: ["300", "400", "500", "700"],
@@ -58,7 +59,6 @@ const Page = () => {
         target: mainContainer,
         offset: ["start end", 'end start']
     })
-    const height = useTransform(scrollYProgress3, [0, 0.9], [50, 0])
     return (
         <div ref={mainContainer} >
             <div className=" flex flex-col z-10 relative pb-[20px] m-[0px_40px] sm:gap-[40px]">
@@ -124,14 +124,7 @@ const Page = () => {
                     </motion.div>
                 </div>
             </div>
-
-            <motion.div
-
-                style={{ height }}
-                className="bg-white relative mt-[100px] "
-            >
-                <div className="h-[1400%] w-[100%]  rounded-b-[50%] bg-white z-[10] absolute shadow-[0px_60px_50px_rgba(0,0,0,0.748)]"></div>
-            </motion.div>
+            <CurveTransition progress={scrollYProgress3} />
             <Footer />
 
         </div>

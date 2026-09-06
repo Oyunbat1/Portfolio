@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import Globus from "../../../public/globus.gif"
 import { Bebas_Neue, Josefin_Sans } from "next/font/google";
 import { landingPageSlideUp } from "./../js/anim"
+import { useLang } from "@/i18n/LanguageProvider";
 const bebas = Bebas_Neue({
     subsets: ["latin"],
     weight: "400"
@@ -21,6 +22,7 @@ const josefinSans = Josefin_Sans({
     style: ["normal", "italic"]
 });
 export default function Parallex() {
+    const { t } = useLang();
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         const handleResize = () => {
@@ -57,21 +59,20 @@ export default function Parallex() {
                     <div className="absolute top-26 lg:top-46 left-0 w-full h-full flex items-center justify-center">
                         <InfiniteText />
                     </div>
-                    {isMobile ? <div className={`absolute  text-white flex justify-between items-end w-full px-10 h-full  ${josefinSans.className}`}>
-                        <div className="flex flex-col gap-1 absolute bottom">
+                    {isMobile ? <div className={`absolute inset-0 text-white flex items-end px-8 pb-12 ${josefinSans.className}`}>
+                        <div className="flex flex-col gap-1 w-full">
                             <ArrowDownRight />
-                            <div className="flex justify-center items-center gap-10">
-                                <div className="flex flex-col w-[200px]">
-                                    <p className="font-serif">Software engineer</p>
-                                    <p className="text-[20px]">Content Creator & Developer</p>
+                            <div className="flex items-end justify-between gap-4">
+                                <div className="flex flex-col min-w-0">
+                                    <p className="font-serif">{t.home.role}</p>
+                                    <p className="text-[20px]">{t.home.tagline}</p>
                                 </div>
-                                <div><Image src={Globus} alt="globus" width={200} className="w-[140px]"></Image></div>
+                                <Image src={Globus} alt="globus" width={200} className="w-[100px] shrink-0" />
                             </div>
                         </div>
-
                     </div> : <div className="absolute  top-26 h-[300px] w-full flex justify-between ">
                         <div className="w-[220px] h-[100px] mt-[140px] bg-slate-800 rounded-r-full flex items-center justify-center">
-                            <p className={`text-white ${bebas.className} pl-6`}>Located in the Mongolia</p>
+                            <p className={`text-white ${bebas.className} pl-6`}>{t.home.located}</p>
                             <Image src={Globus} alt="globus" width={200} className="w-[220px]"></Image>
                         </div>
                         <div className={`mt-[50px] lg:mr-[100px]  ${bebas.className}`}>
@@ -79,8 +80,8 @@ export default function Parallex() {
                                 <ArrowDownRight className="text-white" />
                                 <div className="flex justify-center items-center gap-10 text-white mr-[40px]">
                                     <div className="flex flex-col gap-3 w-[200px] lg:w-[300px]">
-                                        <p className="font-serif">Software engineer</p>
-                                        <p className="text-[20px] lg:text-[30px]">Content Creator & Developer</p>
+                                        <p className="font-serif">{t.home.role}</p>
+                                        <p className="text-[20px] lg:text-[30px]">{t.home.tagline}</p>
                                     </div>
                                 </div>
                             </div>
