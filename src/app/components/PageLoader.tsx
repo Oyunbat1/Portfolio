@@ -3,6 +3,7 @@ import { opacity, slideUp } from "../js/anim"
 import { useEffect, useState } from 'react';
 import { motion, Easing } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { useLang } from '@/i18n/LanguageProvider';
 
 const easing: Easing = [0.76, 0, 0.24, 1];
 type PreloaderProps = {
@@ -12,6 +13,7 @@ type PreloaderProps = {
 const PageLoader = ({ onComplete }: PreloaderProps) => {
     const [dimension, setDimension] = useState({ width: 0, height: 0 });
     const pathname = usePathname();
+    const { t } = useLang();
     const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height + 300} 0 ${dimension.height}  L0 0`
     const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height}  L0 0`
 
@@ -39,12 +41,23 @@ const PageLoader = ({ onComplete }: PreloaderProps) => {
 
    
     const getPageName = (path: string) => {
-        if (path === "/") return "Home";
-        return path.substring(1);
+        switch (path) {
+            case "/":
+                return t.nav.home;
+            case "/About":
+                return t.nav.about;
+            case "/Work":
+                return t.nav.work;
+            case "/Booking":
+                return t.nav.booking;
+            case "/Contact":
+                return t.nav.contact;
+            default:
+                return path.substring(1);
+        }
     };
 
     const pageName = getPageName(pathname);
-    const isAboutPage = pathname === "/About";
 
     return (
         <motion.div 

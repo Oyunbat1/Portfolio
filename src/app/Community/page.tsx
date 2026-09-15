@@ -38,7 +38,7 @@ const Page = () => {
                     <h1 className={`text-[26px] lg:text-[52px] ${ubuntu.className}`}>Техник технологи хөгжиж байгаа энэ цаг үед гар утас , интернет байхад өөрийн ажлын бүтээмжээ ихэсгэх 100% боломжтой болсон.</h1>
                 </div>
                 <div className="h-[1px] bg-slate-400 m-[0px_20px] mt-[60px] relative">
-                    <div className="w-[100px] h-[100px] md:w-[140px] md:h-[140px] rounded-full bg-[#455CE9] absolute -top-[50px] md:-top-[70px] -translate-x-1/4 right-1 overflow-visible ">
+                    <div className="w-[100px] h-[100px] md:w-[140px] md:h-[140px] rounded-full bg-[#307248] absolute -top-[50px] md:-top-[70px] -translate-x-1/4 right-1 overflow-visible ">
                         <div ><Image src={Globus} alt="globus" width={120} className="w-[140px]  object-contain"></Image></div></div>
                 </div>
 
@@ -56,28 +56,28 @@ const Page = () => {
             <div className="px-6 md:px-20 lg:px-40 py-16 bg-gradient-to-b from-white to-gray-50 text-gray-800">
                 <div className="max-w-4xl mx-auto text-center space-y-8">
                     <h1 className={`text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight ${ubuntu.className}`}>
-                        Энэхүү <span className="text-blue-600">Community</span>-д та хэрхэн элсэх вэ?
+                        Энэхүү <span className="text-brand-light">Community</span>-д та хэрхэн элсэх вэ?
                     </h1>
 
                     <div className={`space-y-6 text-left sm:text-lg leading-relaxed ${ubuntu.className}`}>
                         <p>
-                            <span className="font-semibold text-blue-600">1.</span> Та доорх
+                            <span className="font-semibold text-brand-light">1.</span> Та доорх
                             вебсайт-д бүртгэлээ үүсгэнэ.
                         </p>
                         <p>
-                            <span className="font-semibold text-blue-600">2.</span> Миний оруулж буй
+                            <span className="font-semibold text-brand-light">2.</span> Миний оруулж буй
                             мэдээллүүдийг цаг алдалгүй үзэх болон{" "}
                             <span className="font-medium">public чатанд</span> асуух гэсэн зүйлсээ
                             асууж болно.
                         </p>
                         <p>
-                            <span className="font-semibold text-blue-600">3.</span> Subscription авсан
+                            <span className="font-semibold text-brand-light">3.</span> Subscription авсан
                             хүмүүс миний оруулж байгаа{" "}
                             <span className="font-medium">хичээлүүдийг үнэ төлбөргүй</span> үзэх
                             боломжтой.
                         </p>
                         <p>
-                            <span className="font-semibold text-blue-600">4.</span> Private групп-т илүү
+                            <span className="font-semibold text-brand-light">4.</span> Private групп-т илүү
                             нарийн зүйлсийг хуваалцах болно.
                         </p>
                     </div>

@@ -1,2 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+/* Oyunbat Dev brand palette — one place to tune the accent colour.
+   brand        : Forest Green, for solid fills, borders and hovers
+   brand-hover  : slightly lighter, for hover on solid green surfaces
+   brand-light  : readable green for small text and icons on dark backgrounds */
+@theme {
+  --color-brand: #307248;
+  --color-brand-hover: #3a8a57;
+  --color-brand-light: #6fbf8e;
+}

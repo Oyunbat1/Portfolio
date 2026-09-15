@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Magnetic from '../common/Magnetic';
 
-const MorePartreon = ({ children, backgroundColor = "#2563EB", ...attributes }: { children: any, backgroundColor?: string }) => {
+const MorePartreon = ({ children, backgroundColor = "#307248", ...attributes }: { children: any, backgroundColor?: string }) => {
     const circle = useRef<HTMLDivElement | null>(null);
     const timeline = useRef<GSAPTimeline | null>(null);
     let timeoutId: number | null = null;
@@ -29,7 +29,7 @@ const MorePartreon = ({ children, backgroundColor = "#2563EB", ...attributes }: 
         <Magnetic>
             <div className='text-white'>
                 <div
-                    className="rounded-l-full rounded-r-full bg-blue-400 border border-[#888] cursor-pointer relative flex items-center justify-center my-2 w-[340px] h-[60px] sm:w-[260px] sm:gap-2 lg:w-[360px] md:w-[260px] md:gap-2 md:mt-[40px] lg:h-[60px] xl:w-[320px] xl:h-[60px] p-[10px] overflow-hidden group  transition duration-300 "
+                    className="rounded-l-full rounded-r-full bg-brand border border-[#888] cursor-pointer relative flex items-center justify-center my-2 w-[340px] h-[60px] sm:w-[260px] sm:gap-2 lg:w-[360px] md:w-[260px] md:gap-2 md:mt-[40px] lg:h-[60px] xl:w-[320px] xl:h-[60px] p-[10px] overflow-hidden group  transition duration-300 "
                     onMouseEnter={manageMouseEnter}
                     onMouseLeave={manageMouseLeave}
                     {...attributes}

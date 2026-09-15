@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Magnetic from '../common/Magnetic';
 
-const ContactButton = ({ children, backgroundColor = "#455CE9", ...attributes }: { children: any, backgroundColor?: string }) => {
+const ContactButton = ({ children, backgroundColor = "#307248", ...attributes }: { children: any, backgroundColor?: string }) => {
     const circle = useRef<HTMLDivElement | null>(null);
     const timeline = useRef<GSAPTimeline | null>(null);
     let timeoutId: number | null = null;

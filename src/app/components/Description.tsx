@@ -32,7 +32,7 @@ export default function Description() {
                 <div className='flex gap-[20px] md:gap-[140px] lg:gap-[220px] xl:gap-[360px] justify-center items-center'>
 
                     <div onClick={handleToAboutMe} data-scroll data-scroll-speed={0.1}>
-                        <GetInRounded backgroundColor={"#334BD3"} >
+                        <GetInRounded backgroundColor={"#307248"} >
                             <p className=' text-[12px] lg:text-[18px] relative z-1 transition-colors ease-linear duration-400 '>{t.home.aboutMe}</p>
                         </GetInRounded>
                     </div>

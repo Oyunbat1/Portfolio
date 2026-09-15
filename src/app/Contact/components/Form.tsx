@@ -164,7 +164,7 @@ export default function Form({ isTablet }: FormProps) {
                         disabled={loading}
                         className="disabled:opacity-50"
                     >
-                        <GetInRounded backgroundColor={"#2563EB"}>
+                        <GetInRounded backgroundColor={"#307248"}>
                             <p className={`m-0 text-[18px] md:text-base font-light z-50 ${josefinSans.className} font-[500] relative`}>
                                 {loading ? t.contact.form.sending : t.contact.form.submit}
                             </p>

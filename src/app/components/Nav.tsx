@@ -12,7 +12,7 @@ const Nav = ({ setIsActive }: { setIsActive: (value: boolean) => void }) => {
         { title: t.nav.home, href: "/" },
         { title: t.nav.work, href: "/Work" },
         { title: t.nav.about, href: "/About" },
-        { title: t.nav.contact, href: "/Contact" },
+        { title: t.nav.booking, href: "/Booking" },
     ];
     const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 

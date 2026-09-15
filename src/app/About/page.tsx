@@ -66,7 +66,7 @@ const Page = () => {
                     <h1 className={`text-[42px] lg:text-[70px] ${ubuntu.className}`}>{t.about.headline}</h1>
                 </div>
                 <div className="h-[1px] bg-slate-400 m-[0px_20px] mt-[60px] relative">
-                    <div className="w-[100px] h-[100px] md:w-[140px] md:h-[140px] rounded-full bg-[#455CE9] absolute -top-[50px] md:-top-[70px] -translate-x-1/4 right-1 overflow-visible ">
+                    <div className="w-[100px] h-[100px] md:w-[140px] md:h-[140px] rounded-full bg-[#307248] absolute -top-[50px] md:-top-[70px] -translate-x-1/4 right-1 overflow-visible ">
                         <div ><Image src={Globus} alt="globus" width={120} className="w-[140px]  object-contain"></Image></div></div>
                 </div>
                 {isTablet ? "" : <div className="flex flex-col gap-3 mt-[60px] mb-[20px]">

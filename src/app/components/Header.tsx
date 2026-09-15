@@ -17,8 +17,9 @@ export default function Header() {
     const router = useRouter();
     const [isActive, setIsActive] = useState(false)
     const { t, lang } = useLang();
-    const headerValues = ["About", "Contact", "Work"] as const;
-    const navLabels = { About: t.nav.about, Contact: t.nav.contact, Work: t.nav.work };
+    // "Contact" is temporarily hidden — add it back to this array to restore the nav entry.
+    const headerValues = ["About", "Booking", "Work"] as const;
+    const navLabels = { About: t.nav.about, Booking: t.nav.booking, Contact: t.nav.contact, Work: t.nav.work };
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
@@ -42,7 +43,7 @@ export default function Header() {
             <div
                 ref={header}
                 className={`top-0 z-10 flex w-full items-center justify-between gap-4 px-5 py-6 md:px-9 md:py-8 
-    ${(pathname === "/" || pathname === "/Contact") ? "text-white" : "text-black"} ${pathname === "/Contact" ? "bg-[#292a2b] " : ""}
+    ${(pathname === "/" || pathname === "/Contact" || pathname === "/Booking") ? "text-white" : "text-black"} ${(pathname === "/Contact" || pathname === "/Booking") ? "bg-[#292a2b] " : ""}
     font-serif`}
             >
                 <Magnetic>
@@ -80,7 +81,7 @@ export default function Header() {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 10 }}
                                             transition={{ duration: 0.3 }}
-                                            className={`cursor-pointer ${(pathname === "/" || pathname === "/Contact") ? "text-white" : "text-black"
+                                            className={`cursor-pointer ${(pathname === "/" || pathname === "/Contact" || pathname === "/Booking") ? "text-white" : "text-black"
                                                 }`}
                                         >
                                             {t.nav.menu}
@@ -89,7 +90,7 @@ export default function Header() {
                                 </AnimatePresence>
 
 
-                                <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${(pathname === "/" || pathname === "/Contact") ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
+                                <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${(pathname === "/" || pathname === "/Contact" || pathname === "/Booking") ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
                             </div>
                         </Magnetic>
                     ))}
@@ -111,13 +112,13 @@ export default function Header() {
                                 className="relative flex cursor-pointer flex-col items-center px-4 py-2 group z-30"
                             >
                                 <a
-                                    className={`cursor-pointer ${(pathname === "/" || pathname === "/Contact") ? "text-white" : "text-black"
+                                    className={`cursor-pointer ${(pathname === "/" || pathname === "/Contact" || pathname === "/Booking") ? "text-white" : "text-black"
                                         }`}
                                 >
                                     {navLabels[item]}
                                 </a>
 
-                                <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${(pathname === "/" || pathname === "/Contact") ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
+                                <div className={`absolute top-[45px] left-1/2 h-[5px] w-[5px] -translate-x-1/2 scale-0 rounded-full ${(pathname === "/" || pathname === "/Contact" || pathname === "/Booking") ? "bg-white" : "bg-black"} transition-transform duration-200 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-100`} />
                             </div>
                         </Magnetic>
                     ))}

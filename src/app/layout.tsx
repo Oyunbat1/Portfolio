@@ -96,7 +96,7 @@ export default function RootLayout({
         </ApolloProvider>
         <div
           id="cursor"
-          className="hidden md:block fixed top-0 left-0 w-2 h-2 bg-blue-600 rounded-full pointer-events-none z-[9999]"
+          className="hidden md:block fixed top-0 left-0 w-2 h-2 bg-brand rounded-full pointer-events-none z-[9999]"
         />
         <Toaster
           position="top-right"

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Magnetic from "../common/Magnetic"
 
-const FilterButton = ({ children, filter, count, btn, backgroundColor = "#455CE9", }: { children: any, filter: any, count: number, btn: any, backgroundColor?: string }) => {
+const FilterButton = ({ children, filter, count, btn, backgroundColor = "#307248", }: { children: any, filter: any, count: number, btn: any, backgroundColor?: string }) => {
     const circle = useRef<HTMLDivElement | null>(null);
     const timeline = useRef<GSAPTimeline | null>(null);
     let timeoutId: number | null = null;

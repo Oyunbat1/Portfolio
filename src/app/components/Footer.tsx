@@ -46,12 +46,12 @@ export default function Footer() {
                     <h2 className="text-[8vw] md:text-[5vw] font-light m-0">{t.footer.ctaLine2}</h2>
 
                     <motion.div
-                        onClick={() => router.push('/Contact')}
+                        onClick={() => router.push('/Booking')}
                         style={{ x }}
                         className="absolute left-1/2  md:left-[calc(100%-400px)] top-[calc(100%-60px)] md:top-[calc(100%-75px)] -translate-x-1/2 md:translate-x-0"
                     >
                         <GetInRounded
-                            backgroundColor={"#2563EB"}
+                            backgroundColor={"#307248"}
                         >
                             <p className="m-0 text-[14px] md:text-base font-light z-20 relative">
                                 {t.footer.cta}
