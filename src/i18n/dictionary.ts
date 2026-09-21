@@ -128,8 +128,10 @@ const mn = {
   booking: {
     headline: "Цаг товлож ярилцъя.",
     subheadline:
-      "Танд тохирох багцаа сонгоод, доорх хуваариас цагаа захиалаарай.",
-    tiersTitle: "Багцууд",
+      "Чиглэлээ сонгоод, доорх хуваариас өөрт тохирох цагаа захиалаарай.",
+    tiersTitle: "Уулзалт",
+    trackLabel: "Чиглэлээ сонгоно уу",
+    includesLabel: "Уулзалтад багтах зүйлс",
     recommendedLabel: "Санал болгох",
     ctaLabel: "Цаг захиалах",
     tiers: [
@@ -179,6 +181,8 @@ const mn = {
       },
       {
         code: "CLAUDE-3",
+        // Paused while working full-time (from 2026-09-23). Remove `hidden` to bring it back.
+        hidden: true,
         name: "Claude-аа ажилдаа суулгах",
         price: "450,000₮",
         meta: "90 минут · 3 уулзалт",
@@ -196,6 +200,7 @@ const mn = {
       },
       {
         code: "SOCIAL-3",
+        hidden: true,
         name: "Контентоо систем болгох",
         price: "390,000₮",
         meta: "90 минут · 3 уулзалт",
@@ -213,8 +218,8 @@ const mn = {
     ],
     paymentTitle: "Төлбөр төлөх",
     paymentSteps: [
-      "Доорх хуваариас цагаа сонгож, сонгосон багцаа тэмдэглэнэ.",
-      "Багцынхаа төлбөрийг дараах данс руу шилжүүлнэ.",
+      "Доорх хуваариас цагаа сонгож, сонгосон чиглэлээ тэмдэглэнэ.",
+      "Уулзалтын төлбөрийг дараах данс руу шилжүүлнэ.",
       "Гүйлгээ шалгагдмагц цагийг чинь баталгаажуулж, уулзалтын холбоосыг илгээнэ.",
     ],
     bankLabel: "Банк",
@@ -226,8 +231,8 @@ const mn = {
     referenceLabel: "Гүйлгээний утга",
     referenceValue: "Утасны дугаар + Instagram / Facebook хаяг",
     referenceHint: "Жишээ: 99112233 @oyunbat_dev",
-    selectedTitle: "Сонгосон багц",
-    noSelectionText: "Дээрээс багцаа сонгоно уу",
+    selectedTitle: "Сонгосон уулзалт",
+    noSelectionText: "Дээрээс чиглэлээ сонгоно уу",
     referenceTemplate: "{code} + Утасны дугаар + Instagram / Facebook хаяг",
     referenceHintTemplate: "Жишээ: {code} 99112233 @oyunbat_dev",
     copyLabel: "Хуулах",
@@ -367,8 +372,10 @@ const en: typeof mn = {
   booking: {
     headline: "Let's book a time to talk.",
     subheadline:
-      "Pick the package that fits, then book your time from the calendar below.",
-    tiersTitle: "Packages",
+      "Pick your focus, then book a time that suits you from the calendar below.",
+    tiersTitle: "Session",
+    trackLabel: "Choose your focus",
+    includesLabel: "What the session covers",
     recommendedLabel: "Recommended",
     ctaLabel: "Book a time",
     tiers: [
@@ -418,6 +425,8 @@ const en: typeof mn = {
       },
       {
         code: "CLAUDE-3",
+        // Paused while working full-time (from 2026-09-23). Remove `hidden` to bring it back.
+        hidden: true,
         name: "Put Claude to work",
         price: "450,000₮",
         meta: "90 minutes · 3 sessions",
@@ -435,6 +444,7 @@ const en: typeof mn = {
       },
       {
         code: "SOCIAL-3",
+        hidden: true,
         name: "Turn content into a system",
         price: "390,000₮",
         meta: "90 minutes · 3 sessions",
@@ -452,8 +462,8 @@ const en: typeof mn = {
     ],
     paymentTitle: "How to pay",
     paymentSteps: [
-      "Pick a time from the calendar below and note which package you chose.",
-      "Transfer the amount for your package to the account below.",
+      "Pick a time from the calendar below and note which focus you chose.",
+      "Transfer the session fee to the account below.",
       "Once the transfer clears I confirm your slot and send the meeting link.",
     ],
     bankLabel: "Bank",
@@ -465,8 +475,8 @@ const en: typeof mn = {
     referenceLabel: "Transfer reference",
     referenceValue: "Phone number + Instagram / Facebook handle",
     referenceHint: "Example: 99112233 @oyunbat_dev",
-    selectedTitle: "Selected package",
-    noSelectionText: "Pick a package above",
+    selectedTitle: "Selected session",
+    noSelectionText: "Pick a focus above",
     referenceTemplate: "{code} + Phone number + Instagram / Facebook handle",
     referenceHintTemplate: "Example: {code} 99112233 @oyunbat_dev",
     copyLabel: "Copy",

@@ -19,7 +19,14 @@ const CAL_NAMESPACE = "60min";
 export default function Booking() {
     const { t } = useLang();
     const calendarRef = useRef<HTMLDivElement | null>(null);
-    const [selectedCode, setSelectedCode] = useState<string | null>(null);
+    const visibleTiers = t.booking.tiers.filter((tier) => !("hidden" in tier && tier.hidden));
+    // With a single offer there is nothing to "pick" — start on its first track so the
+    // payment block shows a transfer code straight away.
+    const defaultCode =
+        visibleTiers.length === 1
+            ? visibleTiers[0].tracks?.[0]?.code ?? visibleTiers[0].code ?? null
+            : null;
+    const [selectedCode, setSelectedCode] = useState<string | null>(defaultCode);
     const [activeTrack, setActiveTrack] = useState<string | null>(null);
 
     // Clicking a card or a track only marks the choice; the CTA also jumps to the calendar.
@@ -31,7 +38,7 @@ export default function Booking() {
     };
 
     // Resolve the label shown in the payment block from the selected code.
-    const selected = t.booking.tiers
+    const selected = visibleTiers
         .flatMap((tier) =>
             tier.tracks?.length
                 ? tier.tracks.map((track) => ({
@@ -68,6 +75,8 @@ export default function Booking() {
                     tiers={t.booking.tiers}
                     recommendedLabel={t.booking.recommendedLabel}
                     ctaLabel={t.booking.ctaLabel}
+                    trackLabel={t.booking.trackLabel}
+                    includesLabel={t.booking.includesLabel}
                     selectedCode={selectedCode}
                     activeTrack={activeTrack}
                     onTrackChange={setActiveTrack}
